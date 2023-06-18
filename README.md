@@ -31,8 +31,8 @@ With LazyVin, my promise is to keep things simple, lean, and functional. It's a 
   - [x] Lualine
   - [ ] Harpoon
   - [ ] vim-tmux-navigator
-  - [ ] Copilot
-  - [ ] Ufo
+  - [x] Copilot
+  - [x] Ufo
 - [ ] Migrate settings
   - [ ] Border for LSP windows
 - [ ] Migrate Mappings
