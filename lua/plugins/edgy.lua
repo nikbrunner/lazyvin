@@ -10,9 +10,9 @@ return {
     opts = {
       ---@type table<Edgy.Pos, {size:integer, wo?:vim.wo}>
       options = {
-        left = { size = 50 },
+        left = { size = 40 },
         bottom = { size = 10 },
-        right = { size = 50 },
+        right = { size = 40 },
         top = { size = 10 },
       },
       bottom = {
