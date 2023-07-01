@@ -1,6 +1,6 @@
 return {
   "LazyVim/LazyVim",
   opts = {
-    colorscheme = "tokyonight-moon",
+    colorscheme = "github_dark_dimmed",
   },
 }
