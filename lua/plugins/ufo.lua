@@ -29,7 +29,13 @@ end
 ---@type LazySpec
 local spec = {
   "kevinhwang91/nvim-ufo",
-  enabled = false,
+  enabled = true,
+  cond = function()
+    local excluded_filetypes = { "help", "neo-tree", "edgy" }
+    -- if the filetype is in the excluded_filetypes, don't load this plugin
+    return not vim.tbl_contains(excluded_filetypes, vim.bo.filetype)
+  end,
+  event = "BufRead",
   dependencies = {
     "kevinhwang91/promise-async",
     {
@@ -68,12 +74,6 @@ local spec = {
       end,
     },
   },
-  event = "BufRead",
-  cond = function()
-    local excluded_filetypes = { "help", "neo-tree", "edgy" }
-    -- if the filetype is in the excluded_filetypes, don't load this plugin
-    return vim.tbl_contains(excluded_filetypes, vim.bo.filetype)
-  end,
   keys = {
     {
       "zR",
