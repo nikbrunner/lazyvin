@@ -29,7 +29,7 @@ end
 ---@type LazySpec
 local spec = {
   "kevinhwang91/nvim-ufo",
-  enabled = true,
+  enabled = false,
   cond = function()
     local excluded_filetypes = { "help", "neo-tree", "edgy" }
     -- if the filetype is in the excluded_filetypes, don't load this plugin
