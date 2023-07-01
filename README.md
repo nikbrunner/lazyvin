@@ -29,12 +29,18 @@ With LazyVin, my promise is to keep things simple, lean, and functional. It's a 
 - [x] Setup `README`
 - [ ] Migrate Plugins
   - [x] Lualine
-  - [ ] Harpoon
-  - [ ] vim-tmux-navigator
+  - [x] Harpoon
+  - [x] vim-tmux-navigator
   - [x] Copilot
-  - [x] Ufo
+  - [ ] Ufo or other Folding Method
+- [x] Migrate Mappings
 - [ ] Migrate settings
-  - [ ] Border for LSP windows
-- [ ] Migrate Mappings
+- [ ] Neotest
 - [ ] Debugger
 - [ ] Markdown Preview
+
+## Links
+
+- [LazyVim/LazyVim: Neovim config for the lazy](https://github.com/LazyVim/LazyVim)
+- [LazyVim/LazyVim · Discussions · GitHub](https://github.com/LazyVim/LazyVim/discussions?discussions_q=is:open+vscode)
+- [Getting Started | LazyVim](https://www.lazyvim.org/)
