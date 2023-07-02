@@ -33,11 +33,13 @@ With LazyVin, my promise is to keep things simple, lean, and functional. It's a 
 - [x] Border for CMP
 - [x] Border for Floating Windows
 - [x] Explorer Mappings
+- [x] Testing
 - [ ] Copilot Tab
 - [ ] Ufo Folding
   - This needs more work and even an issue
-- [ ] Testing
 - [ ] Debugger
+  - Tried, but it's not working (couldnt connect to localhost)
+  - [(651) Run and Debug TypeScript Unit Tests in Neovim](https://www.youtube.com/watch?v=7Nt8n3rjfDY&list=WL&index=1)
 - [ ] Extended Icons
 - [ ] Edgy (But simple)
 
