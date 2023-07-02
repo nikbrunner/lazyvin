@@ -1,6 +1,14 @@
 ---@type LazySpec
 local spec = {
   "uga-rosa/ccc.nvim",
+  keys = {
+    {
+      "<leader>cC",
+      "<cmd>CccPick<CR>",
+      desc = "ColorPicker",
+      mode = "n",
+    },
+  },
   opts = function(self, opts)
     -- Documentation: https://github.com/uga-rosa/ccc.nvim
     -- Defaults: https://github.com/uga-rosa/ccc.nvim/blob/main/lua/ccc/config/default.lua
