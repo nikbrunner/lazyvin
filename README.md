@@ -30,13 +30,16 @@ With LazyVin, my promise is to keep things simple, lean, and functional. It's a 
   - [x] Copilot
   - [x] Ufo or other Folding Method
 - [x] Migrate Mappings
-- [ ] Explorer Mappings
 - [x] Border for CMP
 - [ ] Border for Floating Windows
+- [x] Explorer Mappings
 - [ ] Copilot Tab
-- [ ] Treesitter Folding
-- [ ] Neotest
+- [ ] Ufo Folding
+  - This needs more work and even an issue
+- [ ] Testing
 - [ ] Debugger
+- [ ] Extended Icons
+- [ ] Edgy (But simple)
 
 ## Links
 
