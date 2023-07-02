@@ -12,7 +12,7 @@
   "cmp_luasnip": { "branch": "master", "commit": "18095520391186d634a0045dacaa346291096566" },
   "copilot.lua": { "branch": "master", "commit": "e48bd7020a98be217d85c006a298656294fd6210" },
   "dressing.nvim": { "branch": "master", "commit": "e6eff7a5a950a853c3903d906dbcea03f778db5f" },
-  "flash.nvim": { "branch": "main", "commit": "30a6385c92cc37822eb701c6984d6ba9cbd6f1ab" },
+  "flash.nvim": { "branch": "main", "commit": "0b2947e3ea8335793f29b0e00fd8720a53820f80" },
   "friendly-snippets": { "branch": "main", "commit": "ad7cef5d538b023ee3af0fe3170cadb096171b1f" },
   "github-nvim-theme": { "branch": "main", "commit": "e28eb579079c6abeb9c21bd85bb9a04379ac64b4" },
   "gitsigns.nvim": { "branch": "main", "commit": "a36bc3360d584d39b4fb076d855c4180842d4444" },
