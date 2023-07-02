@@ -1,12 +1,8 @@
--- Keymaps are automatically loaded on the VeryLazy event
--- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
--- Add any additional keymaps here
 local map = vim.api.nvim_set_keymap
 
-local opts = {
-  noremap = true,
-  silent = true,
-}
+map("n", "H", "^", { desc = "Move to Start of Line" })
+map("n", "L", "$", { desc = "Move to End of Line" })
 
-map("n", "H", "^", opts)
-map("n", "L", "$", opts)
+map("n", "vv", "^v$", { desc = "Select Line" })
+map("n", "vA", "ggVG", { desc = "Select All" })
+map("n", "yA", "ggVGy", { desc = "Copy All" })
