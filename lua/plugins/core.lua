@@ -1,7 +1,7 @@
 return {
   "LazyVim/LazyVim",
   opts = {
-    ---@alias Colorscheme "github_dark_dimmed" | "terra"
-    colorscheme = "terra",
+    ---@alias Colorscheme "tokyonight-moon" | "github_dark_dimmed" | "terra"
+    colorscheme = "tokyonight",
   },
 }
