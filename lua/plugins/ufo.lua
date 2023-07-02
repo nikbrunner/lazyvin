@@ -1,40 +1,7 @@
-local fold_virt_text_handler = function(virtText, lnum, endLnum, width, truncate)
-  local newVirtText = {}
-  local suffix = ("  %d "):format(endLnum - lnum)
-  local sufWidth = vim.fn.strdisplaywidth(suffix)
-  local targetWidth = width - sufWidth
-  local curWidth = 0
-  for _, chunk in ipairs(virtText) do
-    local chunkText = chunk[1]
-    local chunkWidth = vim.fn.strdisplaywidth(chunkText)
-    if targetWidth > curWidth + chunkWidth then
-      table.insert(newVirtText, chunk)
-    else
-      chunkText = truncate(chunkText, targetWidth - curWidth)
-      local hlGroup = chunk[2]
-      table.insert(newVirtText, { chunkText, hlGroup })
-      chunkWidth = vim.fn.strdisplaywidth(chunkText)
-      -- str width returned from truncate() may less than 2nd argument, need padding
-      if curWidth + chunkWidth < targetWidth then
-        suffix = suffix .. (" "):rep(targetWidth - curWidth - chunkWidth)
-      end
-      break
-    end
-    curWidth = curWidth + chunkWidth
-  end
-  table.insert(newVirtText, { suffix, "MoreMsg" })
-  return newVirtText
-end
-
 ---@type LazySpec
 local spec = {
   "kevinhwang91/nvim-ufo",
-  enabled = false,
-  cond = function()
-    local excluded_filetypes = { "help", "neo-tree", "edgy" }
-    -- if the filetype is in the excluded_filetypes, don't load this plugin
-    return not vim.tbl_contains(excluded_filetypes, vim.bo.filetype)
-  end,
+  enabled = true,
   event = "BufRead",
   dependencies = {
     "kevinhwang91/promise-async",
@@ -112,7 +79,6 @@ local spec = {
     provider_selector = function(bufnr, filetype, buftype)
       return { "treesitter", "indent" }
     end,
-    fold_virt_text_handler = fold_virt_text_handler,
     preview = {
       win_config = {
         border = "rounded",

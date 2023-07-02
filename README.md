@@ -37,12 +37,11 @@ With LazyVin, my promise is to keep things simple, lean, and functional. It's a 
 - [x] Explorer Mappings
 - [x] Testing
 - [x] Copilot Accept with Tab
+- [x] Ufo Folding
 
 ### Target: (optional) Longterm Improvements
 
 - [ ] Personal startup screen
-- [ ] Ufo Folding
-  - This needs more work and even an issue
 - [ ] Debugger
   - Tried, but it's not working (couldnt connect to localhost)
   - [(651) Run and Debug TypeScript Unit Tests in Neovim](https://www.youtube.com/watch?v=7Nt8n3rjfDY&list=WL&index=1)
