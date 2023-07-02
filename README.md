@@ -40,6 +40,7 @@ With LazyVin, my promise is to keep things simple, lean, and functional. It's a 
 
 ### Target: (optional) Longterm Improvements
 
+- [ ] Personal startup screen
 - [ ] Ufo Folding
   - This needs more work and even an issue
 - [ ] Debugger
