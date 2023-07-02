@@ -15,7 +15,7 @@ local spec = {
     icons = {
       breadcrumb = "/",
       separator = "·",
-      group = "+",
+      group = "",
     },
     popup_mappings = {
       scroll_down = "<c-d>",
@@ -33,6 +33,25 @@ local spec = {
       width = { min = 20, max = 50 },
       spacing = 5,
       align = "center",
+    },
+
+    defaults = {
+      mode = { "n", "v" },
+      ["g"] = { name = "GoTo" },
+      ["gz"] = { name = "Surround" },
+      ["]"] = { name = "Next" },
+      ["["] = { name = "Prev" },
+      ["<leader><tab>"] = { name = "+Tabs" },
+      ["<leader>b"] = { name = "+Buffer" },
+      ["<leader>c"] = { name = "Code" },
+      ["<leader>f"] = { name = "File & Find" },
+      ["<leader>g"] = { name = "Git" },
+      ["<leader>gh"] = { name = "Hunks" },
+      ["<leader>q"] = { name = "Quit & session" },
+      ["<leader>s"] = { name = "Search" },
+      ["<leader>u"] = { name = "UI" },
+      ["<leader>w"] = { name = "Windows" },
+      ["<leader>x"] = { name = "Diagnostics & Quickfix" },
     },
   },
   config = function(_, opts)

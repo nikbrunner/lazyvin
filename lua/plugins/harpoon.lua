@@ -1,8 +1,7 @@
 ---@type LazySpec
-local spec = {
+local harpoon_spec = {
   "ThePrimeagen/harpoon",
   event = "VeryLazy",
-  enabled = true,
   keys = {
     {
       "<leader>ma",
@@ -14,7 +13,7 @@ local spec = {
           timeout = 2000,
         })
       end,
-      desc = "Add file to Harpoon",
+      desc = "Add file to Marks",
       { noremap = true, silent = true },
     },
     {
@@ -22,7 +21,7 @@ local spec = {
       function()
         require("harpoon.ui").toggle_quick_menu()
       end,
-      desc = "Toggle Harpoon Menu",
+      desc = "Marks Menu",
       { noremap = true, silent = true },
     },
     {
@@ -191,14 +190,20 @@ local spec = {
     -- set marks specific to each git branch inside git repository
     mark_branch = true,
   },
-  config = function(_, opts)
-    local wk = require("which-key")
-
-    -- Register Harpoon Group
-    wk.register({ ["<leader>m"] = { name = "+marks" } })
-
-    require("harpoon").setup(opts)
-  end,
 }
 
-return spec
+---@type LazySpec
+local whichkey_spec = {
+  "folke/which-key.nvim",
+  -- TODO: Only load when Harpoon is loaded/enabled
+  opts = {
+    defaults = {
+      ["<leader>m"] = { name = "Marks" },
+    },
+  },
+}
+
+return {
+  harpoon_spec,
+  whichkey_spec,
+}

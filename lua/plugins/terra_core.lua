@@ -32,7 +32,7 @@ local whichkey_spec = {
   "folke/which-key.nvim",
   opts = {
     defaults = {
-      ["<leader>T"] = { name = "+terra" },
+      ["<leader>T"] = { name = "Terra" },
     },
   },
 }
