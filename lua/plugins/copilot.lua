@@ -9,26 +9,18 @@ local spec = {
     panel = {
       enabled = false,
       auto_refresh = false,
-      keymap = {
-        jump_prev = "[[",
-        jump_next = "]]",
-        accept = "<CR>",
-        refresh = "gr",
-        open = "<M-y>",
-      },
     },
     suggestion = {
       enabled = true,
       auto_trigger = true,
       debounce = 0,
       keymap = {
-        -- NOTE: I would liked to use <Tab> but it's not working
-        accept = "<C-l>",
+        accept = "<Tab>",
         accept_word = false,
         accept_line = false,
         next = "<M-]>",
         prev = "<M-[>",
-        dismiss = "<C-h>",
+        dismiss = "<C-[>",
       },
     },
     filetypes = {
@@ -36,20 +28,8 @@ local spec = {
       markdown = true,
       help = false,
       gitcommit = true,
-      gitrebase = false,
-      hgcommit = false,
-      svn = false,
-      cvs = false,
-      ["."] = false,
     },
-    copilot_node_command = "node", -- Node.js version must be > 16.x
   },
-  config = function(_, opts)
-    vim.schedule(function()
-      local copilot = require("copilot")
-      copilot.setup(opts)
-    end)
-  end,
 }
 
 return spec
