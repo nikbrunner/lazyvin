@@ -13,7 +13,7 @@ return {
 
     local logo = {
       function()
-        return ""
+        return " LazyVin"
       end,
       padding = 1,
     }
