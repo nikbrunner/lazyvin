@@ -9,7 +9,8 @@ local spec = {
       mode = "n",
     },
   },
-  opts = function(self, opts)
+  lazy = false, -- Needs to be loaded immediately - if not, the highlighter will not work
+  opts = function()
     -- Documentation: https://github.com/uga-rosa/ccc.nvim
     -- Defaults: https://github.com/uga-rosa/ccc.nvim/blob/main/lua/ccc/config/default.lua
     local ccc = require("ccc")
@@ -169,10 +170,6 @@ local spec = {
         end,
       },
     }
-  end,
-  config = function(_, opts)
-    local ccc = require("ccc")
-    ccc.setup(opts)
   end,
 }
 
