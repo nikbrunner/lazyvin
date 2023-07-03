@@ -7,7 +7,7 @@ local terra_spec = {
   -- This would also allow us to use `require("terra")` instead of `require("terra-core")`
   -- This would also allow setting up the plugin without the `config` function
   -- Check how other people are doing it
-  dev = false,
+  dev = true,
   lazy = false,
   priority = 1000,
 
