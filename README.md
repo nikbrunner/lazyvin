@@ -4,7 +4,7 @@
   <img src="./assets/logo.png" height="350px" />
 </p>
 
-Building upon the foundation of my previous config, 'Vin', LazyVin represents the next evolution in my Neovim setup. Designed to leverage the robust capabilities of LazyVim, LazyVin is an endeavor to streamline my coding environment while keeping the essence of my personalized settings alive.
+Building upon the foundation of my previous config, [Vin](https://github.com/nikbrunner/vin), LazyVin represents the next evolution in my Neovim setup. Designed to leverage the robust capabilities of LazyVim, LazyVin is an endeavor to streamline my coding environment while keeping the essence of my personalized settings alive.
 
 <p align="center">
   <img src="./assets/dashboard.png"  />
