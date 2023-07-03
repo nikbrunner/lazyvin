@@ -13,7 +13,7 @@ return {
 
     local logo = {
       function()
-        return " LazyVin"
+        return " "
       end,
       padding = 1,
     }
@@ -38,6 +38,13 @@ return {
       function()
         return " " .. os.date("%R")
       end,
+      padding = 1,
+    }
+
+    local tabs = {
+      "tabs",
+      max_length = 20, -- Maximum width of tabs component.
+      mode = 0, -- 0: Shows tab_nr 1: Shows tab_name 2: Shows tab_nr + tab_name
       padding = 1,
     }
 
@@ -109,6 +116,7 @@ return {
         lualine_a = { date, time },
         lualine_b = { lazy_plug_count, lazy_startup, lazy_updates },
         lualine_c = { noice_command, noice_status },
+        lualine_z = { tabs },
       },
 
       sections = {
