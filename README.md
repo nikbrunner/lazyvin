@@ -48,13 +48,15 @@ With LazyVin, my promise is to keep things simple, lean, and functional. It's a 
   - no preview line
 - [x] Disable indent-blankline
 - [x] L(LazyVin) Menu Group
-- [ ] Migrate Telescope Settings (but not all)
+- [ ] Migrate Telescope Settings (but not all - only keep as least as possible)
 - [ ] flash.nvim: Jump to line
+- [ ] Fix Tab Indicator in LuaLine
+- [ ] ChatGPT
 
 ### Midterm Improvements
 
-- [ ] Fix Tab Indicator in LuaLine
-- [ ] ChatGPT
+- [ ] Floating File Tree with `<C-f>`
+  - Can't seem to deactive `<C-f>` (Scroll Forward)
 
 ### Longterm Improvements
 
