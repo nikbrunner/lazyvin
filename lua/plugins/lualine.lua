@@ -14,11 +14,35 @@ M.spec = {
 
     local fnamemodify = vim.fn.fnamemodify
 
-    local logo = {
+    local mode = {
       function()
         return ""
       end,
-      padding = 1,
+      padding = {
+        left = 1,
+        right = 2,
+      },
+      separator = { left = "" },
+    }
+
+    local filetype = {
+      "fancy_filetype",
+      ts_icon = "",
+      padding = {
+        left = 2,
+        right = 1,
+      },
+      separator = { right = "" },
+    }
+
+    local diagnostics = {
+      "diagnostics",
+      symbols = {
+        error = icons.diagnostics.Error,
+        warn = icons.diagnostics.Warn,
+        info = icons.diagnostics.Info,
+        hint = icons.diagnostics.Hint,
+      },
     }
 
     local project_name = {
@@ -105,18 +129,16 @@ M.spec = {
       -- },
 
       sections = {
-        lualine_a = { logo },
-        lualine_b = { project_name, "fancy_branch", "francy_diff" },
+        lualine_a = {
+          mode,
+        },
+        lualine_b = {
+          project_name,
+          "fancy_branch",
+          "francy_diff",
+        },
         lualine_c = {
-          {
-            "diagnostics",
-            symbols = {
-              error = icons.diagnostics.Error,
-              warn = icons.diagnostics.Warn,
-              info = icons.diagnostics.Info,
-              hint = icons.diagnostics.Hint,
-            },
-          },
+          diagnostics,
         },
         lualine_x = {
           noice_command,
@@ -132,7 +154,7 @@ M.spec = {
           lazy_updates,
         },
         lualine_z = {
-          { "fancy_filetype", ts_icon = "" },
+          filetype,
         },
       },
       extensions = { "neo-tree", "lazy" },
