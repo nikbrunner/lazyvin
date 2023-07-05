@@ -25,6 +25,7 @@
   - [x] Tab Indicator
 - [x] ChatGPT
 - [x] Edgy (But simple)
+- [ ] No notifications, but show messages in Noice history
 
 ## Soon
 

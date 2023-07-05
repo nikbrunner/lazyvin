@@ -26,14 +26,13 @@ local spec = {
       },
     },
     messages = {
-      enabled = true, -- enables the Noice messages UI
+      enabled = false, -- enables the Noice messages UI
     },
     -- NOTE: Notify causes flickering on the Cursor in some Terminals
     -- I noticed it in iTerm and also Warp
     -- Kitty seems to be the only one without this issue
-    --
     notify = {
-      enabled = true,
+      enabled = false,
       view = "notify",
     },
     lsp = {
