@@ -1,11 +1,27 @@
 return {
   "folke/edgy.nvim",
   event = "VeryLazy",
-  enabled = false,
+  enabled = true,
   init = function()
     vim.opt.laststatus = 3
     vim.opt.splitkeep = "screen"
   end,
+  keys = {
+    {
+      "<leader>ue",
+      function()
+        require("edgy").toggle()
+      end,
+      desc = "Edgy Toggle",
+    },
+    {
+      "<leader>us",
+      function()
+        require("edgy").select()
+      end,
+      desc = "Edgy Select Window",
+    },
+  },
   opts = {
     ---@type table<Edgy.Pos, {size:integer, wo?:vim.wo}>
     animate = {
@@ -29,7 +45,7 @@ return {
         end,
         pinned = true,
         open = function()
-          vim.api.nvim_input("<esc><space>e")
+          vim.api.nvim_input("<esc><space>ee")
         end,
         size = { height = 0.5 },
       },
@@ -45,16 +61,6 @@ return {
         end,
         pinned = true,
         open = "Neotree position=right git_status",
-      },
-      {
-        title = "Neo-Tree Buffers",
-        ft = "neo-tree",
-        filter = function(buf, win)
-          local isFloat = vim.api.nvim_win_get_config(win).relative == ""
-          return isFloat and vim.b[buf].neo_tree_source == "buffers"
-        end,
-        pinned = true,
-        open = "Neotree position=top buffers",
       },
     },
 
@@ -82,7 +88,10 @@ return {
         end,
       },
       "Trouble",
-      { ft = "qf", title = "QuickFix" },
+      {
+        ft = "qf",
+        title = "QuickFix",
+      },
       {
         ft = "help",
         size = { height = 20 },
@@ -91,7 +100,10 @@ return {
           return vim.bo[buf].buftype == "help"
         end,
       },
-      { ft = "spectre_panel", size = { height = 0.4 } },
+      {
+        ft = "spectre_panel",
+        size = { height = 0.4 },
+      },
       {
         title = "Neotest Output",
         ft = "neotest-output-panel",

@@ -27,29 +27,12 @@ local neotree_spec = {
         desc = "Buffers",
       },
       {
-        "<leader>ef",
-        function()
-          vim.cmd("Neotree left close")
-          vim.cmd("Neotree right close")
-          vim.cmd("Neotree float toggle")
-        end,
-        desc = "Float",
-      },
-      {
-        "<leader>eh",
-        function()
-          vim.cmd("Neotree left close")
-          vim.cmd("Neotree right close")
-        end,
-        desc = "Hide",
-      },
-      {
         "<C-g>",
         function()
           vim.cmd("Neotree right close")
           vim.cmd("Neotree float git_status toggle reveal")
         end,
-        desc = "Float Git Tree",
+        desc = "Float Buffer Tree",
       },
       {
         "<C-e>",
@@ -78,7 +61,7 @@ local neotree_spec = {
       },
 
       source_selector = {
-        winbar = true,
+        winbar = false,
         statusline = false, -- toggle to show selector on statusline
         content_layout = "center",
         tabs_layout = "equal",
