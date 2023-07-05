@@ -57,6 +57,7 @@ local spec = {
         ["<leader>q"] = { name = "Quit & session" },
         ["<leader>s"] = { name = "Search" },
         ["<leader>u"] = { name = "UI" },
+        ["<leader>l"] = { name = "LazyVin" },
         ["<leader>w"] = { name = "Windows" },
         ["<leader>x"] = { name = "Diagnostics & Quickfix" },
       },

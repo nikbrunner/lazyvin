@@ -42,14 +42,27 @@ With LazyVin, my promise is to keep things simple, lean, and functional. It's a 
 - [x] Testing
 - [x] Copilot Accept with Tab
 - [x] Ufo Folding
+- [x] Personal startup screen
+- [x] Minimal Notifications
+- [x] Telescope Settings
+  - no preview line
+- [x] Disable indent-blankline
+- [x] L(LazyVin) Menu Group
+- [ ] Migrate Telescope Settings (but not all)
+- [ ] flash.nvim: Jump to line
 
-### Target: (optional) Longterm Improvements
+### Midterm Improvements
 
-- [ ] Personal startup screen
+- [ ] Fix Tab Indicator in LuaLine
+- [ ] ChatGPT
+
+### Longterm Improvements
+
 - [ ] Debugger
   - Tried, but it's not working (couldnt connect to localhost)
   - [(651) Run and Debug TypeScript Unit Tests in Neovim](https://www.youtube.com/watch?v=7Nt8n3rjfDY&list=WL&index=1)
 - [ ] Edgy (But simple)
+- [ ] Vim-Tmux-Navigator without `is_vim` hack
 
 ## Links
 
