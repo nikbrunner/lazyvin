@@ -37,6 +37,9 @@ local spec = {
       view = "notify",
     },
     lsp = {
+      progress = {
+        enabled = false,
+      },
       hover = {
         ---@type NoiceViewOptions
         opts = {
