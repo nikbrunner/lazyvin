@@ -8,7 +8,7 @@ M.spec = {
   opts = {},
   keys = {
     {
-      "s",
+      "ss",
       mode = { "n", "x", "o" },
       function()
         require("flash").jump()
@@ -16,7 +16,7 @@ M.spec = {
       desc = "Flash",
     },
     {
-      "S",
+      "sS",
       mode = { "n", "o", "x" },
       function()
         require("flash").treesitter()
@@ -24,8 +24,18 @@ M.spec = {
       desc = "Flash Treesitter",
     },
     {
-      "L",
-      mode = { "n" },
+      "sw",
+      mode = { "n", "x" },
+      function()
+        require("flash").jump({
+          pattern = vim.fn.expand("<cword>"),
+        })
+      end,
+      desc = "Flash from Word",
+    },
+    {
+      "sl",
+      mode = { "n", "x" },
       function()
         require("flash").jump({
           search = { mode = "search", max_length = 0 },
