@@ -21,7 +21,7 @@
 - [x] Disable indent-blankline
 - [x] L(LazyVin) Menu Group
 - [x] flash.nvim: Jump to line
-- [ ] Migrate Telescope Settings (but not all - only keep as least as possible)
+- [x] Migrate Telescope Settings (but not all - only keep as least as possible)
 - [ ] UI: Bufferline / Tabline
   - [ ] Fix Tab Indicator in LuaLine
   - [ ] Enable Bufferline while moving contents from Tabline to Statusline and Winbar
