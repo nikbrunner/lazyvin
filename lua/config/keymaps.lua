@@ -1,4 +1,3 @@
-local Util = require("lazyvim.util")
 local map = vim.keymap.set
 
 map("n", "vv", "^v$", { desc = "Select Line" })
