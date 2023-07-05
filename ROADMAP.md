@@ -25,7 +25,7 @@
 - [x] UI: Bufferline / Tabline
   - [x] Enable Bufferline while moving contents from Tabline to Statusline and Winbar
   - [x] Tab Indicator
-- [ ] ChatGPT
+- [x] ChatGPT
 
 ## Soon
 
