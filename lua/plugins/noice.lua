@@ -25,6 +25,17 @@ local spec = {
         filter = { event = "msg_showmode" },
       },
     },
+    messages = {
+      enabled = true, -- enables the Noice messages UI
+    },
+    -- NOTE: Notify causes flickering on the Cursor in some Terminals
+    -- I noticed it in iTerm and also Warp
+    -- Kitty seems to be the only one without this issue
+    --
+    notify = {
+      enabled = true,
+      view = "notify",
+    },
     lsp = {
       hover = {
         ---@type NoiceViewOptions
