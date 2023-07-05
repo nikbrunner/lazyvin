@@ -121,7 +121,6 @@ M.spec = {
         lualine_x = {
           noice_command,
           noice_status,
-          { "fancy_macro" },
           { "fancy_diagnostics" },
           { "fancy_searchcount" },
           { "fancy_location" },
