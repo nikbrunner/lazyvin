@@ -29,6 +29,8 @@ local neotree_spec = {
       {
         "<leader>ef",
         function()
+          vim.cmd("Neotree left close")
+          vim.cmd("Neotree right close")
           vim.cmd("Neotree float toggle")
         end,
         desc = "Float",
