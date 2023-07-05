@@ -1,5 +1,7 @@
 local map = vim.keymap.set
 
+map("n", "<leader><CR>", vim.cmd.wa, { desc = "Save" })
+
 map("n", "vv", "^v$", { desc = "Select Line" })
 map("n", "vA", "ggVG", { desc = "Select All" })
 map("n", "yA", "ggVGy", { desc = "Copy All" })
