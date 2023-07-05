@@ -22,19 +22,19 @@
 - [x] L(LazyVin) Menu Group
 - [x] flash.nvim: Jump to line
 - [x] Migrate Telescope Settings (but not all - only keep as least as possible)
-- [ ] UI: Bufferline / Tabline
-  - [ ] Fix Tab Indicator in LuaLine
-  - [ ] Enable Bufferline while moving contents from Tabline to Statusline and Winbar
+- [x] UI: Bufferline / Tabline
+  - [x] Enable Bufferline while moving contents from Tabline to Statusline and Winbar
+  - [x] Tab Indicator
 - [ ] ChatGPT
 
 ## Soon
 
+- [ ] Vim-Tmux-Navigator without `is_vim` hack
 - [ ] Maps: Rework Quit Group
 - [ ] Maps: Rework Find Group
 - [ ] Floating File Tree with `<C-f>`
   - Can't seem to deactive `<C-f>` (Scroll Forward)
 - [ ] Edgy (But simple)
-- [ ] Vim-Tmux-Navigator without `is_vim` hack
 
 ## Later
 

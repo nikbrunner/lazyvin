@@ -1,4 +1,7 @@
-return {
+local M = {}
+
+---@type LazySpec
+M.spec = {
   "nvim-lualine/lualine.nvim",
   dependencies = {
     "meuter/lualine-so-fancy.nvim",
@@ -13,7 +16,7 @@ return {
 
     local logo = {
       function()
-        return " "
+        return ""
       end,
       padding = 1,
     }
@@ -25,27 +28,6 @@ return {
         return icons.kinds.Folder .. " " .. parent_project_folder .. "/" .. current_project_folder
       end,
       padding = 2,
-    }
-
-    local date = {
-      function()
-        return " " .. os.date("%A, %d %B %Y")
-      end,
-      padding = 1,
-    }
-
-    local time = {
-      function()
-        return " " .. os.date("%R")
-      end,
-      padding = 1,
-    }
-
-    local tabs = {
-      "tabs",
-      max_length = 20, -- Maximum width of tabs component.
-      mode = 0, -- 0: Shows tab_nr 1: Shows tab_name 2: Shows tab_nr + tab_name
-      padding = 1,
     }
 
     local lazy_plug_count = {
@@ -114,15 +96,16 @@ return {
         },
       },
 
-      tabline = {
-        lualine_a = { date, time },
-        lualine_b = { lazy_plug_count, lazy_startup, lazy_updates },
-        lualine_c = { noice_command, noice_status },
-        lualine_z = { tabs },
-      },
+      -- NOTE: tabline needs to be disabled to make room for bufferline
+      -- tabline = {
+      --   lualine_a = { date, time },
+      --   lualine_b = { lazy_plug_count, lazy_startup, lazy_updates },
+      --   lualine_c = { noice_command, noice_status },
+      --   lualine_z = { tabs },
+      -- },
 
       sections = {
-        lualine_a = { logo, "mode" },
+        lualine_a = { logo },
         lualine_b = { project_name, "fancy_branch", "francy_diff" },
         lualine_c = {
           {
@@ -136,6 +119,8 @@ return {
           },
         },
         lualine_x = {
+          noice_command,
+          noice_status,
           { "fancy_macro" },
           { "fancy_diagnostics" },
           { "fancy_searchcount" },
@@ -143,7 +128,9 @@ return {
         },
         lualine_y = {
           dap_status,
-          { "fancy_lsp_servers" },
+          lazy_plug_count,
+          lazy_startup,
+          lazy_updates,
         },
         lualine_z = {
           { "fancy_filetype", ts_icon = "" },
@@ -153,3 +140,5 @@ return {
     }
   end,
 }
+
+return M.spec
