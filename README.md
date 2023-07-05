@@ -24,49 +24,7 @@ LazyVin is not just about being 'lazy'. It's about embracing simplicity, minimal
 
 With LazyVin, my promise is to keep things simple, lean, and functional. It's a commitment to spend less time tinkering and more time coding, learning, and creating. LazyVin is designed to provide peace of mind, allowing for a focus on the essentials rather than the intricacies of configuration.
 
-## TODO
-
-### Target: Daily Driver
-
-- [x] Setup `README`
-- [x] Migrate Plugins
-  - [x] Lualine
-  - [x] Harpoon
-  - [x] vim-tmux-navigator
-  - [x] Copilot
-  - [x] Ufo or other Folding Method
-- [x] Migrate Mappings
-- [x] Border for CMP
-- [x] Border for Floating Windows
-- [x] Explorer Mappings
-- [x] Testing
-- [x] Copilot Accept with Tab
-- [x] Ufo Folding
-- [x] Personal startup screen
-- [x] Minimal Notifications
-- [x] Telescope Settings
-  - no preview line
-- [x] Disable indent-blankline
-- [x] L(LazyVin) Menu Group
-- [x] flash.nvim: Jump to line
-- [ ] Migrate Telescope Settings (but not all - only keep as least as possible)
-- [ ] Fix Tab Indicator in LuaLine
-- [ ] ChatGPT
-
-### Midterm Improvements
-
-- [ ] Floating File Tree with `<C-f>`
-  - Can't seem to deactive `<C-f>` (Scroll Forward)
-
-### Longterm Improvements
-
-- [ ] Debugger
-  - Tried, but it's not working (couldnt connect to localhost)
-  - [(651) Run and Debug TypeScript Unit Tests in Neovim](https://www.youtube.com/watch?v=7Nt8n3rjfDY&list=WL&index=1)
-- [ ] Edgy (But simple)
-- [ ] Vim-Tmux-Navigator without `is_vim` hack
-
-## Links
+# Links
 
 - [LazyVim/LazyVim: Neovim config for the lazy](https://github.com/LazyVim/LazyVim)
 - [LazyVim/LazyVim · Discussions · GitHub](https://github.com/LazyVim/LazyVim/discussions?discussions_q=is:open+vscode)
