@@ -115,8 +115,8 @@ M.spec = {
         section_separators = { left = "", right = "" },
         component_separators = { left = "", right = "" },
         disabled_filetypes = {
-          statusline = { "dashboard", "alpha" },
-          winbar = { "dashboard", "alpha", "neo-tree", "edgy" },
+          statusline = { "dashboard", "alpha", "lazy" },
+          winbar = { "dashboard", "alpha", "neo-tree", "edgy", "lazy" },
         },
       },
 
