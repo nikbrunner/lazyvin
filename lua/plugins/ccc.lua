@@ -3,7 +3,7 @@ local spec = {
   "uga-rosa/ccc.nvim",
   keys = {
     {
-      "<leader>cC",
+      "<leader>cp",
       "<cmd>CccPick<CR>",
       desc = "ColorPicker",
       mode = "n",
@@ -100,26 +100,24 @@ local spec = {
         ---@type boolean
         lsp = true,
       },
-            -- stylua: ignore
-            ---@type {[1]: ColorPicker, [2]: ColorOutput}[]
-            convert = {
-                { picker.hex,     output.css_rgb },
-                { picker.css_rgb, output.css_hsl },
-                { picker.css_hsl, output.hex },
-            },
+      ---@type {[1]: ColorPicker, [2]: ColorOutput}[]
+      convert = {
+        { picker.hex, output.css_rgb },
+        { picker.css_rgb, output.css_hsl },
+        { picker.css_hsl, output.hex },
+      },
       recognize = {
         input = false,
         output = false,
-                -- stylua: ignore
-                pattern = {
-                    [picker.css_rgb] = { input.rgb, output.rgb },
-                    [picker.css_name] = { input.rgb, output.rgb },
-                    [picker.hex] = { input.rgb, output.hex },
-                    [picker.css_hsl] = { input.hsl, output.css_hsl },
-                    [picker.css_hwb] = { input.hwb, output.css_hwb },
-                    [picker.css_lab] = { input.lab, output.css_lab },
-                    [picker.css_lch] = { input.lch, output.css_lch },
-                },
+        pattern = {
+          [picker.css_rgb] = { input.rgb, output.rgb },
+          [picker.css_name] = { input.rgb, output.rgb },
+          [picker.hex] = { input.rgb, output.hex },
+          [picker.css_hsl] = { input.hsl, output.css_hsl },
+          [picker.css_hwb] = { input.hwb, output.css_hwb },
+          [picker.css_lab] = { input.lab, output.css_lab },
+          [picker.css_lch] = { input.lch, output.css_lch },
+        },
       },
       ---@type table<string, function>
       mappings = {
