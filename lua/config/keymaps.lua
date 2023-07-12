@@ -1,5 +1,8 @@
 local map = vim.keymap.set
 
+map({ "n", "v" }, "H", "^", { desc = "Move to Start of Line" })
+map({ "n", "v" }, "L", "$", { desc = "Move to End of Line" })
+
 map("n", "<leader><CR>", vim.cmd.wa, { desc = "Save" })
 
 map("n", "vv", "^v$", { desc = "Select Line" })
