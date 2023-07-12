@@ -57,6 +57,7 @@ local spec = {
         ["<leader>gh"] = { name = "Hunks" },
         ["<leader>q"] = { name = "Quit & session" },
         ["<leader>s"] = { name = "Search" },
+        ["<leader>S"] = { name = "Sessions" },
         ["<leader>u"] = { name = "UI" },
         ["<leader>l"] = { name = "LazyVin" },
         ["<leader>w"] = { name = "Windows" },

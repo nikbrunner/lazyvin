@@ -25,14 +25,14 @@
   - [x] Tab Indicator
 - [x] ChatGPT
 - [x] Edgy (But simple)
-- [ ] No notifications, but show messages in Noice history
+- [x] Maps: Rework Quit Group
 
 ## Soon
 
 - [ ] Vim-Tmux-Navigator without `is_vim` hack
-- [ ] Maps: Rework Quit Group
 - [ ] Maps: Rework Find Group
 - [ ] Maps: Rework Buffer Group
+- [ ] No notifications, but show messages in Noice history
 
 ## Later
 
