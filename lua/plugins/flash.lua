@@ -7,6 +7,9 @@ M.spec = {
   ---@type Flash.Config
   opts = {},
   keys = {
+    -- Disable default mappings
+    { "s", mode = { "n", "x", "o" }, false, desc = "Flash" },
+    { "S", mode = { "n", "o", "x" }, false, desc = "Flash Treesitter" },
     {
       "ss",
       mode = { "n", "x", "o" },
@@ -16,7 +19,7 @@ M.spec = {
       desc = "Flash",
     },
     {
-      "sS",
+      "st",
       mode = { "n", "o", "x" },
       function()
         require("flash").treesitter()
