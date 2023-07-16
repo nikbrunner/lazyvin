@@ -10,7 +10,7 @@ M.spec = {
   opts = function()
     local icons = require("lazyvim.config").icons
     local Util = require("lazyvim.util")
-    local terra_colors = require("terra.colors")
+    local terra_colors = require("terra-core.colors")
 
     local fnamemodify = vim.fn.fnamemodify
 
