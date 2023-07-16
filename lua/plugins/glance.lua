@@ -76,10 +76,6 @@ M.spec = {
       },
     }
   end,
-  -- config = function(_, opts)
-  --   local glance = require("glance")
-  --   glance.setup(opts)
-  -- end,
 }
 
 return M.spec
