@@ -27,12 +27,20 @@ local neotree_spec = {
         desc = "Buffers",
       },
       {
+        "<leader>ef",
+        function()
+          vim.cmd("Neotree left close")
+          vim.cmd("Neotree float toggle reveal")
+        end,
+        desc = "Float Tree",
+      },
+      {
         "<C-g>",
         function()
           vim.cmd("Neotree right close")
           vim.cmd("Neotree float git_status toggle reveal")
         end,
-        desc = "Float Buffer Tree",
+        desc = "Float Git Status",
       },
       {
         "<C-e>",
@@ -45,23 +53,8 @@ local neotree_spec = {
   end,
   opts = function(_, default_opts)
     return vim.tbl_deep_extend("force", default_opts, {
-      -- Fix for NerdFonts v3
-      -- https://github.com/nvim-neo-tree/neo-tree.nvim#configuration-for-nerd-fonts-v3-users
-      default_component_configs = {
-        icon = {
-          folder_empty = "󰜌",
-          folder_empty_open = "󰜌",
-        },
-        git_status = {
-          symbols = {
-            renamed = "󰁕",
-            unstaged = "󰄱",
-          },
-        },
-      },
-
       source_selector = {
-        winbar = false,
+        winbar = true,
         statusline = false, -- toggle to show selector on statusline
         content_layout = "center",
         tabs_layout = "equal",
