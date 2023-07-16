@@ -52,6 +52,7 @@ local spec = {
         ["<leader>b"] = { name = "Buffer" },
         ["<leader>c"] = { name = "Code" },
         ["<leader>ci"] = { name = "(AI) Actions" },
+        ["<leader>cc"] = { name = "Copy" },
         ["<leader>f"] = { name = "File & Find" },
         ["<leader>g"] = { name = "Git" },
         ["<leader>gh"] = { name = "Hunks" },
