@@ -7,6 +7,9 @@ set({ "n", "v" }, "L", "$", { desc = "Move to End of Line" })
 
 set("n", "<leader><CR>", vim.cmd.wa, { desc = "Save" })
 
+set("n", "<S-Tab>", "<cmd>BufferLineCyclePrev<cr>", { desc = "Previous Buffer" })
+set("n", "<Tab>", "<cmd>BufferLineCycleNext<cr>", { desc = "Next Buffer" })
+
 set("n", "vv", "^v$", { desc = "Select Line" })
 set("n", "vA", "ggVG", { desc = "Select All" })
 set("n", "yA", "ggVGy", { desc = "Copy All" })
