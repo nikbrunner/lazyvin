@@ -54,7 +54,7 @@ local neotree_spec = {
   opts = function(_, default_opts)
     return vim.tbl_deep_extend("force", default_opts, {
       source_selector = {
-        winbar = true,
+        winbar = false,
         statusline = false, -- toggle to show selector on statusline
         content_layout = "center",
         tabs_layout = "equal",
