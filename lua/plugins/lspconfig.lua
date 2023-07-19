@@ -1,5 +1,7 @@
+local M = {}
+
 ---@type LazySpec
-local spec = {
+M.spec = {
   "neovim/nvim-lspconfig",
   init = function()
     local keys = require("lazyvim.plugins.lsp.keymaps").get()
@@ -21,7 +23,20 @@ local spec = {
         },
       },
     },
+
+    ---@type lspconfig.options
+    servers = {
+      tsserver = {
+        init_options = {
+          hostInfo = "neovim",
+          ---@see https://github.com/typescript-language-server/typescript-language-server#initializationoptions
+          preferences = {
+            importModuleSpecifierPreference = "relative",
+          },
+        },
+      },
+    },
   },
 }
 
-return spec
+return M.spec
