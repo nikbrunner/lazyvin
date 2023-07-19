@@ -170,7 +170,7 @@ local harpoon_spec = {
     },
   },
   opts = {
-    menu = { width = 125, height = 10 },
+    menu = { width = 75, height = 10 },
 
     -- sets the marks upon calling `toggle` on the ui, instead of require `:w`.
     save_on_toggle = true,
