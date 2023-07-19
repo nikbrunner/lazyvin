@@ -35,6 +35,14 @@ local neotree_spec = {
         desc = "Float Tree",
       },
       {
+        "<C-f>",
+        function()
+          vim.cmd("Neotree left close")
+          vim.cmd("Neotree float toggle reveal")
+        end,
+        desc = "Float Files",
+      },
+      {
         "<C-g>",
         function()
           vim.cmd("Neotree right close")

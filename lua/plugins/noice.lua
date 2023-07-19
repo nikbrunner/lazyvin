@@ -1,6 +1,10 @@
 ---@type LazySpec
 local spec = {
   "folke/noice.nvim",
+  keys = {
+    { "<c-f>", false, mode = { "i", "n", "s" } },
+    { "<c-b>", false, mode = { "i", "n", "s" } },
+  },
   opts = {
     views = {
       cmdline_popup = {
