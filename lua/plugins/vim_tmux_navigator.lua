@@ -1,6 +1,8 @@
+local M = {}
+
 ---@LazySpec
-local spec = {
+M.spec = {
   "christoomey/vim-tmux-navigator",
 }
 
-return spec
+return M.spec

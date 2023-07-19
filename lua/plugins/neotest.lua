@@ -1,7 +1,9 @@
 ---@source [Run and Debug TypeScript Unit Tests in Neovim](https://gist.github.com/elijahmanor/bac05af95e1536d88a43cbfcb66c1c1d)
 
+local M = {}
+
 ---@type LazySpec
-local spec = {
+M.spec = {
   {
     "nvim-neotest/neotest",
     dependencies = {
@@ -46,4 +48,4 @@ local spec = {
   },
 }
 
-return spec
+return M.spec

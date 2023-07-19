@@ -1,5 +1,7 @@
+local M = {}
+
 ---@type LazySpec
-local spec = {
+M.spec = {
   "kevinhwang91/nvim-ufo",
   enabled = true,
   event = "BufRead",
@@ -114,4 +116,4 @@ local spec = {
   end,
 }
 
-return spec
+return M.spec

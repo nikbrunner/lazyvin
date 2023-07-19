@@ -1,4 +1,7 @@
-return {
+local M = {}
+
+---@type LazySpec
+M.spec = {
   "folke/edgy.nvim",
   event = "VeryLazy",
   enabled = true,
@@ -112,3 +115,5 @@ return {
     },
   },
 }
+
+return M.spec

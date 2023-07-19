@@ -1,5 +1,7 @@
+local M = {}
+
 ---@type LazySpec
-local spec = {
+M.spec = {
   "uga-rosa/ccc.nvim",
   keys = {
     {
@@ -171,4 +173,4 @@ local spec = {
   end,
 }
 
-return spec
+return M.spec

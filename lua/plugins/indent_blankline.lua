@@ -1,7 +1,9 @@
+local M = {}
+
 ---@type LazySpec
-local spec = {
+M.spec = {
   "lukas-reineke/indent-blankline.nvim",
   enabled = false,
 }
 
-return spec
+return M.spec

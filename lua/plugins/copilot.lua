@@ -1,8 +1,10 @@
 -- NOTE: Usage & Billing: https://github.com/settings/billing
 -- Authentication via Plugin `:Copilot auth`
 
+local M = {}
+
 ---@type LazySpec
-local spec = {
+M.spec = {
   "zbirenbaum/copilot.lua",
   event = "InsertEnter",
   opts = {
@@ -32,4 +34,4 @@ local spec = {
   },
 }
 
-return spec
+return M.spec

@@ -1,5 +1,7 @@
+local M = {}
+
 ---@type LazySpec
-local spec = {
+M.spec = {
   "SmiteshP/nvim-navbuddy",
   dependencies = {
     "neovim/nvim-lspconfig",
@@ -141,4 +143,4 @@ local spec = {
   end,
 }
 
-return spec
+return M.spec

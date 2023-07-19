@@ -1,4 +1,7 @@
-local spec = {
+local M = {}
+
+---@type LazySpec
+M.spec = {
   "folke/which-key.nvim",
   event = "VeryLazy",
   opts = function(_, default_opts)
@@ -74,4 +77,4 @@ local spec = {
   end,
 }
 
-return spec
+return M.spec

@@ -1,4 +1,7 @@
-return {
+local M = {}
+
+---@type LazySpec
+M.spec = {
   "hrsh7th/nvim-cmp",
   opts = function(_, opts)
     local cmp = require("cmp")
@@ -14,3 +17,5 @@ return {
     }
   end,
 }
+
+return M.spec

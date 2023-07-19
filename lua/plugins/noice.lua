@@ -1,5 +1,7 @@
+local M = {}
+
 ---@type LazySpec
-local spec = {
+M.spec = {
   "folke/noice.nvim",
   keys = {
     { "<c-f>", false, mode = { "i", "n", "s" } },
@@ -56,4 +58,4 @@ local spec = {
   },
 }
 
-return spec
+return M.spec

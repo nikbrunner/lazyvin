@@ -1,5 +1,7 @@
+local M = {}
+
 ---@type LazySpec
-local spec = {
+M.spec = {
   "utilyre/barbecue.nvim",
   name = "barbecue",
   version = "*",
@@ -64,4 +66,4 @@ local spec = {
   end,
 }
 
-return spec
+return M.spec
