@@ -37,7 +37,7 @@ M.specs = {
           all = {
             ui = {
               -- Remove the background from the gutter
-              -- bg_gutter = "none",
+              bg_gutter = "none",
             },
           },
         },
@@ -55,12 +55,17 @@ M.specs = {
           TelescopePreviewBorder = { bg = theme.ui.bg_dim, fg = theme.ui.bg_dim },
 
           -- Dark Completion Menu
-          Pmenu = { fg = theme.ui.shade0, bg = theme.ui.bg_p1 }, -- add `blend = vim.o.pumblend` to enable transparency
+          Pmenu = { fg = theme.ui.shade0, bg = theme.ui.bg_p1 },
           PmenuSel = { fg = "NONE", bg = theme.ui.bg_p2 },
           PmenuSbar = { bg = theme.ui.bg_m1 },
           PmenuThumb = { bg = theme.ui.bg_p2 },
 
-          NeoTreeFloatNormal = { bg = theme.ui.bg_p1 },
+          -- NeoTree
+          NeoTreeTitleBar = { fg = theme.ui.special, bg = theme.ui.bg_p1, bold = true },
+          NeoTreeNormal = { bg = theme.ui.bg_dim },
+          NeoTreeNormalNC = { bg = theme.ui.bg_dim },
+          NeoTreeFloatNormal = { bg = theme.ui.bg_dim },
+          NeoTreeFloatBorder = { fg = theme.ui.bg_p1, bg = theme.ui.bg_p1 },
         }
       end,
     },
