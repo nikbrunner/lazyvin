@@ -61,11 +61,11 @@ M.specs = {
           PmenuThumb = { bg = theme.ui.bg_p2 },
 
           -- NeoTree
-          NeoTreeTitleBar = { fg = theme.ui.special, bg = theme.ui.bg_p1, bold = true },
+          NeoTreeTitleBar = { fg = theme.ui.special, bg = theme.ui.bg_dim, bold = true },
           NeoTreeNormal = { bg = theme.ui.bg_dim },
           NeoTreeNormalNC = { bg = theme.ui.bg_dim },
           NeoTreeFloatNormal = { bg = theme.ui.bg_dim },
-          NeoTreeFloatBorder = { fg = theme.ui.bg_p1, bg = theme.ui.bg_p1 },
+          NeoTreeFloatBorder = { fg = theme.ui.bg_dim, bg = theme.ui.bg_dim },
         }
       end,
     },
