@@ -1,6 +1,4 @@
-local M = {
-  copy = {},
-}
+local M = {}
 
 ---Function to split a string by spaces
 ---@param string string Input string
@@ -148,28 +146,6 @@ M.sload = function(module_name, cb)
   if present then
     cb(m)
   end
-end
-
--- Functions to copy path and filenames
-local function copy(path)
-  vim.fn.setreg("+", path)
-  vim.notify('Copied "' .. path .. '" to the clipboard!', vim.log.levels.INFO)
-end
-
-M.copy.fullPath = function()
-  local full_path = vim.fn.expand("%:p")
-  copy(full_path)
-end
-
-M.copy.relativePath = function()
-  -- Source: https://www.reddit.com/r/neovim/comments/q2s3t1/how_to_get_current_filename_relative_to_project/
-  local relative_path = vim.fn.fnamemodify(vim.fn.expand("%"), ":p:~:.")
-  copy(relative_path)
-end
-
-M.copy.fileName = function()
-  local file_name = vim.fn.expand("%:t")
-  copy(file_name)
 end
 
 return M

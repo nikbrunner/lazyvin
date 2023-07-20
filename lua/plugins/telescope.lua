@@ -53,7 +53,7 @@ M.cmds.git_commits = function()
 end
 
 M.cmds.find_related_files = function()
-  local utils = require("utils")
+  local utils = require("lib.utils")
   local current_filename = utils.get_current_filename(false)
 
   if current_filename then
@@ -82,7 +82,7 @@ M.spec = {
   },
   opts = function(_, default_opts)
     local actions = require("telescope.actions")
-    local merge = require("utils").merge
+    local merge = require("lib.utils").merge
 
     local quick_flex_window = {
       show_line = false,

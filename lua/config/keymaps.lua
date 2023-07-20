@@ -1,4 +1,4 @@
-local utils = require("utils")
+local lib = require("lib")
 local lazyVimUtil = require("lazyvim.util")
 local set = vim.keymap.set
 local del = vim.keymap.del
@@ -26,6 +26,10 @@ set("n", "<leader>li", "<cmd>LspInfo<CR>", { desc = "Lsp Info" })
 set("n", "<leader>lc", lazyVimUtil.changelog, { desc = "LazyVim Changelog" })
 
 -- Copy Group
-set("n", "<leader>ccf", utils.copy.fullPath, { desc = "Full Path" })
-set("n", "<leader>ccr", utils.copy.relativePath, { desc = "Relative Path" })
-set("n", "<leader>ccn", utils.copy.fileName, { desc = "File Name" })
+set("n", "<leader>ccf", lib.copy.fullPath, { desc = "Full Path" })
+set("n", "<leader>ccr", lib.copy.relativePath, { desc = "Relative Path" })
+set("n", "<leader>ccn", lib.copy.fileName, { desc = "File Name" })
+
+-- Log Group
+set("n", "<leader>cll", lib.edit.log_symbol, { desc = "Auto Log Symbol" })
+set("n", "<leader>cld", lib.edit.delete_logs, { desc = "Auto Log Symbol" })
