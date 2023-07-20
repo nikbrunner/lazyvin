@@ -86,12 +86,13 @@ M.spec = {
 
     local quick_flex_window = {
       show_line = false,
-      layout_strategy = "flex",
+      layout_strategy = "vertical",
       layout_config = {
-        width = 0.75,
-        height = 0.75,
+        width = 0.9,
+        height = 0.9,
+        preview_cutoff = 1,
+        mirror = false,
       },
-      initial_mode = "normal",
     }
 
     local quick_cursor_window = {
