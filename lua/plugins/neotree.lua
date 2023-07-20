@@ -7,6 +7,11 @@ M.specs = {
     ---Overwrite the default keybindings
     ---@diagnostic disable-next-line: assign-type-mismatch
     keys = function()
+      local function close_side_panels()
+        vim.cmd("Neotree left close")
+        vim.cmd("Neotree right close")
+      end
+
       return {
         {
           "<leader>ee",
@@ -30,17 +35,9 @@ M.specs = {
           desc = "Buffers",
         },
         {
-          "<leader>ef",
-          function()
-            vim.cmd("Neotree left close")
-            vim.cmd("Neotree float toggle reveal")
-          end,
-          desc = "Float Tree",
-        },
-        {
           "<C-f>",
           function()
-            vim.cmd("Neotree left close")
+            close_side_panels()
             vim.cmd("Neotree float toggle reveal")
           end,
           desc = "Float Files",
@@ -48,7 +45,7 @@ M.specs = {
         {
           "<C-g>",
           function()
-            vim.cmd("Neotree right close")
+            close_side_panels()
             vim.cmd("Neotree float git_status toggle reveal")
           end,
           desc = "Float Git Status",
