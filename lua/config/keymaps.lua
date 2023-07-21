@@ -15,6 +15,9 @@ set("n", "vv", "^v$", { desc = "Select Line" })
 set("n", "vA", "ggVG", { desc = "Select All" })
 set("n", "yA", "ggVGy", { desc = "Copy All" })
 
+set("n", "<leader>d", '"_d', { desc = "Delete" })
+set("n", "x", '"_x', { desc = "Delete" })
+
 -- LazyVin Group
 del("n", "<leader>l")
 del("n", "<leader>L")
