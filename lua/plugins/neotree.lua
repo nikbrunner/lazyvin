@@ -61,6 +61,13 @@ M.specs = {
     end,
     opts = function(_, default_opts)
       return vim.tbl_deep_extend("force", default_opts, {
+        filesystem = {
+          filtered_items = {
+            hide_dotfiles = false,
+            hide_gitignored = true,
+            hide_hidden = false, -- only works on Windows for hidden files/directories
+          },
+        },
         source_selector = {
           winbar = false,
           statusline = false, -- toggle to show selector on statusline
