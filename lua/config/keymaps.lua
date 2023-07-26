@@ -39,6 +39,15 @@ set("n", "<leader>cld", lib.edit.delete_logs, { desc = "Auto Log Symbol" })
 
 -- Tabs
 set("n", "<leader><tab>o", vim.cmd.tabonly, { desc = "Close All Other Tabs" })
+set("n", "<leader><tab>1", "1gt", { desc = "Go to Tab 1" })
+set("n", "<leader><tab>2", "2gt", { desc = "Go to Tab 2" })
+set("n", "<leader><tab>3", "3gt", { desc = "Go to Tab 3" })
+set("n", "<leader><tab>4", "4gt", { desc = "Go to Tab 4" })
+set("n", "<leader><tab>5", "5gt", { desc = "Go to Tab 5" })
+set("n", "<leader><tab>6", "6gt", { desc = "Go to Tab 6" })
+set("n", "<leader><tab>7", "7gt", { desc = "Go to Tab 7" })
+set("n", "<leader><tab>8", "8gt", { desc = "Go to Tab 8" })
+set("n", "<leader><tab>9", "9gt", { desc = "Go to Tab 9" })
 
 -- NOTE: This breaks when i try to map it via lazy.nvim
 set("n", "<leader><tab>r", function()
