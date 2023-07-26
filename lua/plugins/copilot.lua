@@ -7,6 +7,15 @@ local M = {}
 M.spec = {
   "zbirenbaum/copilot.lua",
   event = "InsertEnter",
+  keys = {
+    {
+      "<leader>cip",
+      function()
+        require("copilot.suggestion").toggle_auto_trigger()
+      end,
+      desc = "Copilot: Toggle Auto Trigger",
+    },
+  },
   opts = {
     panel = {
       enabled = false,
@@ -15,7 +24,7 @@ M.spec = {
     suggestion = {
       enabled = true,
       auto_trigger = true,
-      debounce = 75,
+      debounce = 150,
       keymap = {
         accept = "<Tab>",
         accept_word = false,
@@ -29,7 +38,6 @@ M.spec = {
       yaml = true,
       markdown = true,
       help = false,
-      gitcommit = true,
     },
   },
 }
