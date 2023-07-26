@@ -22,8 +22,8 @@ M.spec = {
         left = 1,
         right = 2,
       },
-      -- separator = { left = "" },
-      separator = { left = " " },
+      separator = { left = "" },
+      -- separator = { left = " " },
     }
 
     local filetype = {
@@ -33,8 +33,8 @@ M.spec = {
         left = 2,
         right = 1,
       },
-      -- separator = { right = "" },
-      separator = { right = " " },
+      separator = { right = "" },
+      -- separator = { right = " " },
     }
 
     local diagnostics = {
@@ -114,10 +114,10 @@ M.spec = {
       options = {
         theme = "auto",
         globalstatus = true,
-        -- section_separators = { left = "", right = "" },
-        -- component_separators = { left = "", right = "" },
-        section_separators = { left = "", right = "" },
-        component_separators = { left = "", right = "" },
+        section_separators = { left = "", right = "" },
+        component_separators = { left = "", right = "" },
+        -- section_separators = { left = "", right = "" },
+        -- component_separators = { left = "", right = "" },
         disabled_filetypes = {
           statusline = { "dashboard", "alpha", "lazy" },
           winbar = { "dashboard", "alpha", "neo-tree", "edgy", "lazy" },
