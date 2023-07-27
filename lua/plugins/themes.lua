@@ -22,6 +22,7 @@ M.specs = {
     opts = {
       theme = "summer",
       variant = "night",
+      transparent = true,
       diagnostics = {
         background = true,
       },
@@ -32,6 +33,7 @@ M.specs = {
     "rebelot/kanagawa.nvim",
     opts = {
       theme = "wave",
+      transparent = true,
       colors = {
         theme = {
           all = {
