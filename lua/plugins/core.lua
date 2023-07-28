@@ -4,7 +4,7 @@ local M = {}
 M.spec = {
   "LazyVim/LazyVim",
   opts = {
-    colorscheme = "kanagawa-wave",
+    colorscheme = "tokyonight-night",
   },
 }
 

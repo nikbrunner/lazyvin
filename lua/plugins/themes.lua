@@ -2,12 +2,19 @@ local M = {}
 
 M.specs = {
   {
-    "terra-theme/terra-core.nvim",
+    "folke/tokyonight.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {
+      transparent = true,
+    },
+  },
 
+  {
+    "terra-theme/terra-core.nvim",
     dev = true,
     lazy = false,
     priority = 1000,
-
     keys = {
       {
         "<leader>lTt",
