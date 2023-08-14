@@ -3,7 +3,6 @@ local utils = require("lib.utils")
 local M = {}
 
 local AUTO_LOG_PREFIX = "Test"
-print(vim.inspect("Test: edit.lua [[AUTO_LOG_PREFIX]]", AUTO_LOG_PREFIX))
 
 local filetype_log_map = {
   typescript = function(message)
