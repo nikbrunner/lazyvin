@@ -35,7 +35,7 @@ M.spec = {
     edit_with_instructions = {
       diff = true,
       keymaps = {
-        close = { "<C-c>", "q", "<ESC>" },
+        close = { "<C-c>", "q" },
         accept = "<C-y>",
         toggle_diff = "<C-d>",
         toggle_settings = "<C-o>",
@@ -61,7 +61,7 @@ M.spec = {
         },
       },
       keymaps = {
-        close = { "<C-c>", "q", "<ESC>" },
+        close = { "<C-c>", "q" },
         yank_last = "<C-y>",
         yank_last_code = "<C-k>",
         scroll_up = "<C-u>",
