@@ -16,6 +16,7 @@ M.spec = {
   ---@type LazyKeys[]
   keys = {
     {
+      id = "ChatGPT",
       "<leader>cii",
       "<cmd>ChatGPT<CR>",
       {
@@ -23,6 +24,7 @@ M.spec = {
       },
     },
     {
+      id = "ChatGPT Edit",
       "<leader>cie",
       "<cmd>ChatGPTEditWithInstructions<CR>",
       {
