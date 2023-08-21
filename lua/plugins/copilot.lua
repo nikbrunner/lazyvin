@@ -38,6 +38,8 @@ M.spec = {
       yaml = true,
       markdown = true,
       help = false,
+      gitcommit = true,
+      gitrebase = false,
     },
   },
 }
