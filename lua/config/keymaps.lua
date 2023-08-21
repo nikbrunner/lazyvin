@@ -18,6 +18,8 @@ set("n", "yA", "ggVGy", { desc = "Copy All" })
 set("n", "<leader>d", '"_d', { desc = "Delete" })
 set("n", "x", '"_x', { desc = "Delete" })
 
+set("n", "gl", vim.diagnostic.open_float, { desc = "Open Diagnostic" })
+
 -- LazyVin Group
 del("n", "<leader>l")
 del("n", "<leader>L")
