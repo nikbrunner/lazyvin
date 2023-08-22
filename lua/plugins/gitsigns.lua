@@ -18,6 +18,8 @@ M.spec = {
 
         map({ "n", "v" }, "<leader>ghs", ":Gitsigns stage_hunk<CR>", "Stage Hunk")
         map({ "n", "v" }, "<leader>ghr", ":Gitsigns reset_hunk<CR>", "Reset Hunk")
+        map({ "n", "v" }, "<leader>gb", ":Gitsigns toggle_current_line_blame<CR>", "Current Line Blame")
+
         map("n", "<leader>ghu", gs.undo_stage_hunk, "Undo Stage Hunk")
         map("n", "<leader>ghp", gs.preview_hunk, "Preview Hunk")
         map("n", "<leader>ghb", function() gs.blame_line({ full = true }) end, "Blame Line")
