@@ -86,7 +86,7 @@ M.specs = {
     priority = 1000,
     opts = {
       options = {
-        transparent = false,
+        transparent = true,
       },
     },
   },
