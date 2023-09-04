@@ -14,6 +14,7 @@
   "copilot-cmp": { "branch": "master", "commit": "d631b3afbf26bb17d6cf2b3cd8f3d79e7d5eeca1" },
   "copilot.lua": { "branch": "master", "commit": "0fa30d6846aae1af1c94a9ead93fa7dcf8affbe6" },
   "dashboard-nvim": { "branch": "master", "commit": "9134d7befd50ff920ede5b0f7d6c3dbb9f7c0ecb" },
+  "diagflow.nvim": { "branch": "main", "commit": "dafd9d4a76bd97a17dc7ea6d2f1a2675c65324e5" },
   "dressing.nvim": { "branch": "master", "commit": "c7b035de7f91bb6b62b4308f105c56d1a968b8c5" },
   "edgy.nvim": { "branch": "main", "commit": "4ccc1c67ae2b1a0c55f18c83d03b714e2bb1bae4" },
   "flash.nvim": { "branch": "main", "commit": "967117690bd677cb7b6a87f0bc0077d2c0be3a27" },
