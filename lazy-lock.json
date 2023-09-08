@@ -23,6 +23,7 @@
   "glance.nvim": { "branch": "master", "commit": "8ed5cf3b3b1231ea696d88c9efd977027429d869" },
   "guess-indent.nvim": { "branch": "main", "commit": "b8ae749fce17aa4c267eec80a6984130b94f80b2" },
   "harpoon": { "branch": "master", "commit": "21f4c47c6803d64ddb934a5b314dcb1b8e7365dc" },
+  "highlight-undo.nvim": { "branch": "main", "commit": "d9e674a2eb4d95ee16cd477d47eab7ddc586e336" },
   "kanagawa.nvim": { "branch": "master", "commit": "0a24e504a3a278849ad0aef31cd6dd24c73ca3db" },
   "lazy.nvim": { "branch": "main", "commit": "3ad55ae678876516156cca2f361c51f7952a924b" },
   "lualine-so-fancy.nvim": { "branch": "main", "commit": "21284504fed2776668fdea8743a528774de5d2e1" },
