@@ -6,7 +6,7 @@ local del = vim.keymap.del
 set({ "n", "v" }, "H", "^", { desc = "Move to Start of Line" })
 set({ "n", "v" }, "L", "$", { desc = "Move to End of Line" })
 
-set("n", "<leader><CR>", vim.cmd.wa, { desc = "Save" })
+set({ "n", "v" }, "<leader><CR>", vim.cmd.wa, { desc = "Save" })
 
 set("n", "<S-Tab>", vim.cmd.tabprevious, { desc = "Previous Buffer" })
 set("n", "<Tab>", vim.cmd.tabnext, { desc = "Next Buffer" })
