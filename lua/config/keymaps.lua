@@ -30,6 +30,9 @@ set("n", "<leader>ll", "<cmd>Lazy<CR>", { desc = "Plugin Manager - [Lazy]" })
 set("n", "<leader>li", "<cmd>LspInfo<CR>", { desc = "Lsp Info" })
 set("n", "<leader>lc", lazyVimUtil.changelog, { desc = "LazyVim Changelog" })
 
+-- Overwrite Redraw command
+set("n", "<leader>ur", vim.cmd.e, { desc = "Redraw" })
+
 -- Copy Group
 set("n", "<leader>ccf", lib.copy.fullPath, { desc = "Full Path" })
 set("n", "<leader>ccr", lib.copy.relativePath, { desc = "Relative Path" })
