@@ -12,7 +12,8 @@ M.spec = {
   event = "LspAttach",
   keys = {
     {
-      "gn",
+      id = "gs",
+      "gs",
       "<cmd>Navbuddy<CR>",
       desc = "Open Navbuddy",
     },
