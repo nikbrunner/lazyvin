@@ -17,6 +17,7 @@ M.spec = {
   keys = {
     {
       id = "ChatGPT",
+      mode = { "n", "v" },
       "<leader>cii",
       "<cmd>ChatGPT<CR>",
       {
@@ -25,6 +26,7 @@ M.spec = {
     },
     {
       id = "ChatGPT Edit",
+      mode = { "n", "v" },
       "<leader>cie",
       "<cmd>ChatGPTEditWithInstructions<CR>",
       {
