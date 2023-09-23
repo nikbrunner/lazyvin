@@ -70,15 +70,34 @@ end
 M.spec = {
   "nvim-telescope/telescope.nvim",
   keys = {
+    -- Disable these bindings to use FzfLua instead
+    {
+      "<leader><space>",
+      false,
+    },
+    {
+      "<leader>ff",
+      false,
+    },
+    {
+      "<leader>fF",
+      false,
+    },
     {
       "<leader>gs",
-      M.cmds.git_status,
-      desc = "Git Status",
+      false,
     },
     {
       "<leader>gc",
-      M.cmds.git_commits,
-      desc = "Commits",
+      false,
+    },
+    {
+      "<leader>fr",
+      false,
+    },
+    {
+      "<leader>fR",
+      false,
     },
   },
   opts = function(_, default_opts)
