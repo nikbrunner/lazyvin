@@ -7,9 +7,9 @@ M.spec = {
     -- colorscheme = "kanagawa",
     -- colorscheme = "terra",
     -- colorscheme = "tokyonight",
-    colorscheme = "carbonfox",
+    -- colorscheme = "carbonfox",
     -- colorscheme = "terafox",
-    -- colorscheme = "nordfox",
+    colorscheme = "nordfox",
     -- colorscheme = "github_dark_high_contrast",
   },
 }
