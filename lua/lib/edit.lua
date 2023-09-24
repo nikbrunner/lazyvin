@@ -28,7 +28,7 @@ local filetype_log_map = {
   end,
 }
 
-M.log_symbol = function()
+function M.log_symbol()
   local current_word = vim.fn.expand("<cword>")
   local current_filename = utils.get_current_filename(true)
   local message = table.concat({
@@ -47,7 +47,7 @@ M.log_symbol = function()
   end
 end
 
-M.delete_logs = function()
+function M.delete_logs()
   local buffer = vim.api.nvim_get_current_buf()
   local lines = vim.api.nvim_buf_get_lines(buffer, 0, -1, false)
   local new_lines = {}

@@ -2,7 +2,7 @@ local M = {}
 
 ---Function to list available smug sessions and start the selected one
 ---@return nil
-M.start_smug_session = function()
+function M.start_smug_session()
   local handle = io.popen("smug list") -- Run smug list to get available sessions
 
   if handle then
