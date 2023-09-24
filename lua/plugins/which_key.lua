@@ -68,6 +68,7 @@ M.spec = {
         ["<leader>x"] = { name = "Diagnostics & Quickfix" },
         ["<leader><tab>"] = { name = "Tabs" },
         ["<leader>S"] = { name = "Sessions" },
+        ["<leader>a"] = { name = "TMUX Actions" },
       },
     })
   end,
