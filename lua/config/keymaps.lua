@@ -60,3 +60,5 @@ set("n", "<leader><tab>r", function()
     vim.cmd("TabRename " .. new_name)
   end)
 end, { desc = "Rename Tab" })
+
+set("n", "<leader>SS", lib.find.start_smug_session, { desc = "Start Smug Session" })
