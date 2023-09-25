@@ -4,46 +4,47 @@ local M = {}
 
 local AUTO_LOG_PREFIX = "Test"
 
-local filetype_log_map = {
-  typescript = function(message)
-    return "console.log" .. "(" .. message .. ")"
-  end,
-  typescriptreact = function(message)
-    return "console.log" .. "(" .. message .. ")"
-  end,
-  javascript = function(message)
-    return "console.log" .. "(" .. message .. ")"
-  end,
-  javascriptreact = function(message)
-    return "console.log" .. "(" .. message .. ")"
-  end,
-  astro = function(message)
-    return "console.log" .. "(" .. message .. ")"
-  end,
-  go = function(message)
-    return "fmt.Println" .. "(" .. message .. ")"
-  end,
-  lua = function(message)
-    return "print" .. "(vim.inspect(" .. message .. "))"
-  end,
-}
+local function register_log_formats(map, types, format_func)
+  for _, t in ipairs(types) do
+    map[t] = format_func
+  end
+end
+
+local function js_like_format(message, value)
+  return string.format('console.log("%s", %s)', message, value)
+end
+
+local function lua_format(message, value)
+  return string.format('print("%s", vim.inspect(%s))', message, value)
+end
+
+local function go_format(message, value)
+  return string.format('fmt.Println("%s", %s)', message, value)
+end
+
+local filetype_log_map = {}
+
+register_log_formats(filetype_log_map, {
+  "typescript",
+  "typescriptreact",
+  "javascript",
+  "javascriptreact",
+  "astro",
+}, js_like_format)
+
+register_log_formats(filetype_log_map, { "lua" }, lua_format)
+
+register_log_formats(filetype_log_map, { "go" }, go_format)
 
 function M.log_symbol()
   local current_word = vim.fn.expand("<cword>")
   local current_filename = utils.get_current_filename(true)
-  local message = table.concat({
-    '"',
-    AUTO_LOG_PREFIX,
-    ": ",
-    current_filename,
-    " [[",
-    current_word,
-    ']]", ',
-    current_word,
-  })
+  local message = AUTO_LOG_PREFIX .. ": " .. current_filename .. " [[" .. current_word .. "]]"
   local log_func = filetype_log_map[vim.bo.filetype]
+
   if log_func then
-    vim.cmd("norm o" .. log_func(message))
+    local log_message = log_func(message, current_word)
+    vim.cmd("norm o" .. log_message)
   end
 end
 
