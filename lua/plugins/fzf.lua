@@ -1,3 +1,4 @@
+---@diagnostic disable: missing-fields
 local M = {}
 
 M.win_presets = {
@@ -59,42 +60,68 @@ end
 M.spec = {
   "ibhagwan/fzf-lua",
   lazy = false,
+  priority = 200,
   dependencies = { "nvim-tree/nvim-web-devicons" },
   keys = {
     {
       "<leader><space>",
-      id = "<leader><space>",
       mode = { "n" },
       M.fzf("files", M.win_presets.medium.flex),
       desc = "Files",
     },
     {
       "<leader>ff",
-      id = "<leader>ff",
       mode = { "n" },
       M.fzf("files", M.win_presets.medium.flex),
       desc = "Files",
     },
     {
       "<leader>gs",
-      id = "<leader>gs",
       mode = { "n" },
       M.fzf("git_status", M.win_presets.full.vertical),
       desc = "Git Status",
     },
     {
       "<leader>gc",
-      id = "<leader>gc",
       mode = { "n" },
       M.fzf("git_commits", M.win_presets.full.vertical),
       desc = "Git Commits",
     },
     {
       "<leader>fr",
-      id = "<leader>fr",
       mode = { "n" },
       M.fzf("oldfiles", M.win_presets.medium.flex),
       desc = "Recent Files",
+    },
+    {
+      "<C-r>",
+      mode = { "n" },
+      M.fzf("oldfiles", M.win_presets.medium.flex),
+      desc = "Recent Files",
+    },
+    {
+      "<leader>ss",
+      mode = { "n" },
+      M.fzf("lsp_document_symbols", M.win_presets.medium.flex),
+      desc = "Document Symbols",
+    },
+    {
+      "<leader>sS",
+      mode = { "n" },
+      M.fzf("lsp_workspace_symbols", M.win_presets.medium.flex),
+      desc = "Workspace Symbols",
+    },
+    {
+      "<leader>/",
+      mode = { "n" },
+      M.fzf("live_grep_native", M.win_presets.medium.flex),
+      desc = "Grep",
+    },
+    {
+      "<leader>sg",
+      mode = { "n" },
+      M.fzf("live_grep_native", M.win_presets.medium.flex),
+      desc = "Grep",
     },
   },
   opts = function()
@@ -360,7 +387,7 @@ M.spec = {
       },
       oldfiles = {
         prompt = "History❯ ",
-        cwd_only = false,
+        cwd_only = true,
       },
       buffers = {
         prompt = "Buffers❯ ",

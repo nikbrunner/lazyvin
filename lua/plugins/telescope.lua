@@ -69,6 +69,7 @@ end
 ---@type LazySpec
 M.spec = {
   "nvim-telescope/telescope.nvim",
+  priority = 100,
   keys = {
     -- Disable these bindings to use FzfLua instead
     {
@@ -99,6 +100,22 @@ M.spec = {
       "<leader>fR",
       false,
     },
+    {
+      "<leader>ss",
+      false,
+    },
+    {
+      "<leader>sS",
+      false,
+    },
+    {
+      "<leader>sg",
+      false,
+    },
+    -- {
+    --   "<leader>/",
+    --   false,
+    -- },
   },
   opts = function(_, default_opts)
     local actions = require("telescope.actions")
