@@ -66,7 +66,7 @@ M.spec = {
     {
       "<leader><space>",
       mode = { "n" },
-      M.fzf("files", M.win_presets.medium.flex),
+      M.fzf("oldfiles", M.win_presets.medium.flex),
       desc = "Files",
     },
     {
@@ -388,6 +388,8 @@ M.spec = {
       oldfiles = {
         prompt = "History❯ ",
         cwd_only = true,
+        stat_file = true, -- verify files exist on disk
+        include_current_session = true, -- include bufs from current session
       },
       buffers = {
         prompt = "Buffers❯ ",
