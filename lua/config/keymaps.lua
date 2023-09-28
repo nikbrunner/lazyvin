@@ -30,6 +30,9 @@ set("n", "<leader>ll", "<cmd>Lazy<CR>", { desc = "Plugin Manager - [Lazy]" })
 set("n", "<leader>li", "<cmd>LspInfo<CR>", { desc = "Lsp Info" })
 set("n", "<leader>lc", lazyVimUtil.changelog, { desc = "LazyVim Changelog" })
 
+-- Find component
+set("n", "<leader>fC", lib.find.find_and_open_component_files, { desc = "Find component" })
+
 -- Overwrite Redraw command
 set("n", "<leader>ur", vim.cmd.e, { desc = "Redraw" })
 
