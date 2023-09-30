@@ -1,5 +1,6 @@
 local lib = require("lib")
 local lazyVimUtil = require("lazyvim.util")
+
 local set = vim.keymap.set
 local del = vim.keymap.del
 
@@ -56,6 +57,14 @@ set("n", "<leader><tab>6", "6gt", { desc = "Go to Tab 6" })
 set("n", "<leader><tab>7", "7gt", { desc = "Go to Tab 7" })
 set("n", "<leader><tab>8", "8gt", { desc = "Go to Tab 8" })
 set("n", "<leader><tab>9", "9gt", { desc = "Go to Tab 9" })
+
+-- Make lazygit open in a fullscreen floating window
+set("n", "<leader>gg", function()
+  lazyVimUtil.float_term(
+    { "lazygit" },
+    { cwd = lazyVimUtil.get_root(), esc_esc = false, ctrl_hjkl = false, size = { width = 1, height = 1 } }
+  )
+end, { desc = "Lazygit (root dir)" })
 
 -- NOTE: This breaks when i try to map it via lazy.nvim
 set("n", "<leader><tab>r", function()
