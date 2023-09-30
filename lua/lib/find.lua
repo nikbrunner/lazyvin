@@ -1,9 +1,23 @@
-local M = {}
+local M = {
+  config = {
+    project_path = "$HOME/Documents/dev/repos/dcd/bc-desktop-client",
+    search_configs = {
+      {
+        name = "Component",
+        relative_base_path = "src/client/commons/components/",
+        extensions = { "tsx", "scss", "story.tsx" },
+      },
+      {
+        name = "Lib",
+        relative_base_path = { "src/commons/libs", "src/client/kiosk/libs" },
+        extensions = { "ts", "spec.ts" },
+      },
+    },
+  },
+}
 
 local function close_all_windows_except_current()
-  -- Close Neotree if it's open
   vim.cmd("Neotree close")
-
   local current_win = vim.api.nvim_get_current_win()
   local all_wins = vim.api.nvim_tabpage_list_wins(0)
 
