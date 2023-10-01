@@ -64,7 +64,7 @@ M.spec = {
         ["<leader>q"] = { name = "Quit" },
         ["<leader>s"] = { name = "Search" },
         ["<leader>t"] = { name = "Test" },
-        ["<leader>lT"] = { name = "Tera" },
+        ["<leader>vT"] = { name = "Terra" },
         ["<leader>u"] = { name = "UI" },
         ["<leader>w"] = { name = "Windows" },
         ["<leader>x"] = { name = "Diagnostics & Quickfix" },
