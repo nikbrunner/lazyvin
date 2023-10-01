@@ -31,6 +31,7 @@ set("n", "<leader>vn", "<cmd>NullLsInfo<CR>", { desc = "Tool Manager - [NullLS]"
 set("n", "<leader>vl", "<cmd>Lazy<CR>", { desc = "Plugin Manager - [Lazy]" })
 set("n", "<leader>vi", "<cmd>LspInfo<CR>", { desc = "Lsp Info" })
 set("n", "<leader>vc", lazyVimUtil.changelog, { desc = "LazyVim Changelog" })
+set("n", "<leader>vM", vim.cmd.messages, { desc = "Display messages" })
 
 -- Find component
 set("n", "<leader>fC", lib.find.find_and_open_component_files, { desc = "Find component" })
