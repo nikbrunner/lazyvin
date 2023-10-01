@@ -18,7 +18,7 @@ M.specs = {
     priority = 1000,
     keys = {
       {
-        "<leader>lTt",
+        "<leader>vTt",
         function()
           require("terra-core.actions.config").select_theme()
         end,

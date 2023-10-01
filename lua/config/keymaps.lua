@@ -21,15 +21,16 @@ set("n", "x", '"_x', { desc = "Delete" })
 
 set("n", "gl", vim.diagnostic.open_float, { desc = "Open Diagnostic" })
 
--- LazyVin Group
+-- Vin Group
+-- Delete LazyVim default bindings for meta information
 del("n", "<leader>l")
 del("n", "<leader>L")
 
-set("n", "<leader>lm", "<cmd>Mason<CR>", { desc = "Package Manager - [Mason]" })
-set("n", "<leader>ln", "<cmd>NullLsInfo<CR>", { desc = "Tool Manager - [NullLS]" })
-set("n", "<leader>ll", "<cmd>Lazy<CR>", { desc = "Plugin Manager - [Lazy]" })
-set("n", "<leader>li", "<cmd>LspInfo<CR>", { desc = "Lsp Info" })
-set("n", "<leader>lc", lazyVimUtil.changelog, { desc = "LazyVim Changelog" })
+set("n", "<leader>vm", "<cmd>Mason<CR>", { desc = "Package Manager - [Mason]" })
+set("n", "<leader>vn", "<cmd>NullLsInfo<CR>", { desc = "Tool Manager - [NullLS]" })
+set("n", "<leader>vl", "<cmd>Lazy<CR>", { desc = "Plugin Manager - [Lazy]" })
+set("n", "<leader>vi", "<cmd>LspInfo<CR>", { desc = "Lsp Info" })
+set("n", "<leader>vc", lazyVimUtil.changelog, { desc = "LazyVim Changelog" })
 
 -- Find component
 set("n", "<leader>fC", lib.find.find_and_open_component_files, { desc = "Find component" })
