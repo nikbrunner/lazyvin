@@ -47,6 +47,21 @@ set("n", "<leader>ccn", lib.copy.fileName, { desc = "File Name" })
 set("n", "<leader>cll", lib.edit.log_symbol, { desc = "Auto Log Symbol" })
 set("n", "<leader>cld", lib.edit.delete_logs, { desc = "Auto Log Symbol" })
 
+-- Custom Replace with Spectre
+set("v", "<leader>sr", function()
+  local function get_visual_selection()
+    vim.cmd('noau normal! "vy"')
+
+    return vim.fn.getreg("v")
+  end
+
+  require("spectre").open({
+    search_text = get_visual_selection(),
+  })
+end, {
+  desc = "Replace current selection",
+})
+
 -- Tabs
 set("n", "<leader><tab>o", vim.cmd.tabonly, { desc = "Close All Other Tabs" })
 set("n", "<leader><tab>1", "1gt", { desc = "Go to Tab 1" })
