@@ -1,5 +1,5 @@
 local lib = require("lib")
-local lazyVimUtil = require("lazyvim.util")
+local lazyvim_util = require("lazyvim.util")
 
 local set = vim.keymap.set
 local del = vim.keymap.del
@@ -30,7 +30,7 @@ set("n", "<leader>vm", "<cmd>Mason<CR>", { desc = "Package Manager - [Mason]" })
 set("n", "<leader>vn", "<cmd>NullLsInfo<CR>", { desc = "Tool Manager - [NullLS]" })
 set("n", "<leader>vl", "<cmd>Lazy<CR>", { desc = "Plugin Manager - [Lazy]" })
 set("n", "<leader>vi", "<cmd>LspInfo<CR>", { desc = "Lsp Info" })
-set("n", "<leader>vc", lazyVimUtil.changelog, { desc = "LazyVim Changelog" })
+set("n", "<leader>vc", lazyvim_util.changelog, { desc = "LazyVim Changelog" })
 set("n", "<leader>vM", vim.cmd.messages, { desc = "Display messages" })
 
 -- Find component
@@ -77,13 +77,19 @@ set("n", "<leader><tab>9", "9gt", { desc = "Go to Tab 9" })
 
 -- Make lazygit open in a fullscreen floating window
 set("n", "<leader>gg", function()
-  lazyVimUtil.float_term(
+  lazyvim_util.float_term(
     { "lazygit" },
-    { cwd = lazyVimUtil.get_root(), esc_esc = false, ctrl_hjkl = false, size = { width = 1, height = 1 } }
+    { cwd = lazyvim_util.get_root(), esc_esc = false, ctrl_hjkl = false, size = { width = 1, height = 1 } }
   )
 end, { desc = "Lazygit (root dir)" })
 
--- NOTE: This breaks when i try to map it via lazy.nvim
+set("n", "<leader>gp", function()
+  lazyvim_util.float_term(
+    { "gh", "dash" },
+    { cwd = lazyvim_util.get_root(), esc_esc = false, ctrl_hjkl = false, size = { width = 1, height = 1 } }
+  )
+end, { desc = "GitHub Pull Requests" })
+
 set("n", "<leader><tab>r", function()
   vim.ui.input({ prompt = "New Tab Name: " }, function(new_name)
     vim.cmd("TabRename " .. new_name)
