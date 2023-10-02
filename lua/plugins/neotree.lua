@@ -4,7 +4,6 @@ local M = {}
 M.specs = {
   {
     "nvim-neo-tree/neo-tree.nvim",
-    ---Overwrite the default keybindings
     ---@diagnostic disable-next-line: assign-type-mismatch
     keys = function()
       local function close_side_panels()
