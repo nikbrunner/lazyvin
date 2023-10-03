@@ -34,7 +34,7 @@ set("n", "<leader>vc", lazyvim_util.changelog, { desc = "LazyVim Changelog" })
 set("n", "<leader>vM", vim.cmd.messages, { desc = "Display messages" })
 
 -- Find component
-set("n", "<leader>fC", lib.find.find_and_open_component_files, { desc = "Find component" })
+set("n", "<leader>fC", lib.groups.find_and_open_component_files, { desc = "Find component" })
 
 -- Overwrite Redraw command
 set("n", "<leader>ur", vim.cmd.e, { desc = "Redraw" })

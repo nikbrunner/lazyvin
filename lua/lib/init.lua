@@ -5,7 +5,7 @@ M = {
   edit = require("lib.edit"),
   utils = require("lib.utils"),
   tmux = require("lib.tmux"),
-  find = require("lib.find"),
+  groups = require("lib.groups"),
 }
 
 return M
