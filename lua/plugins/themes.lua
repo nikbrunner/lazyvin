@@ -28,7 +28,7 @@ M.specs = {
 
     ---@type TerraConfig
     opts = {
-      theme = "fall",
+      theme = "spring",
       variant = "night",
       transparent = false,
       diagnostics = {
