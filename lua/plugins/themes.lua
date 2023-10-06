@@ -7,7 +7,7 @@ M.specs = {
     lazy = false,
     priority = 1000,
     opts = {
-      transparent = true,
+      transparent = false,
     },
   },
 
@@ -24,13 +24,20 @@ M.specs = {
         end,
         desc = "Select theme",
       },
+      {
+        "<leader>vTv",
+        function()
+          require("terra-core.actions.config").select_variant()
+        end,
+        desc = "Select variant",
+      },
     },
 
     ---@type TerraConfig
     opts = {
       theme = "spring",
-      variant = "night",
-      transparent = false,
+      variant = "day",
+      transparent = true,
       diagnostics = {
         background = true,
       },
@@ -92,4 +99,5 @@ M.specs = {
     },
   },
 }
+
 return M.specs
