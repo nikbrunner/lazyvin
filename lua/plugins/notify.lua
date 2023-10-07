@@ -2,6 +2,7 @@ local M = {}
 
 M.spec = {
   "rcarriga/nvim-notify",
+  enabled = false,
   opts = {
     timeout = 3000,
     on_open = function(win)
