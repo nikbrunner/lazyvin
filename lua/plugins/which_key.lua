@@ -51,7 +51,7 @@ M.spec = {
         ["gz"] = { name = "Surround" },
         ["]"] = { name = "Next" },
         ["["] = { name = "Prev" },
-        ["<leader>a"] = { name = "TMUX Actions" },
+        ["<leader>."] = { name = "TMUX" },
         ["<leader>b"] = { name = "Buffer" },
         ["<leader>c"] = { name = "Code" },
         ["<leader>cc"] = { name = "Copy" },

@@ -31,8 +31,18 @@ function M.start_smug_session()
     }, function(session, _)
       if session then
         vim.fn.system(string.format("smug start %s", session))
-        vim.fn.system(string.format("tmux switch-client -t %s", session))
-        vim.fn.system(string.format("tmux select-window -t %s:1", session))
+
+        vim.ui.select({
+          "Yes",
+          "No",
+        }, {
+          prompt = "Attach to the new session?",
+        }, function(attach, _)
+          if attach == "Yes" then
+            vim.fn.system(string.format("tmux switch-client -t %s", session))
+            vim.fn.system(string.format("tmux select-window -t %s:1", session))
+          end
+        end)
       end
     end)
   else
@@ -145,6 +155,41 @@ function M.start_custom_tmux_session()
       print("Operation aborted.")
     end
   end)
+end
+
+function M.switch_nvim_instance()
+  local nvim_panes = {}
+  local panes_info =
+    vim.fn.systemlist("tmux list-panes -a -F '#{session_name} - #{window_name} - #{pane_id} - #{pane_current_command}'")
+
+  for _, pane_info in ipairs(panes_info) do
+    if string.match(pane_info, "nvim") then
+      table.insert(nvim_panes, pane_info)
+    end
+  end
+
+  if #nvim_panes > 0 then
+    vim.ui.select(nvim_panes, {
+      prompt = "Select a Neovim instance to switch to:",
+    }, function(pane_info, _)
+      if pane_info then
+        local session, window, pane_id = string.match(pane_info, "(.-) %- (.-) %- (%%[0-9]+) %- nvim")
+
+        -- Switch to the tmux session, window, and pane
+        vim.fn.system(
+          string.format(
+            "tmux switch-client -t %s ; tmux select-window -t %s:%s ; tmux select-pane -t %s",
+            session,
+            session,
+            window,
+            pane_id
+          )
+        )
+      end
+    end)
+  else
+    print("No other active Neovim instances.")
+  end
 end
 
 return M
