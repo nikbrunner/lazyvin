@@ -29,10 +29,7 @@ M.spec = {
   opts = {
     autowidth = {
       enable = true,
-      winwidth = 35,
-      filetype = {
-        help = 2,
-      },
+      winwidth = 25,
     },
     ignore = {
       buftype = { "quickfix" },
