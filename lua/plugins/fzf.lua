@@ -23,9 +23,19 @@ M.win_presets = {
         },
       },
     },
+    vertical = {
+      winopts = {
+        height = 0.75,
+        width = 0.75,
+        preview = {
+          layout = "vertical",
+          vertical = "up:75%",
+        },
+      },
+    },
   },
   large = {
-    vertical = {
+    almost_max = {
       winopts = {
         height = 0.9,
         width = 0.9,
@@ -72,13 +82,13 @@ M.spec = {
     {
       "<leader>ff",
       mode = { "n" },
-      M.fzf("files", M.win_presets.medium.flex),
+      M.fzf("files", M.win_presets.medium.vertical),
       desc = "Files",
     },
     {
       "<leader>gs",
       mode = { "n" },
-      M.fzf("git_status", M.win_presets.full.vertical),
+      M.fzf("git_status", M.win_presets.medium.vertical),
       desc = "Git Status",
     },
     {
