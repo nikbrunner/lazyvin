@@ -101,6 +101,10 @@ M.specs = {
           -- possible options. These can also be functions that return these options.
           position = "left", -- left, right, top, bottom, float, current
           width = 40, -- applies to left and right positions
+          popup = { -- settings that apply to float position only
+            size = { height = "25", width = "75" },
+            position = "50%", -- 50% means center it
+          },
           mappings = {
             ["<space>"] = false, -- disable for leader
             ["<2-LeftMouse>"] = "open",
