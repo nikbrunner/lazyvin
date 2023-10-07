@@ -4,6 +4,16 @@ local lazyvim_util = require("lazyvim.util")
 local set = vim.keymap.set
 local del = vim.keymap.del
 
+local function lazyredraw_keys(keys)
+  keys = vim.api.nvim_replace_termcodes(keys, true, false, true)
+  return function()
+    local old = vim.o.lazyredraw
+    vim.o.lazyredraw = true
+    vim.api.nvim_feedkeys(keys, "nx", false)
+    vim.o.lazyredraw = old
+  end
+end
+
 set({ "n", "v" }, "H", "^", { desc = "Move to Start of Line" })
 set({ "n", "v" }, "L", "$", { desc = "Move to End of Line" })
 
@@ -101,3 +111,6 @@ set("n", "<leader>ac", lib.tmux.start_custom_tmux_session, { desc = "Create Cust
 set("n", "<leader>as", lib.tmux.switch_tmux_session, { desc = "Switch Session" })
 set("n", "<leader>aw", lib.tmux.switch_tmux_window, { desc = "Switch Windows" })
 set("n", "<leader>ak", lib.tmux.kill_tmux_session, { desc = "Kill tmux active session" })
+
+set("n", "<C-u>", lazyredraw_keys("<C-u>zz"), { desc = "Scroll up half screen" })
+set("n", "<C-d>", lazyredraw_keys("<C-d>zz"), { desc = "Scroll down half screen" })
