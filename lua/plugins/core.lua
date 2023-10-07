@@ -8,7 +8,7 @@ M.spec = {
   opts = {
 
     ---@type LazyVin.Colorscheme
-    colorscheme = "tokyonight-moon",
+    colorscheme = "terafox",
   },
 }
 
