@@ -8,6 +8,7 @@ M.spec = {
       vim.api.nvim_win_set_option(win, "winblend", 30)
       vim.api.nvim_win_set_config(win, { zindex = 100 })
     end,
+    background_colour = "#000000",
   },
 }
 
