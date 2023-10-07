@@ -102,7 +102,7 @@ M.specs = {
           position = "left", -- left, right, top, bottom, float, current
           width = 40, -- applies to left and right positions
           popup = { -- settings that apply to float position only
-            size = { height = "25", width = "75" },
+            size = { height = "25" },
             position = "50%", -- 50% means center it
           },
           mappings = {
