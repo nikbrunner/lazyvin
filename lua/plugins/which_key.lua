@@ -56,6 +56,7 @@ M.spec = {
         ["<leader>c"] = { name = "Code" },
         ["<leader>cc"] = { name = "Copy" },
         ["<leader>ci"] = { name = "(AI) Actions" },
+        ["<leader>e"] = { name = "Explorer" },
         ["<leader>f"] = { name = "File & Find" },
         ["<leader>f/"] = { name = "Folders" },
         ["<leader>g"] = { name = "Git" },

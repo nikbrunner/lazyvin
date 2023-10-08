@@ -140,15 +140,6 @@ M.specs = {
       })
     end,
   },
-
-  {
-    "folke/which-key.nvim",
-    opts = {
-      defaults = {
-        ["<leader>e"] = { name = "Explorer" },
-      },
-    },
-  },
 }
 
 return M.specs
