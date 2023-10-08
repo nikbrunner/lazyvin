@@ -1,15 +1,16 @@
 local M = {}
 
+---@type LazySpec
 M.spec = {
   "rcarriga/nvim-notify",
-  enabled = false,
+  enabled = true,
   opts = {
     timeout = 3000,
-    on_open = function(win)
-      vim.api.nvim_win_set_option(win, "winblend", 30)
-      vim.api.nvim_win_set_config(win, { zindex = 100 })
-    end,
-    background_colour = "#000000",
+    background_colour = "NormalFloat",
+    fps = 60,
+    render = "minimal",
+    stages = "fade",
+    top_down = true,
   },
 }
 
