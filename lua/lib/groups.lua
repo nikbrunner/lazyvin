@@ -56,6 +56,8 @@ function M.find_and_open_component_files()
     return component_names
   end
 
+  vim.cmd("Neotree close")
+
   -- Get the component name from the user
   vim.ui.select(find_components(), { prompt = "Select a component:" }, function(selected_component, _)
     if not selected_component then

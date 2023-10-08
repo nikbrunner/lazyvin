@@ -25,6 +25,8 @@ end
 
 function M.start_smug_session()
   local sessions = vim.split(run_command("smug list", false), "\n")
+  vim.cmd("Neotree close")
+
   if sessions then
     vim.ui.select(sessions, {
       prompt = "Start a new preconfigured tmux session:",
@@ -56,6 +58,8 @@ function M.kill_tmux_session()
     filter_sessions(vim.split(run_command("tmux list-sessions -F '#{session_name}'"), "\n"), current_session)
 
   if #sessions > 0 then
+    vim.cmd("Neotree close")
+
     vim.ui.select(sessions, {
       prompt = "Select a tmux session to kill:",
     }, function(session, _)
@@ -74,6 +78,8 @@ function M.switch_tmux_session()
     filter_sessions(vim.split(run_command("tmux list-sessions -F '#{session_name}'"), "\n"), current_session)
 
   if #sessions > 0 then
+    vim.cmd("Neotree close")
+
     vim.ui.select(sessions, {
       prompt = "Select a tmux session to switch to:",
     }, function(session, _)
@@ -118,6 +124,8 @@ function M.switch_tmux_window()
     end, windows)
 
     if #display_windows > 0 then
+      vim.cmd("Neotree close")
+
       vim.ui.select(display_windows, {
         prompt = "Select a tmux window to switch to:",
       }, function(selected, _)
@@ -138,6 +146,8 @@ end
 --- Function to start a custom tmux session
 ---@return nil
 function M.start_custom_tmux_session()
+  vim.cmd("Neotree close")
+
   -- Prompt the user for a custom session name
   vim.ui.input({
     prompt = "Enter a name for the custom tmux session: ",
@@ -171,6 +181,8 @@ function M.switch_nvim_instance()
   end
 
   if #nvim_panes > 0 then
+    vim.cmd("Neotree close")
+
     vim.ui.select(nvim_panes, {
       prompt = "Select a Neovim instance to switch to:",
     }, function(pane_info, _)
