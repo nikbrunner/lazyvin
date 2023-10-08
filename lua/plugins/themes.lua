@@ -18,15 +18,17 @@ M.specs = {
     priority = 1000,
     keys = {
       {
-        "<leader>vTt",
+        "<leader>Tt",
         function()
+          vim.cmd("Neotree close")
           require("terra-core.actions.config").select_theme()
         end,
         desc = "Select theme",
       },
       {
-        "<leader>vTv",
+        "<leader>Tv",
         function()
+          vim.cmd("Neotree close")
           require("terra-core.actions.config").select_variant()
         end,
         desc = "Select variant",
