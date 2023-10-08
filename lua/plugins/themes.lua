@@ -64,8 +64,10 @@ M.specs = {
           magenta = "#a778d2",
           red = "#ee5e75",
           orange = "#ca7b36",
-          bg0 = "#0e1c15",
-          bg1 = "#152A1F",
+          -- bg0 = "#0e1c15",
+          -- bg1 = "#152A1F",
+          bg0 = "#14211a",
+          bg1 = "#18271f",
         },
       },
       groups = {
