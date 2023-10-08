@@ -159,12 +159,14 @@ end
 
 function M.switch_nvim_instance()
   local nvim_panes = {}
-  local panes_info =
-    vim.fn.systemlist("tmux list-panes -a -F '#{session_name} - #{window_name} - #{pane_id} - #{pane_current_command}'")
+  local panes_info = vim.fn.systemlist(
+    "tmux list-panes -a -F '#{session_name} - #{window_index} - #{window_name} - #{pane_id} - #{pane_current_command}'"
+  )
 
   for _, pane_info in ipairs(panes_info) do
     if string.match(pane_info, "nvim") then
-      table.insert(nvim_panes, pane_info)
+      local cleaned_pane_info = string.gsub(pane_info, " %- nvim", "")
+      table.insert(nvim_panes, cleaned_pane_info)
     end
   end
 
@@ -173,7 +175,9 @@ function M.switch_nvim_instance()
       prompt = "Select a Neovim instance to switch to:",
     }, function(pane_info, _)
       if pane_info then
-        local session, window, pane_id = string.match(pane_info, "(.-) %- (.-) %- (%%[0-9]+) %- nvim")
+        -- We disable the unused-local diagnostic here for `window`, because the regexp will fail otherwise
+        ---@diagnostic disable-next-line: unused-local
+        local session, window_index, window, pane_id = string.match(pane_info, "(.-) %- (.-) %- (.-) %- (%%[0-9]+)")
 
         -- Switch to the tmux session, window, and pane
         vim.fn.system(
@@ -181,7 +185,7 @@ function M.switch_nvim_instance()
             "tmux switch-client -t %s ; tmux select-window -t %s:%s ; tmux select-pane -t %s",
             session,
             session,
-            window,
+            window_index,
             pane_id
           )
         )
