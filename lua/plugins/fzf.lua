@@ -1,59 +1,76 @@
 ---@diagnostic disable: missing-fields
 local M = {}
 
+M.FOLDER_PRESETS = {
+  nvim = "~/.config/nvim",
+  config = "~/.config",
+}
+
+M.search_preset_folder = function()
+  vim.cmd("Neotree close")
+
+  local choices = {}
+
+  for key, _ in pairs(M.FOLDER_PRESETS) do
+    table.insert(choices, key)
+  end
+
+  vim.ui.select(choices, {
+    prompt = "Pick a folder: ",
+    format_item = function(choice)
+      return " " .. choice
+    end,
+  }, function(choice)
+    M.fzf("files", {
+      winopts = M.win_presets.medium.vertical,
+      cwd = M.FOLDER_PRESETS[choice],
+    })()
+  end)
+end
+
 M.win_presets = {
   small = {
     no_preview = {
-      winopts = {
-        height = 0.35,
-        width = 0.65,
-        preview = {
-          hidden = "hidden",
-        },
+      height = 0.35,
+      width = 0.65,
+      preview = {
+        hidden = "hidden",
       },
     },
   },
   medium = {
     flex = {
-      winopts = {
-        height = 0.65,
-        width = 0.65,
-        preview = {
-          layout = "flex",
-        },
+      height = 0.75,
+      width = 0.75,
+      preview = {
+        layout = "flex",
       },
     },
     vertical = {
-      winopts = {
-        height = 0.75,
-        width = 0.75,
-        preview = {
-          layout = "vertical",
-          vertical = "up:75%",
-        },
+      height = 0.75,
+      width = 0.75,
+      preview = {
+        layout = "vertical",
+        vertical = "up:65%",
       },
     },
   },
   large = {
-    almost_max = {
-      winopts = {
-        height = 0.9,
-        width = 0.9,
-        preview = {
-          layout = "vertical",
-          vertical = "up:65%",
-        },
+    vertical = {
+      height = 0.9,
+      width = 0.9,
+      preview = {
+        layout = "vertical",
+        vertical = "up:65%",
       },
     },
   },
   full = {
     vertical = {
-      winopts = {
-        fullscreen = true,
-        preview = {
-          layout = "vertical",
-          vertical = "down:75%",
-        },
+      fullscreen = true,
+      preview = {
+        layout = "vertical",
+        vertical = "down:75%",
       },
     },
   },
@@ -75,62 +92,78 @@ M.spec = {
   keys = {
     {
       "<leader><space>",
-      mode = { "n" },
-      M.fzf("oldfiles", M.win_presets.medium.flex),
+      M.fzf("oldfiles", {
+        winopts = M.win_presets.small.no_preview,
+      }),
       desc = "Files",
     },
     {
       "<leader>ff",
-      mode = { "n" },
-      M.fzf("files", M.win_presets.medium.vertical),
+      M.fzf("files", {
+        winopts = M.win_presets.medium.vertical,
+      }),
       desc = "Files",
     },
     {
       "<leader>gs",
-      mode = { "n" },
-      M.fzf("git_status", M.win_presets.medium.vertical),
+      M.fzf("git_status", {
+        winopts = M.win_presets.large.vertical,
+      }),
       desc = "Git Status",
     },
     {
       "<leader>gc",
-      mode = { "n" },
-      M.fzf("git_commits", M.win_presets.full.vertical),
+      M.fzf("git_commits", {
+        winopts = M.win_presets.large.vertical,
+      }),
       desc = "Git Commits",
     },
     {
-      "<leader>fr",
-      mode = { "n" },
-      M.fzf("oldfiles", M.win_presets.medium.flex),
-      desc = "Recent Files",
+      "<leader>f/",
+      M.search_preset_folder,
+      desc = "Preset folders",
     },
     {
-      "<C-r>",
-      mode = { "n" },
-      M.fzf("oldfiles", M.win_presets.medium.flex),
-      desc = "Recent Files",
+      "<leader>fr",
+      M.fzf("oldfiles", {
+        winopts = M.win_presets.medium.vertical,
+      }),
+      desc = "Recent Files (Current Session)",
+    },
+    {
+      "<leader>fR",
+      M.fzf("oldfiles", {
+        winopts = M.win_presets.medium.vertical,
+        include_current_session = false,
+      }),
+      desc = "Recent Files (All Sessions)",
     },
     {
       "<leader>ss",
-      mode = { "n" },
-      M.fzf("lsp_document_symbols", M.win_presets.medium.flex),
+      M.fzf("lsp_document_symbols", {
+        winopts = M.win_presets.medium.flex,
+      }),
       desc = "Document Symbols",
     },
     {
       "<leader>sS",
-      mode = { "n" },
-      M.fzf("lsp_workspace_symbols", M.win_presets.medium.flex),
+      M.fzf("lsp_live_workspace_symbols", {
+        winopts = M.win_presets.medium.flex,
+      }),
       desc = "Workspace Symbols",
     },
     {
       "<leader>/",
-      mode = { "n" },
-      M.fzf("live_grep_native", M.win_presets.medium.flex),
+      M.fzf("lgrep_curbuf", {
+        winopts = M.win_presets.large.vertical,
+      }),
       desc = "Grep",
     },
     {
       "<leader>sg",
-      mode = { "n" },
-      M.fzf("live_grep_native", M.win_presets.medium.flex),
+      M.fzf("live_grep_native", {
+        winopts = M.win_presets.large.vertical,
+      }),
       desc = "Grep",
     },
   },
@@ -151,26 +184,19 @@ M.spec = {
           help_border = "FloatBorder", -- <F1> window border
         },
         preview = {
-          -- native fzf previewers (bat/cat/git/etc)
           default = "bat",
-          border = "border", -- border|noborder, applies only to
+          border = "noborder", -- border|noborder, applies only to
           wrap = "nowrap", -- wrap|nowrap
           hidden = "nohidden", -- hidden|nohidden
           vertical = "down:45%", -- up|down:size
           horizontal = "right:60%", -- right|left:size
           layout = "flex", -- horizontal|vertical|flex
           flip_columns = 120, -- #cols to switch to horizontal on flex
-          -- Only valid with the builtin previewer:
           title = true, -- preview border title (file/buf)?
-          scrollbar = "float", -- `false` or string:'float|border'
-          -- float:  in-window floating border
-          -- border: in-border chars (see below)
+          scrollbar = false, -- `false` or string:'float|border'
           scrolloff = "-2", -- float scrollbar offset from right
-          -- applies only when scrollbar = 'float'
-          scrollchars = { "█", "" }, -- scrollbar chars ({ <full>, <empty> }
-          -- applies only when scrollbar = 'border'
+          scrollchars = { "", "" }, -- scrollbar chars ({ <full>, <empty> }
           delay = 100, -- delay(ms) displaying the preview
-          -- prevents lag on fast scrolling
           winopts = { -- builtin previewer window options
             number = false,
             relativenumber = false,
@@ -184,45 +210,28 @@ M.spec = {
           },
         },
         on_create = function()
-          -- called once upon creation of the fzf main window
-          -- can be used to add custom fzf-lua mappings, e.g:
-          --   vim.api.nvim_buf_set_keymap(0, "t", "<C-j>", "<Down>",
-          --     { silent = true, noremap = true })
+          vim.cmd("Neotree close")
         end,
       },
       keymap = {
-        -- These override the default tables completely
-        -- no need to set to `false` to disable a bind
-        -- delete or modify is sufficient
         builtin = {
-          -- neovim `:tmap` mappings for the fzf win
           ["<F1>"] = "toggle-help",
           ["<F2>"] = "toggle-fullscreen",
-          -- Only valid with the 'builtin' previewer
+
           ["<F3>"] = "toggle-preview-wrap",
           ["<F4>"] = "toggle-preview",
-          -- Rotate preview clockwise/counter-clockwise
           ["<F5>"] = "toggle-preview-ccw",
           ["<F6>"] = "toggle-preview-cw",
-          ["<S-down>"] = "preview-page-down",
-          ["<S-up>"] = "preview-page-up",
-          ["<S-left>"] = "preview-page-reset",
+
+          ["<C-d>"] = "preview-page-down",
+          ["<C-u>"] = "preview-page-up",
         },
         fzf = {
-          -- fzf '--bind=' options
           ["ctrl-c"] = "abort",
-          -- ["ctrl-u"] = "unix-line-discard",
-          ["ctrl-d"] = "half-page-down",
-          ["ctrl-u"] = "half-page-up",
-          -- ["ctrl-a"] = "beginning-of-line",
-          -- ["ctrl-e"] = "end-of-line",
           ["ctrl-a"] = "toggle-all",
           ["ctrl-q"] = "select-all+accept",
-          -- Only valid with fzf previewers (bat/cat/git/etc)
           ["f3"] = "toggle-preview-wrap",
           ["f4"] = "toggle-preview",
-          ["shift-down"] = "preview-page-down",
-          ["shift-up"] = "preview-page-up",
         },
       },
       fzf_opts = {
@@ -245,7 +254,7 @@ M.spec = {
         bat = {
           cmd = "bat",
           args = "--style=numbers,changes --color always",
-          theme = "Coldark-Dark", -- bat preview theme (bat --list-themes)
+          theme = "base16", -- bat preview theme (bat --list-themes)
           config = nil, -- nil uses $BAT_CONFIG_PATH
         },
         head = {
@@ -269,35 +278,20 @@ M.spec = {
       },
       -- provider setup
       files = {
-        -- previewer = "bat", -- uncomment to override previewer
-        -- (name from 'previewers' table)
-        -- set to 'false' to disable
         prompt = "Find File❯ ",
         multiprocess = true, -- run command in a separate process
         git_icons = true, -- show git icons?
         file_icons = true, -- show file icons?
         color_icons = true, -- colorize file|git icons
-        -- executed command priority is 'cmd' (if exists)
-        -- otherwise auto-detect prioritizes `fd`:`rg`:`find`
-        -- default options are controlled by 'fd|rg|find|_opts'
-        -- NOTE: 'find -printf' requires GNU find
-        -- cmd            = "find . -type f -printf '%P\n'",
         find_opts = [[-type f -not -path '*/\.git/*' -printf '%P\n']],
         rg_opts = "--color=never --files --hidden --follow -g '!.git'",
         fd_opts = "--color=never --type f --hidden --follow --exclude .git",
         actions = {
-          -- set bind to 'false' to disable an action
-          -- default action opens a single selection
-          -- or sends multiple selection to quickfix
-          -- replace the default action with the below
-          -- to open all files whether single or multiple
-          -- ["default"]     = actions.file_edit,
           ["default"] = actions.file_edit_or_qf,
           ["ctrl-s"] = actions.file_split,
           ["ctrl-v"] = actions.file_vsplit,
           ["ctrl-t"] = actions.file_tabedit,
           ["ctrl-q"] = actions.file_sel_to_qf,
-          -- custom actions are available too
           ["ctrl-y"] = function(selected)
             print(selected[1])
           end,
@@ -311,9 +305,6 @@ M.spec = {
           git_icons = true, -- show git icons?
           file_icons = true, -- show file icons?
           color_icons = true, -- colorize file|git icons
-          -- force display the cwd header line regardles of your current working
-          -- directory can also be used to hide the header when not wanted
-          -- show_cwd_header = true
         },
         status = {
           prompt = "Modified Files❯ ",
@@ -366,10 +357,6 @@ M.spec = {
           ["R"] = { icon = "R", color = "yellow" },
           ["C"] = { icon = "C", color = "yellow" },
           ["?"] = { icon = "?", color = "magenta" },
-          -- override git icons?
-          -- ["M"]        = { icon = "★", color = "red" },
-          -- ["D"]        = { icon = "✗", color = "red" },
-          -- ["A"]        = { icon = "+", color = "green" },
         },
       },
       grep = {
@@ -379,10 +366,6 @@ M.spec = {
         git_icons = true, -- show git icons?
         file_icons = true, -- show file icons?
         color_icons = true, -- colorize file|git icons
-        -- executed command priority is 'cmd' (if exists)
-        -- otherwise auto-detect prioritizes `rg` over `grep`
-        -- default options are controlled by 'rg|grep_opts'
-        -- cmd            = "rg --vimgrep",
         rg_opts = "--column --line-number --no-heading --color=always --smart-case --max-columns=512",
         grep_opts = "--binary-files=without-match --line-number --recursive --color=auto --perl-regexp",
         -- 'live_grep_glob' options:
@@ -409,11 +392,6 @@ M.spec = {
         cwd_only = true, -- buffers for the cwd only
         cwd = nil, -- buffers list for a given dir
         actions = {
-          -- actions inherit from 'actions.buffers' and merge
-          -- by supplying a table of functions we're telling
-          -- fzf-lua to not close the fzf window, this way we
-          -- can resume the buffers picker on the same window
-          -- eliminating an otherwise unaesthetic win "flash"
           ["ctrl-x"] = { actions.buf_del, actions.resume },
         },
       },
@@ -466,24 +444,14 @@ M.spec = {
       },
       lsp = {
         prompt_postfix = "❯ ", -- will be appended to the LSP label
-        -- to override use 'prompt' instead
         cwd_only = true, -- LSP/diagnostics for cwd only?
         async_or_timeout = 5000, -- timeout(ms) or 'true' for async calls
         file_icons = true,
         git_icons = true,
-        -- settings for 'lsp_{document|workspace|lsp_live_workspace}_symbols'
         symbols = {
           async_or_timeout = true, -- symbols are async by default
           symbol_style = 1, -- style for document/workspace symbols
-          -- false: disable,    1: icon+kind
-          --     2: icon only,  3: kind only
-          -- NOTE: icons are extracted from
-          -- vim.lsp.protocol.CompletionItemKind
-          -- colorize using nvim-cmp's CmpItemKindXXX highlights
-          -- can also be set to 'TS' for treesitter highlights ('TSProperty', etc)
-          -- or 'false' to disable highlighting
           symbol_hl_prefix = "CmpItemKind",
-          -- additional symbol formatting, works with or without style
           symbol_fmt = function(s)
             return "[" .. s .. "]"
           end,

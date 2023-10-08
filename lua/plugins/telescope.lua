@@ -112,10 +112,10 @@ M.spec = {
       "<leader>sg",
       false,
     },
-    -- {
-    --   "<leader>/",
-    --   false,
-    -- },
+    {
+      "<leader>/",
+      false,
+    },
   },
   opts = function(_, default_opts)
     local actions = require("telescope.actions")
