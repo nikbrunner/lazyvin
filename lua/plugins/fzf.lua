@@ -93,7 +93,7 @@ M.spec = {
     {
       "<leader><space>",
       M.fzf("oldfiles", {
-        winopts = M.win_presets.small.no_preview,
+        winopts = M.win_presets.medium.vertical,
       }),
       desc = "Files",
     },
