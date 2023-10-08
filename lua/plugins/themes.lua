@@ -35,9 +35,9 @@ M.specs = {
 
     ---@type TerraConfig
     opts = {
-      theme = "spring",
+      theme = "fall",
       variant = "night",
-      transparent = true,
+      transparent = false,
       diagnostics = {
         background = true,
       },
@@ -50,7 +50,36 @@ M.specs = {
     priority = 1000,
     opts = {
       options = {
-        transparent = true,
+        transparent = false,
+        styles = {
+          comments = "italic",
+          functions = "italic,bold",
+          keywords = "bold",
+        },
+      },
+      palettes = {
+        terafox = {
+          magenta = "#a778d2",
+          red = "#ee5e75",
+          orange = "#ca7b36",
+          bg0 = "#0e1c15",
+          bg1 = "#152A1F",
+        },
+      },
+      groups = {
+        all = {
+          NeoTreeTitleBar = {
+            bg = "palette.bg0",
+            fg = "palette.orange",
+          },
+          NeoTreeFloatBorder = {
+            fg = "palette.bg0",
+          },
+          FloatBorder = {
+            bg = "palette.bg0",
+            fg = "palette.bg0",
+          },
+        },
       },
     },
   },
