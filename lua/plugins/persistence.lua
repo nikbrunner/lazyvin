@@ -1,8 +1,10 @@
+---@diagnostic disable: missing-fields
 local M = {}
 
 ---@type LazySpec
 M.spec = {
   "folke/persistence.nvim",
+  enabled = false,
   event = "BufReadPre",
   opts = { options = { "buffers", "curdir", "tabpages", "winsize", "help", "globals", "skiprtp" } },
   keys = {
