@@ -211,6 +211,10 @@ M.spec = {
         },
         on_create = function()
           vim.cmd("Neotree close")
+          -- called once upon creation of the fzf main window
+          -- can be used to add custom fzf-lua mappings, e.g:
+          vim.keymap.set("t", "<C-j>", "<Down>", { silent = true, buffer = true })
+          vim.keymap.set("t", "<C-k>", "<Up>", { silent = true, buffer = true })
         end,
       },
       keymap = {
