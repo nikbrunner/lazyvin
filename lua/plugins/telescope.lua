@@ -71,50 +71,15 @@ M.spec = {
   "nvim-telescope/telescope.nvim",
   priority = 100,
   keys = {
-    -- Disable these bindings to use FzfLua instead
-    {
-      "<leader><space>",
-      false,
-    },
-    {
-      "<leader>ff",
-      false,
-    },
-    {
-      "<leader>fF",
-      false,
-    },
     {
       "<leader>gs",
-      false,
+      M.cmds.git_status,
+      desc = "Git Status",
     },
     {
       "<leader>gc",
-      false,
-    },
-    {
-      "<leader>fr",
-      false,
-    },
-    {
-      "<leader>fR",
-      false,
-    },
-    {
-      "<leader>ss",
-      false,
-    },
-    {
-      "<leader>sS",
-      false,
-    },
-    {
-      "<leader>sg",
-      false,
-    },
-    {
-      "<leader>/",
-      false,
+      M.cmds.git_commits,
+      desc = "Git Commit",
     },
   },
   opts = function(_, default_opts)
@@ -266,8 +231,8 @@ M.spec = {
           lsp_references = quick_flex_window,
           lsp_implementations = quick_flex_window,
           lsp_type_definitions = quick_flex_window,
-          lsp_document_symbols = quick_cursor_window,
-          lsp_workdspace_symbols = quick_cursor_window,
+          lsp_document_symbols = quick_flex_window,
+          lsp_workspace_symbols = quick_flex_window,
           diagnostics = quick_flex_window,
           git_status = {
             theme = "ivy",
