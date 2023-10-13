@@ -105,4 +105,45 @@ function M.find_and_open_component_files()
   end)
 end
 
+-- Gets the component_name from under the cursor and opens up the component files in a new tab
+function M.find_and_open_component_file()
+  local component_name = vim.fn.expand("<cword>")
+  local tsx_file = string.format("%s.tsx", component_name)
+  local scss_file = string.format("%s.scss", component_name)
+  local story_file = string.format("%s.story.tsx", component_name)
+
+  local tsx_path = vim.fn.system(string.format("rg --files --hidden --glob '%s'", tsx_file))
+  local scss_path = vim.fn.system(string.format("rg --files --hidden --glob '%s'", scss_file))
+  local story_path = vim.fn.system(string.format("rg --files --hidden --glob '%s'", story_file))
+
+  if tsx_path == "" and scss_path == "" and story_path == "" then
+    print("No component found for " .. component_name)
+    return
+  end
+
+  tsx_path = tsx_path:gsub("\n", "")
+  scss_path = scss_path:gsub("\n", "")
+  story_path = story_path:gsub("\n", "")
+
+  close_all_windows_except_current()
+
+  if tsx_path ~= "" then
+    vim.cmd("tabnew " .. tsx_path)
+  end
+
+  if scss_path ~= "" then
+    vim.cmd("vsplit " .. scss_path)
+  end
+
+  if story_path ~= "" then
+    vim.cmd("vsplit " .. story_path)
+  end
+
+  local all_wins = vim.api.nvim_tabpage_list_wins(0)
+
+  if #all_wins > 0 then
+    vim.api.nvim_set_current_win(all_wins[1])
+  end
+end
+
 return M
