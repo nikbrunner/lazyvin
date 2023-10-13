@@ -1,9 +1,9 @@
 {
   "ChatGPT.nvim": { "branch": "main", "commit": "7db348d7b45a84d6144354d90d5d16315c422e5a" },
-  "LazyVim": { "branch": "main", "commit": "1e7924878693be1570c91811fd5c55bb53c8c4d0" },
+  "LazyVim": { "branch": "main", "commit": "ea4174d46016dd191de48c03bdf23462483f9f6a" },
   "LuaSnip": { "branch": "master", "commit": "0df29db3543837f8b41597f2640397c5ec792b7b" },
   "Navigator.nvim": { "branch": "master", "commit": "91d86506ac2a039504d5205d32a1d4bc7aa57072" },
-  "SchemaStore.nvim": { "branch": "main", "commit": "ca3b59653595583ea3d7b0874aaf74b5f2a916ae" },
+  "SchemaStore.nvim": { "branch": "main", "commit": "f3c4985093716c8ddf93731609ebfc1df7c5335d" },
   "aerial.nvim": { "branch": "master", "commit": "9ef83d9a7a4ac471d14e608da50b8d91459cae10" },
   "barbecue": { "branch": "main", "commit": "cd7e7da622d68136e13721865b4d919efd6325ed" },
   "catppuccin": { "branch": "main", "commit": "fc537040147f0374a22b88142a20eb6781141f0b" },
