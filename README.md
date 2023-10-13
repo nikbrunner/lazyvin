@@ -166,3 +166,4 @@ NVIM_APPNAME=nikbrunner/lazyvin/ nvim
 - [ ] Browse Pull Request Files
 - [ ] Build out `groups.lua` to accept configurations for different projects
 - [ ] Finish GitHub PR Files functionality [telescope-github.nvim/lua/telescope/\_extensions/gh_builtin.lua at master · nvim-telescope/telescope-github.nvim](https://github.com/nvim-telescope/telescope-github.nvim/blob/master/lua/telescope/_extensions/gh_builtin.lua)
+- [ ] Add `plugins/disables.lua` to disable plugins
