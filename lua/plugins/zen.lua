@@ -4,7 +4,7 @@ local M = {}
 M.spec = {
   "folke/zen-mode.nvim",
   keys = {
-    { "<leader>z", "<CMD>ZenMode<CR>" },
+    { "<leader>z", "<CMD>ZenMode<CR>", desc = "Zen Mode" },
   },
   opts = {
     window = {

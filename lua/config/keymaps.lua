@@ -6,6 +6,10 @@ local del = vim.keymap.del
 
 -- TODO: Clean up this file
 
+-- Disables
+del("n", "<leader>-")
+del("n", "<leader>|")
+
 local function lazyredraw_keys(keys)
   keys = vim.api.nvim_replace_termcodes(keys, true, false, true)
   return function()
@@ -28,7 +32,6 @@ set("n", "vv", "^v$", { desc = "Select Line" })
 set("n", "vA", "ggVG", { desc = "Select All" })
 set("n", "yA", "ggVGy", { desc = "Copy All" })
 
-set("n", "<leader>d", '"_d', { desc = "Delete" })
 set("n", "x", '"_x', { desc = "Delete" })
 
 set("n", "J", "mzJ`z", { desc = "Join Lines" })
@@ -40,8 +43,8 @@ set("n", "gl", vim.diagnostic.open_float, { desc = "Open Diagnostic" })
 del("n", "<leader>l")
 del("n", "<leader>L")
 
-set("n", "<leader>vm", "<cmd>Mason<CR>", { desc = "Package Manager - [Mason]" })
-set("n", "<leader>vl", "<cmd>Lazy<CR>", { desc = "Plugin Manager - [Lazy]" })
+set("n", "<leader>vP", "<cmd>Mason<CR>", { desc = "Package Manager - [Mason]" })
+set("n", "<leader>vp", "<cmd>Lazy<CR>", { desc = "Plugin Manager - [Lazy]" })
 set("n", "<leader>ve", "<cmd>LazyExtras<CR>", { desc = "Extras Manager - [Lazy]" })
 set("n", "<leader>vi", "<cmd>LspInfo<CR>", { desc = "Lsp Info" })
 set("n", "<leader>vc", lazyvim_util.news.changelog, { desc = "LazyVim Changelog" })
@@ -89,6 +92,7 @@ set("n", "<leader><tab>6", "6gt", { desc = "Go to Tab 6" })
 set("n", "<leader><tab>7", "7gt", { desc = "Go to Tab 7" })
 set("n", "<leader><tab>8", "8gt", { desc = "Go to Tab 8" })
 set("n", "<leader><tab>9", "9gt", { desc = "Go to Tab 9" })
+set("n", "<leader>q", ":tabclose<CR>", { desc = "Close Tab" })
 
 -- Make lazygit open in a fullscreen floating window
 set("n", "<leader>gg", function()
