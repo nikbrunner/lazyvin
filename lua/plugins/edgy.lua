@@ -1,3 +1,4 @@
+---@diagnostic disable: missing-fields
 local M = {}
 
 ---@type LazySpec
@@ -12,18 +13,15 @@ M.spec = {
   keys = {
     {
       "<leader>ue",
-      function()
-        require("edgy").toggle()
-      end,
-      desc = "Edgy Toggle",
+      require("edgy").toggle,
+      desc = "Edgy Toggle Windows",
     },
     {
       "<leader>us",
-      function()
-        require("edgy").select()
-      end,
+      require("edgy").select,
       desc = "Edgy Select Window",
     },
+    -- TODO: Improve bindings
   },
   opts = {
     ---@type table<Edgy.Pos, {size:integer, wo?:vim.wo}>
@@ -40,7 +38,7 @@ M.spec = {
 
     left = {
       {
-        title = "Neo-Tree",
+        title = "Files",
         ft = "neo-tree",
         filter = function(buf, win)
           local isFloat = vim.api.nvim_win_get_config(win).relative == ""
@@ -56,7 +54,7 @@ M.spec = {
 
     right = {
       {
-        title = "Neo-Tree Git",
+        title = "Git",
         ft = "neo-tree",
         filter = function(buf, win)
           local isFloat = vim.api.nvim_win_get_config(win).relative == ""

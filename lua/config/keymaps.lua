@@ -4,6 +4,8 @@ local lazyvim_util = require("lazyvim.util")
 local set = vim.keymap.set
 local del = vim.keymap.del
 
+-- TODO: Clean up this file
+
 local function lazyredraw_keys(keys)
   keys = vim.api.nvim_replace_termcodes(keys, true, false, true)
   return function()
@@ -29,6 +31,8 @@ set("n", "yA", "ggVGy", { desc = "Copy All" })
 set("n", "<leader>d", '"_d', { desc = "Delete" })
 set("n", "x", '"_x', { desc = "Delete" })
 
+set("n", "J", "mzJ`z", { desc = "Join Lines" })
+
 set("n", "gl", vim.diagnostic.open_float, { desc = "Open Diagnostic" })
 
 -- Vin Group
@@ -37,10 +41,10 @@ del("n", "<leader>l")
 del("n", "<leader>L")
 
 set("n", "<leader>vm", "<cmd>Mason<CR>", { desc = "Package Manager - [Mason]" })
-set("n", "<leader>vn", "<cmd>NullLsInfo<CR>", { desc = "Tool Manager - [NullLS]" })
 set("n", "<leader>vl", "<cmd>Lazy<CR>", { desc = "Plugin Manager - [Lazy]" })
+set("n", "<leader>ve", "<cmd>LazyExtras<CR>", { desc = "Extras Manager - [Lazy]" })
 set("n", "<leader>vi", "<cmd>LspInfo<CR>", { desc = "Lsp Info" })
-set("n", "<leader>vc", lazyvim_util.changelog, { desc = "LazyVim Changelog" })
+set("n", "<leader>vc", lazyvim_util.news.changelog, { desc = "LazyVim Changelog" })
 set("n", "<leader>vM", vim.cmd.messages, { desc = "Display messages" })
 
 -- Find component
@@ -87,16 +91,16 @@ set("n", "<leader><tab>9", "9gt", { desc = "Go to Tab 9" })
 
 -- Make lazygit open in a fullscreen floating window
 set("n", "<leader>gg", function()
-  lazyvim_util.float_term(
+  lazyvim_util.terminal.open(
     { "lazygit" },
-    { cwd = lazyvim_util.get_root(), esc_esc = false, ctrl_hjkl = false, size = { width = 1, height = 1 } }
+    { cwd = lazyvim_util.root.get(), esc_esc = false, ctrl_hjkl = false, size = { width = 1, height = 1 } }
   )
 end, { desc = "Lazygit (root dir)" })
 
 set("n", "<leader>gp", function()
-  lazyvim_util.float_term(
+  lazyvim_util.terminal.open(
     { "gh", "dash" },
-    { cwd = lazyvim_util.get_root(), esc_esc = false, ctrl_hjkl = false, size = { width = 1, height = 1 } }
+    { cwd = lazyvim_util.root.get(), esc_esc = false, ctrl_hjkl = false, size = { width = 1, height = 1 } }
   )
 end, { desc = "GitHub Pull Requests" })
 

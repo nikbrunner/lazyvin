@@ -15,21 +15,21 @@ M.specs = {
         {
           "<leader>ee",
           function()
-            vim.cmd("Neotree left toggle")
+            require("neo-tree.command").execute({ position = "left", source = "filesystem", toggle = true })
           end,
           desc = "Files",
         },
         {
           "<leader>eg",
           function()
-            vim.cmd("Neotree right git_status toggle")
+            require("neo-tree.command").execute({ position = "right", source = "git_status", toggle = true })
           end,
           desc = "Git Status",
         },
         {
           "<leader>eb",
           function()
-            vim.cmd("Neotree float buffers toggle")
+            require("neo-tree.command").execute({ position = "right", source = "buffers", toggle = true })
           end,
           desc = "Buffers",
         },

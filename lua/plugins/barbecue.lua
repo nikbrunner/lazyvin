@@ -5,19 +5,15 @@ M.spec = {
   "utilyre/barbecue.nvim",
   name = "barbecue",
   version = "*",
-  enabled = true,
-  dependencies = {
-    "SmiteshP/nvim-navic",
-    "nvim-tree/nvim-web-devicons", -- optional dependency
-  },
+  dependencies = { "SmiteshP/nvim-navic", "nvim-tree/nvim-web-devicons" },
   opts = {
     ---whether to show/use navic in the winbar
     ---@type boolean
-    show_navic = true,
+    show_navic = false,
 
     ---whether to attach navic to language servers automatically
     ---@type boolean
-    attach_navic = true,
+    attach_navic = false,
 
     ---whether to create winbar updater autocmd
     ---@type boolean

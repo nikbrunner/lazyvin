@@ -53,7 +53,7 @@ M.keys = function()
   return keys
 end
 
----@type LazySpec
+---@type LazySpec[]
 M.specs = {
   {
     "ThePrimeagen/harpoon",
@@ -87,7 +87,6 @@ M.specs = {
 
   {
     "folke/which-key.nvim",
-    -- TODO: Only load when Harpoon is loaded/enabled
     opts = {
       defaults = {
         ["<leader>m"] = { name = "Marks" },
