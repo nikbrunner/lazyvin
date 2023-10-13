@@ -44,10 +44,11 @@ del("n", "<leader>l")
 del("n", "<leader>L")
 
 set("n", "<leader>vP", "<cmd>Mason<CR>", { desc = "Package Manager - [Mason]" })
-set("n", "<leader>vp", "<cmd>Lazy<CR>", { desc = "Plugin Manager - [Lazy]" })
-set("n", "<leader>ve", "<cmd>LazyExtras<CR>", { desc = "Extras Manager - [Lazy]" })
+set("n", "<leader>vp", "<cmd>Lazy<CR>", { desc = "Plugin Manager - [LazyVim]" })
+set("n", "<leader>ve", "<cmd>LazyExtras<CR>", { desc = "Extras Manager - [LazyVim]" })
 set("n", "<leader>vi", "<cmd>LspInfo<CR>", { desc = "Lsp Info" })
-set("n", "<leader>vc", lazyvim_util.news.changelog, { desc = "LazyVim Changelog" })
+set("n", "<leader>vc", lazyvim_util.news.changelog, { desc = "Changelog [LazyVim]" })
+set("n", "<leader>vr", lazyvim_util.root.info, { desc = "Root Info [LazyVim]" })
 set("n", "<leader>vM", vim.cmd.messages, { desc = "Display messages" })
 
 -- Find component
