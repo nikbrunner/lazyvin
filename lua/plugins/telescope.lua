@@ -72,6 +72,13 @@ M.spec = {
   priority = 100,
   keys = {
     {
+      "<leader><space>",
+      M.cmds.builtin("oldfiles", {
+        only_cwd = true,
+      }),
+      desc = "Find Recent Files",
+    },
+    {
       "<leader>gs",
       M.cmds.git_status,
       desc = "Git Status",
@@ -88,15 +95,16 @@ M.spec = {
 
     local quick_flex_window = {
       show_line = false,
-      layout_strategy = "vertical",
+      layout_strategy = "flex",
       layout_config = {
-        width = 0.9,
-        height = 0.9,
+        width = 0.65,
+        height = 0.65,
         preview_cutoff = 1,
         mirror = false,
       },
     }
 
+    ---@diagnostic disable-next-line: unused-local
     local quick_cursor_window = {
       show_line = false,
       theme = "cursor",
