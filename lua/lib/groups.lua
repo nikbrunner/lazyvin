@@ -1,16 +1,30 @@
+---@class ComponentNvim.Pairing
+---@field label string
+---@field recognition_pattern string
+---@field extensions string[]
+
+---@class ComponentNvim.Project
+---@field root_folder string
+---@field pairings ComponentNvim.Pairing[]
+--
 local M = {
   config = {
-    project_path = "$HOME/Documents/dev/repos/dcd/bc-desktop-client",
-    search_configs = {
+    ---@type ComponentNvim.Project[]
+    projects = {
       {
-        name = "Component",
-        relative_base_path = "src/client/commons/components/",
-        extensions = { "tsx", "scss", "story.tsx" },
-      },
-      {
-        name = "Lib",
-        relative_base_path = { "src/commons/libs", "src/client/kiosk/libs" },
-        extensions = { "ts", "spec.ts" },
+        root_folder = "bc-desktop-client",
+        pairings = {
+          {
+            label = "Components",
+            recognition_pattern = "src/*/**/*components/**/*.tsx",
+            extensions = { "tsx", "scss", "story.tsx" },
+          },
+          {
+            label = "Libs",
+            recognition_pattern = "src/*/**/*libs/**/*.ts",
+            extensions = { "ts", "spec.ts" },
+          },
+        },
       },
     },
   },
@@ -18,6 +32,7 @@ local M = {
 
 local function close_all_windows_except_current()
   vim.cmd("Neotree close")
+
   local current_win = vim.api.nvim_get_current_win()
   local all_wins = vim.api.nvim_tabpage_list_wins(0)
 
@@ -28,122 +43,165 @@ local function close_all_windows_except_current()
   end
 end
 
-function M.find_and_open_component_files()
-  local function find_components()
-    local rg_output = vim.fn.system("rg --files --hidden | grep '/components/.*\\.tsx$'")
-    local files = vim.split(rg_output, "\n")
+---@param str string
+local function trim_newline(str)
+  return str:gsub("\n", "")
+end
 
-    local unique_components = {}
-    for _, file in ipairs(files) do
-      -- Get the component name from the file path
-      local component = file:match(".+/([^/]+)%.tsx")
+---Get the current project configuration based on the project path.
+---@return table | nil
+local function get_current_project_config()
+  local current_working_dir = vim.fn.system("git rev-parse --show-toplevel")
 
-      if component and not unique_components[component] then
-        -- Skip .story.tsx files
-        if not component:find("story") then
-          unique_components[component] = true
-        end
+  if current_working_dir == "" then
+    print("No git repository found")
+    return nil
+  end
+
+  local project_folder = vim.fn.fnamemodify(trim_newline(current_working_dir), ":t")
+
+  for _, config in ipairs(M.config.projects) do
+    if config.root_folder == project_folder then
+      return config
+    end
+  end
+
+  print("No matching project config found")
+  return nil
+end
+
+---@param extension string
+---@param name string
+local function find_files_by_extension_and_name(extension, name)
+  local filePath = vim.fn.system(string.format("rg --files --hidden --glob '%s.%s'", name, extension))
+  return trim_newline(filePath)
+end
+
+---@param component_name string
+---@param extensions string[]
+local function open_files_by_type(component_name, extensions)
+  local all_wins
+  local first_file = true -- To keep track of the first file
+
+  for _, ext in ipairs(extensions) do
+    local file_path = find_files_by_extension_and_name(ext, component_name)
+
+    if file_path ~= "" then
+      if first_file then -- Open first file with edit
+        vim.cmd(string.format("edit %s", file_path))
+        first_file = false
+      else
+        vim.cmd(string.format("vsplit %s", file_path))
       end
     end
 
-    local component_names = {}
-    for name, _ in pairs(unique_components) do
-      table.insert(component_names, name)
-    end
-
-    table.sort(component_names)
-
-    return component_names
+    all_wins = vim.api.nvim_tabpage_list_wins(0)
   end
 
-  vim.cmd("Neotree close")
-
-  -- Get the component name from the user
-  vim.ui.select(find_components(), { prompt = "Select a component:" }, function(selected_component, _)
-    if not selected_component then
-      return
-    end
-
-    -- Define the search paths based on the component name
-    local tsx_file = string.format("%s.tsx", selected_component)
-    local scss_file = string.format("%s.scss", selected_component)
-    local story_file = string.format("%s.story.tsx", selected_component)
-
-    -- Search for the files and get the full paths
-    local tsx_path = vim.fn.system(string.format("rg --files --hidden --glob '%s'", tsx_file))
-    local scss_path = vim.fn.system(string.format("rg --files --hidden --glob '%s'", scss_file))
-    local story_path = vim.fn.system(string.format("rg --files --hidden --glob '%s'", story_file))
-
-    -- Trim the newlines at the end of each path
-    tsx_path = tsx_path:gsub("\n", "")
-    scss_path = scss_path:gsub("\n", "")
-    story_path = story_path:gsub("\n", "")
-
-    -- Close all other windows in the current tab.
-    close_all_windows_except_current()
-
-    -- Open the files if they exist
-    if tsx_path ~= "" then
-      vim.cmd("edit " .. tsx_path)
-    end
-
-    if scss_path ~= "" then
-      vim.cmd("vsplit " .. scss_path)
-    end
-
-    if story_path ~= "" then
-      vim.cmd("vsplit " .. story_path)
-    end
-
-    -- Get a list of all windows in the current tabpage
-    local all_wins = vim.api.nvim_tabpage_list_wins(0)
-
-    -- Focus the left-most window (which should be the first in the list)
-    if #all_wins > 0 then
-      vim.api.nvim_set_current_win(all_wins[1])
-    end
-  end)
-end
-
--- Gets the component_name from under the cursor and opens up the component files in a new tab
-function M.find_and_open_component_file()
-  local component_name = vim.fn.expand("<cword>")
-  local tsx_file = string.format("%s.tsx", component_name)
-  local scss_file = string.format("%s.scss", component_name)
-  local story_file = string.format("%s.story.tsx", component_name)
-
-  local tsx_path = vim.fn.system(string.format("rg --files --hidden --glob '%s'", tsx_file))
-  local scss_path = vim.fn.system(string.format("rg --files --hidden --glob '%s'", scss_file))
-  local story_path = vim.fn.system(string.format("rg --files --hidden --glob '%s'", story_file))
-
-  if tsx_path == "" and scss_path == "" and story_path == "" then
-    print("No component found for " .. component_name)
-    return
-  end
-
-  tsx_path = tsx_path:gsub("\n", "")
-  scss_path = scss_path:gsub("\n", "")
-  story_path = story_path:gsub("\n", "")
-
-  close_all_windows_except_current()
-
-  if tsx_path ~= "" then
-    vim.cmd("tabnew " .. tsx_path)
-  end
-
-  if scss_path ~= "" then
-    vim.cmd("vsplit " .. scss_path)
-  end
-
-  if story_path ~= "" then
-    vim.cmd("vsplit " .. story_path)
-  end
-
-  local all_wins = vim.api.nvim_tabpage_list_wins(0)
-
+  -- Focus the first window
   if #all_wins > 0 then
     vim.api.nvim_set_current_win(all_wins[1])
   end
+end
+
+---@param pairing ComponentNvim.Pairing
+local function find_items(pairing)
+  local rg_string = string.format("rg --files --hidden -g '%s'", pairing.recognition_pattern)
+  local rg_output = vim.fn.system(rg_string)
+
+  local files = vim.split(rg_output, "\n")
+  local unique_items = {}
+
+  local recognition_pattern = pairing.recognition_pattern:match("[^.]+$")
+
+  for _, file in ipairs(files) do
+    local pattern = string.format(".+/([^/.]+)%%.%s$", recognition_pattern)
+    local item = file:match(pattern)
+    if item then
+      unique_items[item] = true
+    end
+  end
+
+  local item_names = {}
+  for name, _ in pairs(unique_items) do
+    table.insert(item_names, name)
+  end
+
+  table.sort(item_names)
+  return item_names
+end
+
+function M.find_and_open_files()
+  vim.cmd("Neotree close")
+
+  local project_config = get_current_project_config()
+
+  if not project_config then
+    return
+  end
+
+  local pairing_labels = {}
+  for _, pairing in ipairs(project_config.pairings) do
+    table.insert(pairing_labels, pairing.label)
+  end
+
+  vim.ui.select(pairing_labels, { prompt = "Select a pairing:" }, function(selected_pairing_label)
+    local selected_pairing = nil
+
+    for _, pairing in ipairs(project_config.pairings) do
+      if pairing.label == selected_pairing_label then
+        selected_pairing = pairing
+        break
+      end
+    end
+
+    if not selected_pairing then
+      print("Invalid pairing selected")
+      return
+    end
+
+    local item_names = find_items(selected_pairing)
+
+    if #item_names == 0 then
+      print("No items found")
+      return
+    end
+
+    vim.ui.select(item_names, { prompt = "Select an item:" }, function(selected_item)
+      if selected_item then
+        close_all_windows_except_current()
+        vim.cmd.tabnew()
+        open_files_by_type(selected_item, selected_pairing.extensions)
+      end
+    end)
+  end)
+end
+
+---Find and open a component file under the cursor in a new tab.
+function M.find_and_open_component_file()
+  local current_config = get_current_project_config()
+  if not current_config then
+    print("No project config found")
+    return
+  end
+
+  local component_name = vim.fn.expand("<cword>")
+  if not component_name then
+    print("No component name found")
+    return
+  end
+
+  for _, ext in ipairs(current_config.component_extensions) do
+    local path = find_files_by_extension_and_name(ext, component_name)
+    if path ~= "" then
+      close_all_windows_except_current()
+      vim.cmd.tabnew()
+      open_files_by_type(component_name, current_config.component_extensions)
+      return
+    end
+  end
+
+  print("No component found for " .. component_name)
 end
 
 return M
