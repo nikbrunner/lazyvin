@@ -3,7 +3,7 @@ local M = {}
 ---@type LazySpec
 M.specs = {
   {
-    "glepnir/dashboard-nvim",
+    "nvimdev/dashboard-nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
     event = "VimEnter",
     opts = {
