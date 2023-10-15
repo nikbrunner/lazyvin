@@ -8,6 +8,7 @@ local M = {}
 M.spec = {
   "jackMort/ChatGPT.nvim",
   event = "VeryLazy",
+  enabled = false,
   dependencies = {
     "MunifTanjim/nui.nvim",
     "nvim-lua/plenary.nvim",
