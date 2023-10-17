@@ -1,5 +1,7 @@
+local M = {}
+
 ---@type LazySpec
-local spec = {
+M.spec = {
   "piersolenski/wtf.nvim",
   dependencies = {
     "MunifTanjim/nui.nvim",
@@ -13,8 +15,6 @@ local spec = {
   keys = {
     {
       "gw",
-      id = "wtf-gw",
-      mode = { "n" },
       function()
         require("wtf").ai()
       end,
@@ -22,8 +22,6 @@ local spec = {
     },
     {
       "gW",
-      id = "wtf-gW",
-      mode = { "n" },
       function()
         require("wtf").search()
       end,
@@ -32,4 +30,4 @@ local spec = {
   },
 }
 
-return spec
+return M.spec
