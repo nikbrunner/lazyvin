@@ -1,6 +1,6 @@
 local M = {}
 
----@alias LazyVin.Colorscheme "kanagawa" | "tokyonight-moon" | "carbonfox" | "terafox" | "nordfox" | "terra_fall_night" | "terra_spring_night"
+---@alias LazyVin.Colorscheme "kanagawa" | "tokyonight-moon" | "carbonfox" | "terafox" | "nordfox" | "terra_fall_night" | "terra_spring_night" | "mini_slime" | "mini_blue" | "github_dark_dimmed"
 
 ---@type LazySpec
 M.spec = {
@@ -8,7 +8,7 @@ M.spec = {
   opts = {
 
     ---@type LazyVin.Colorscheme
-    -- colorscheme = "terra_spring_night",
+    colorscheme = "github_dark_dimmed",
 
     ---@type table<string, string[]>?
     kind_filter = {
