@@ -69,7 +69,6 @@ end
 ---@type LazySpec
 M.spec = {
   "nvim-telescope/telescope.nvim",
-  priority = 100,
   keys = {
     {
       "<leader><space>",
@@ -77,6 +76,10 @@ M.spec = {
         only_cwd = true,
       }),
       desc = "Find Recent Files",
+    },
+    {
+      "<leader>ff",
+      false,
     },
     {
       "<leader>gs",
