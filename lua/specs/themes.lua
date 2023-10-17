@@ -87,10 +87,6 @@ M.specs = {
       },
     },
   },
-
-  {
-    "projekt0n/github-nvim-theme",
-  },
 }
 
 return M.specs
