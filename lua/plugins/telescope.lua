@@ -78,8 +78,9 @@ M.spec = {
       desc = "Find Recent Files",
     },
     {
-      "<leader>ff",
-      false,
+      "<leader>r",
+      M.cmds.builtin("buffers"),
+      desc = "Open buffers",
     },
     {
       "<leader>gs",
@@ -253,9 +254,10 @@ M.spec = {
             theme = "dropdown",
             initial_mode = "insert",
           },
-          buffers = vim.tbl_extend("force", quick_flex_window, {
+          buffers = {
+            theme = "dropdown",
             initial_mode = "insert",
-          }),
+          },
           current_buffer_fuzzy_find = {
             theme = "ivy",
           },
