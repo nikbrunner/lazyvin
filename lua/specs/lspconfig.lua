@@ -7,7 +7,7 @@ M.spec = {
   init = function()
     local keys = require("lazyvim.plugins.lsp.keymaps").get()
 
-    keys[#keys + 1] = { "gr", "<cmd>Trouble lsp_references<CR>", desc = "LSP References (Trouble)" }
+    keys[#keys + 1] = { "gR", "<cmd>Trouble lsp_references<CR>", desc = "LSP References (Trouble)" }
   end,
   ---@class PluginLspOpts
   opts = {
