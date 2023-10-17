@@ -10,7 +10,7 @@ M.spec = {
     { "gn", "<CMD>AerialNavToggle<CR>", desc = "Aerial (Go Nav)" },
   },
   opts = {
-    backends = { "treesitter", "lsp", "markdown", "man" },
+    backends = { "lsp", "treesitter", "markdown", "man" },
   },
 }
 
