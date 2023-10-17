@@ -254,10 +254,9 @@ M.spec = {
             theme = "dropdown",
             initial_mode = "insert",
           },
-          buffers = {
-            theme = "dropdown",
+          buffers = vim.tbl_extend("keep", quick_flex_window, {
             initial_mode = "insert",
-          },
+          }),
           current_buffer_fuzzy_find = {
             theme = "ivy",
           },
