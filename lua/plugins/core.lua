@@ -8,7 +8,7 @@ M.spec = {
   opts = {
 
     ---@type LazyVin.Colorscheme
-    colorscheme = "github_dark_dimmed",
+    colorscheme = "terra_fall_night",
 
     ---@type table<string, string[]>?
     kind_filter = {
