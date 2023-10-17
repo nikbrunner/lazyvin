@@ -153,7 +153,7 @@ M.specs = {
     event = "LazyFile",
     enabled = true,
     opts = {
-      max_lines = 4, -- How many lines the window should span. Values <= 0 mean no limit.
+      max_lines = 6, -- How many lines the window should span. Values <= 0 mean no limit.
       multiline_threshold = 20, -- Maximum number of lines to show for a single context
       trim_scope = "outer", -- Which context lines to discard if `max_lines` is exceeded. Choices: 'inner', 'outer'
       mode = "cursor", -- Line used to calculate context. Choices: 'cursor', 'topline'
