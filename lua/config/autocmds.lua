@@ -16,6 +16,7 @@ create_autocmd("FileType", {
     "chatpgpt",
     "ObsidianBacklinks",
     "fzf",
+    "aerial-nav",
   },
   callback = function(event)
     vim.bo[event.buf].buflisted = false
