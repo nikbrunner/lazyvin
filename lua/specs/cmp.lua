@@ -6,15 +6,15 @@ M.spec = {
   opts = function(_, opts)
     local cmp = require("cmp")
 
-    opts.window = {
-      completion = cmp.config.window.bordered({
-        border = "rounded",
-      }),
-
-      documentation = cmp.config.window.bordered({
-        border = "rounded",
-      }),
-    }
+    -- opts.window = {
+    --   completion = cmp.config.window.bordered({
+    --     border = "single",
+    --   }),
+    --
+    --   documentation = cmp.config.window.bordered({
+    --     border = "single",
+    --   }),
+    -- }
 
     opts.mapping = cmp.mapping.preset.insert({
       ["<C-j>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
