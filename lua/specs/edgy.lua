@@ -63,6 +63,15 @@ M.spec = {
         pinned = true,
         open = "Neotree position=right git_status",
       },
+
+      {
+        ft = "help",
+        size = { width = 120 },
+        -- don't open help files in edgy that we're editing
+        filter = function(buf)
+          return vim.bo[buf].buftype == "help"
+        end,
+      },
     },
 
     bottom = {
@@ -92,14 +101,6 @@ M.spec = {
       {
         ft = "qf",
         title = "QuickFix",
-      },
-      {
-        ft = "help",
-        size = { height = 20 },
-        -- don't open help files in edgy that we're editing
-        filter = function(buf)
-          return vim.bo[buf].buftype == "help"
-        end,
       },
       {
         ft = "spectre_panel",
