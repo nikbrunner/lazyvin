@@ -2,10 +2,10 @@ local M = {}
 
 ---@type LazySpec
 M.specs = {
-  {
-    "echasnovski/mini.hues",
-    version = "*",
-  },
+  { "echasnovski/mini.hues" },
+
+  { "echasnovski/mini.indentscope" },
+
   {
     "echasnovski/mini.pick",
     keys = {
