@@ -167,3 +167,13 @@ NVIM_APPNAME=nikbrunner/lazyvin/ nvim
 - [ ] Build out `groups.lua` to accept configurations for different projects
 - [ ] Finish GitHub PR Files functionality [telescope-github.nvim/lua/telescope/\_extensions/gh_builtin.lua at master · nvim-telescope/telescope-github.nvim](https://github.com/nvim-telescope/telescope-github.nvim/blob/master/lua/telescope/_extensions/gh_builtin.lua)
 - [ ] Add `plugins/disables.lua` to disable plugins
+- [ ] Fix Conform Formater?
+
+```bash
+...are/nvim/lazy/LazyVim/lua/lazyvim/plugins/formatting.lua:61: attempt to index field 'format' (a nil value)
+# stacktrace:
+  - /LazyVim/lua/lazyvim/plugins/formatting.lua:61
+  - /LazyVim/lua/lazyvim/util/format.lua:123 _in_ **format**
+  - /LazyVim/lua/lazyvim/util/format.lua:158
+Formatter `conform.nvim` failed
+```
