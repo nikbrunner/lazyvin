@@ -54,8 +54,10 @@ end
 
 function M.kill_tmux_session()
   local current_session = run_command("tmux display-message -p '#S'", true)
-  local sessions =
-    filter_sessions(vim.split(run_command("tmux list-sessions -F '#{session_name}'"), "\n"), current_session)
+  local sessions = filter_sessions(
+    vim.split(run_command("tmux list-sessions -F '#{session_name}'"), "\n"),
+    current_session
+  )
 
   if #sessions > 0 then
     vim.cmd("Neotree close")
@@ -74,8 +76,10 @@ end
 
 function M.switch_tmux_session()
   local current_session = run_command("tmux display-message -p '#S'", true)
-  local sessions =
-    filter_sessions(vim.split(run_command("tmux list-sessions -F '#{session_name}'"), "\n"), current_session)
+  local sessions = filter_sessions(
+    vim.split(run_command("tmux list-sessions -F '#{session_name}'"), "\n"),
+    current_session
+  )
 
   if #sessions > 0 then
     vim.cmd("Neotree close")
