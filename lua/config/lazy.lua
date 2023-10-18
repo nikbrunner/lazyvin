@@ -31,7 +31,10 @@ require("lazy").setup({
     -- directory where you store your local plugin projects
     path = "~/Documents/dev/repos/terra-theme",
     ---@type string[] plugins that match these patterns will use your local versions instead of being fetched from GitHub
-    patterns = { "nikbrunner" }, -- For example {"folke"}
+    patterns = {
+      "nikbrunner",
+      "terra-theme",
+    },
     fallback = true, -- fall back to the GitHub version if the local version does not exist
   },
   install = {
