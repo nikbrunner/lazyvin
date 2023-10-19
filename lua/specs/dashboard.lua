@@ -36,14 +36,14 @@ M.specs = {
             icon_hl = "@variable",
             desc = "Plugin Manager (Lazy) ",
             action = "Lazy",
-            key = "l",
+            key = "p",
           },
           {
             icon = " ",
             icon_hl = "@variable",
             desc = "Package Manager (Mason) ",
             action = "Mason",
-            key = "m",
+            key = "P",
           },
           {
             icon = " ",
