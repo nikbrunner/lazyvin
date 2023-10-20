@@ -21,7 +21,6 @@ M.spec = {
       require("edgy").select,
       desc = "Edgy Select Window",
     },
-    -- TODO: Improve bindings
   },
   opts = {
     ---@type table<Edgy.Pos, {size:integer, wo?:vim.wo}>
@@ -62,6 +61,12 @@ M.spec = {
         end,
         pinned = true,
         open = "Neotree position=right git_status",
+      },
+
+      {
+        title = "Neotest Summary",
+        ft = "neotest-summary",
+        width = 60,
       },
 
       {
