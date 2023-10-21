@@ -6,12 +6,13 @@ M.spec = {
   dev = true,
   lazy = false,
   priority = 1000,
+  ---@diagnostic disable-next-line: assign-type-mismatch
   keys = {
     {
       "<leader>vtt",
       function()
         vim.cmd("Neotree close")
-        require("terra-core.actions.config").select_theme()
+        require("terra-core.utils.config").select_theme()
       end,
       desc = "Select theme",
     },
@@ -19,7 +20,7 @@ M.spec = {
       "<leader>vtv",
       function()
         vim.cmd("Neotree close")
-        require("terra-core.actions.config").select_variant()
+        require("terra-core.utils.config").select_variant()
       end,
       desc = "Select variant",
     },
