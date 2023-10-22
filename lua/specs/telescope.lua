@@ -267,10 +267,7 @@ M.spec = {
             theme = "dropdown",
             enable_preview = true,
           },
-          oldfiles = merge({
-            theme = "dropdown",
-            no_preview,
-          }),
+          oldfiles = quick_flex_window,
           commands = {
             theme = "ivy",
           },
