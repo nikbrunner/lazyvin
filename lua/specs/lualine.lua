@@ -9,8 +9,7 @@ M.spec = {
   event = "VeryLazy",
   opts = function()
     local icons = require("lazyvim.config").icons
-    local Util = require("lazyvim.util")
-    local terra_colors = require("terra-core.colors")
+    local lazyvim_util = require("lazyvim.util")
 
     local fnamemodify = vim.fn.fnamemodify
 
@@ -20,21 +19,19 @@ M.spec = {
       end,
       padding = {
         left = 1,
-        right = 2,
+        right = 1,
       },
-      separator = { left = "" },
-      -- separator = { left = " " },
+      separator = { left = "", right = "" },
     }
 
     local filetype = {
       "fancy_filetype",
       ts_icon = "",
       padding = {
-        left = 2,
+        left = 1,
         right = 1,
       },
-      separator = { right = "" },
-      -- separator = { right = " " },
+      separator = { left = "", right = "" },
     }
 
     local diagnostics = {
@@ -61,7 +58,6 @@ M.spec = {
         local stats = require("lazy").stats()
         return " " .. stats.count
       end,
-      color = { fg = terra_colors.palette.dark_yellow },
     }
 
     local lazy_startup = {
@@ -70,13 +66,10 @@ M.spec = {
         local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
         return " " .. ms .. "ms"
       end,
-      color = { fg = terra_colors.palette.dark_yellow },
     }
 
     local lazy_updates = {
       require("lazy.status").updates,
-      cond = require("lazy.status").has_updates,
-      color = { fg = terra_colors.palette.dark_yellow },
       padding = 1,
     }
 
@@ -87,17 +80,7 @@ M.spec = {
       cond = function()
         return package.loaded["dap"] and require("dap").status() ~= ""
       end,
-      color = Util.ui.fg("Debug"),
-    }
-
-    local noice_command = {
-      function()
-        return require("noice").api.status.command.get()
-      end,
-      cond = function()
-        return package.loaded["noice"] and require("noice").api.status.command.has()
-      end,
-      color = Util.ui.fg("Statement"),
+      color = lazyvim_util.ui.fg("Debug"),
     }
 
     local noice_status = {
@@ -107,12 +90,12 @@ M.spec = {
       cond = function()
         return package.loaded["noice"] and require("noice").api.status.mode.has()
       end,
-      color = Util.ui.fg("Constant"),
+      color = lazyvim_util.ui.fg("Constant"),
     }
 
     return {
       options = {
-        theme = "auto",
+        theme = "terra",
         globalstatus = true,
         section_separators = { left = "", right = "" },
         component_separators = { left = "", right = "" },
@@ -137,16 +120,14 @@ M.spec = {
           diagnostics,
         },
         lualine_x = {
-          noice_command,
           noice_status,
           { "fancy_diagnostics" },
           { "fancy_searchcount" },
-          { "fancy_location" },
         },
         lualine_y = {
           dap_status,
-          lazy_plug_count,
           lazy_startup,
+          lazy_plug_count,
           lazy_updates,
         },
         lualine_z = {
