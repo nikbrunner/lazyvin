@@ -1,3 +1,5 @@
+---@diagnostic disable: missing-fields
+
 local M = {}
 
 ---@type LazySpec
@@ -31,6 +33,9 @@ M.spec = {
     theme = "fall",
     variant = "night",
     transparent = false,
+    diagnostics = {
+      background = true,
+    },
   },
 }
 
