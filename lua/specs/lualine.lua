@@ -15,11 +15,11 @@ M.spec = {
 
     local mode = {
       function()
-        return ""
+        return "  "
       end,
       padding = {
-        left = 1,
-        right = 1,
+        left = 3,
+        right = 3,
       },
       separator = { left = "", right = "" },
     }
@@ -103,7 +103,7 @@ M.spec = {
         -- component_separators = { left = "", right = "" },
         disabled_filetypes = {
           statusline = { "dashboard", "alpha", "lazy" },
-          winbar = { "dashboard", "alpha", "neo-tree", "edgy", "lazy" },
+          winbar = { "dashboard", "alpha", "edgy", "lazy" },
         },
       },
 
