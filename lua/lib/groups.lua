@@ -169,9 +169,15 @@ function M.find_and_open_files()
 
     vim.ui.select(item_names, { prompt = "Select an item:" }, function(selected_item)
       if selected_item then
-        close_all_windows_except_current()
-        vim.cmd.tabnew()
-        open_files_by_type(selected_item, selected_pairing.extensions)
+        vim.ui.select({ "No", "Yes" }, { prompt = "Open in new tab?" }, function(selected)
+          if selected == "Yes" then
+            vim.cmd.tabnew()
+            open_files_by_type(selected_item, selected_pairing.extensions)
+          else
+            close_all_windows_except_current()
+            open_files_by_type(selected_item, selected_pairing.extensions)
+          end
+        end)
       end
     end)
   end)
@@ -194,9 +200,16 @@ function M.find_and_open_component_file()
   for _, ext in ipairs(current_config.component_extensions) do
     local path = find_files_by_extension_and_name(ext, component_name)
     if path ~= "" then
-      close_all_windows_except_current()
-      vim.cmd.tabnew()
-      open_files_by_type(component_name, current_config.component_extensions)
+      vim.ui.select({ "No", "Yes" }, { prompt = "Open in new tab?" }, function(selected)
+        if selected == "Yes" then
+          vim.cmd.tabnew()
+          open_files_by_type(component_name, current_config.component_extensions)
+        else
+          close_all_windows_except_current()
+          open_files_by_type(selected_item, selected_pairing.extensions)
+        end
+      end)
+
       return
     end
   end
