@@ -69,6 +69,9 @@ end
 ---@type LazySpec
 M.spec = {
   "nvim-telescope/telescope.nvim",
+  dependencies = {
+    "LukasPietzschmann/telescope-tabs",
+  },
   keys = {
     {
       "<leader><space>",
@@ -91,6 +94,11 @@ M.spec = {
       "<leader>gc",
       M.cmds.git_commits,
       desc = "Git Commit",
+    },
+    {
+      "<leader>s<tab>",
+      ":Telescope telescope-tabs list_tabs<CR>",
+      desc = "List Tabs",
     },
   },
   opts = function(_, default_opts)
@@ -275,6 +283,12 @@ M.spec = {
         },
       },
     })
+  end,
+  config = function(_, opts)
+    local telescope = require("telescope")
+
+    telescope.setup(opts)
+    telescope.load_extension("telescope-tabs")
   end,
 }
 

@@ -1,5 +1,5 @@
 WhichKeyIgnoreLabel = "which_key_ignore"
 
-vim.opt.swapfile = false -- No swapfiles
-vim.opt.showtabline = 0 -- Always show tabline
-vim.opt.cursorline = true -- Highlight current line
+vim.opt.swapfile = false
+vim.opt.showtabline = 0
+vim.opt.cursorline = true
