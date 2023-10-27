@@ -1,30 +1,16 @@
----@class ComponentNvim.Pairing
----@field label string
+---@class component-nvim.Project
+---@field root_folder string
 ---@field recognition_pattern string
 ---@field extensions string[]
 
----@class ComponentNvim.Project
----@field root_folder string
----@field pairings ComponentNvim.Pairing[]
---
 local M = {
   config = {
-    ---@type ComponentNvim.Project[]
+    ---@type component-nvim.Project[]
     projects = {
       {
         root_folder = "bc-desktop-client",
-        pairings = {
-          {
-            label = "Components",
-            recognition_pattern = "src/*/**/*components/**/*.tsx",
-            extensions = { "tsx", "scss", "story.tsx" },
-          },
-          {
-            label = "Libs",
-            recognition_pattern = "src/*/**/*libs/**/*.ts",
-            extensions = { "ts", "spec.ts" },
-          },
-        },
+        recognition_pattern = "src/*/**/*components/**/*.tsx",
+        extensions = { "tsx", "scss", "story.tsx" },
       },
     },
   },
@@ -35,7 +21,6 @@ local function close_all_windows_except_current()
 
   local current_win = vim.api.nvim_get_current_win()
   local all_wins = vim.api.nvim_tabpage_list_wins(0)
-
   for _, win in ipairs(all_wins) do
     if win ~= current_win then
       vim.api.nvim_win_close(win, true)
@@ -49,7 +34,7 @@ local function trim_newline(str)
 end
 
 ---Get the current project configuration based on the project path.
----@return table | nil
+---@return component-nvim.Project | nil
 local function get_current_project_config()
   local current_working_dir = vim.fn.system("git rev-parse --show-toplevel")
 
@@ -104,18 +89,17 @@ local function open_files_by_type(component_name, extensions)
   end
 end
 
----@param pairing ComponentNvim.Pairing
-local function find_items(pairing)
-  local rg_string = string.format("rg --files --hidden -g '%s'", pairing.recognition_pattern)
+-- TODO: provide starting path
+---@param recognition_pattern string
+local function find_items(recognition_pattern)
+  local rg_string = string.format("rg --files --hidden -g '%s'", recognition_pattern)
   local rg_output = vim.fn.system(rg_string)
 
   local files = vim.split(rg_output, "\n")
   local unique_items = {}
 
-  local recognition_pattern = pairing.recognition_pattern:match("[^.]+$")
-
   for _, file in ipairs(files) do
-    local pattern = string.format(".+/([^/.]+)%%.%s$", recognition_pattern)
+    local pattern = string.format(".+/([^/.]+)%%.%s$", recognition_pattern:match("[^.]+$"))
     local item = file:match(pattern)
     if item then
       unique_items[item] = true
@@ -123,11 +107,13 @@ local function find_items(pairing)
   end
 
   local item_names = {}
+
   for name, _ in pairs(unique_items) do
     table.insert(item_names, name)
   end
 
   table.sort(item_names)
+
   return item_names
 end
 
@@ -140,81 +126,61 @@ function M.find_and_open_files()
     return
   end
 
-  local pairing_labels = {}
-  for _, pairing in ipairs(project_config.pairings) do
-    table.insert(pairing_labels, pairing.label)
-  end
+  local item_names = find_items(project_config.recognition_pattern)
 
-  vim.ui.select(pairing_labels, { prompt = "Select a pairing:" }, function(selected_pairing_label)
-    local selected_pairing = nil
-
-    for _, pairing in ipairs(project_config.pairings) do
-      if pairing.label == selected_pairing_label then
-        selected_pairing = pairing
-        break
-      end
-    end
-
-    if not selected_pairing then
-      print("Invalid pairing selected")
-      return
-    end
-
-    local item_names = find_items(selected_pairing)
-
-    if #item_names == 0 then
-      print("No items found")
-      return
-    end
-
+  if #item_names == 0 then
+    print("No items found")
+  else
     vim.ui.select(item_names, { prompt = "Select an item:" }, function(selected_item)
       if selected_item then
         vim.ui.select({ "No", "Yes" }, { prompt = "Open in new tab?" }, function(selected)
           if selected == "Yes" then
             vim.cmd.tabnew()
-            open_files_by_type(selected_item, selected_pairing.extensions)
+            open_files_by_type(selected_item, project_config.extensions)
           else
             close_all_windows_except_current()
-            open_files_by_type(selected_item, selected_pairing.extensions)
+            open_files_by_type(selected_item, project_config.extensions)
           end
         end)
       end
     end)
-  end)
+  end
 end
 
 ---Find and open a component file under the cursor in a new tab.
-function M.find_and_open_component_file()
-  local current_config = get_current_project_config()
-  if not current_config then
+function M.find_and_open_component_file(component_name)
+  component_name = component_name or vim.fn.expand("<cword>")
+
+  local project_config = get_current_project_config()
+
+  if not project_config then
     print("No project config found")
     return
   end
 
-  local component_name = vim.fn.expand("<cword>")
   if not component_name then
     print("No component name found")
-    return
-  end
+  else
+    for _, ext in ipairs(project_config.extensions) do
+      local path = find_files_by_extension_and_name(ext, component_name)
 
-  for _, ext in ipairs(current_config.component_extensions) do
-    local path = find_files_by_extension_and_name(ext, component_name)
-    if path ~= "" then
-      vim.ui.select({ "No", "Yes" }, { prompt = "Open in new tab?" }, function(selected)
-        if selected == "Yes" then
-          vim.cmd.tabnew()
-          open_files_by_type(component_name, current_config.component_extensions)
-        else
-          close_all_windows_except_current()
-          open_files_by_type(selected_item, selected_pairing.extensions)
-        end
-      end)
+      if path ~= "" then
+        vim.ui.select({ "No", "Yes" }, { prompt = "Open component in a new tab?" }, function(choice)
+          if choice == "Yes" then
+            vim.cmd.tabnew()
+            open_files_by_type(component_name, project_config.extensions)
+          else
+            close_all_windows_except_current()
+            open_files_by_type(component_name, project_config.extensions)
+          end
+        end)
 
-      return
+        return
+      else
+        print("No component found for " .. component_name)
+      end
     end
   end
-
-  print("No component found for " .. component_name)
 end
 
 return M

@@ -74,6 +74,10 @@ M.spec = {
   },
   keys = {
     {
+      "<leader>fc",
+      false,
+    },
+    {
       "<leader><space>",
       M.cmds.builtin("oldfiles", {
         only_cwd = true,

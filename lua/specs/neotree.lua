@@ -117,7 +117,12 @@ M.specs = {
             ["V"] = "vsplit_with_window_picker",
             ["t"] = "open_tabnew",
             ["w"] = "open_with_window_picker",
-            ["C"] = "close_node",
+
+            ["C"] = function(state)
+              local node = state.tree:get_node()
+              local filename_without_ext = node.name:gsub("%..*", "")
+              require("lib.component").find_and_open_component_file(filename_without_ext)
+            end,
             ["M"] = "close_all_nodes",
             ["O"] = "expand_all_nodes",
             ["R"] = "refresh",
