@@ -18,6 +18,11 @@ M.spec = {
       },
       {
         "<leader>qa",
+        desc = "All buffers (:xa)",
+        vim.cmd.xa,
+      },
+      {
+        "<leader>qA",
         desc = "All buffers (:qa)",
         vim.cmd.qa,
       },
