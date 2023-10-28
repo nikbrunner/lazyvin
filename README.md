@@ -47,11 +47,10 @@ NVIM_APPNAME=nikbrunner/lazyvin/ nvim
 
 ## TODO
 
-- [ ] Fix Treesitter Inline Syntax Failures
-  - [Neovim Treesitter Syntax gets frequently partially broken after making changes to the file : neovim](https://www.reddit.com/r/neovim/comments/16pzaap/neovim_treesitter_syntax_gets_frequently/)
+- [ ] [Neovim Treesitter Syntax gets frequently partially broken after making changes to the file : neovim](https://www.reddit.com/r/neovim/comments/16pzaap/neovim_treesitter_syntax_gets_frequently/)
 - [ ] Browse Pull Request Files
-- [ ] Build out `groups.lua` to accept configurations for different projects
-- [ ] Finish GitHub PR Files functionality [telescope-github.nvim/lua/telescope/\_extensions/gh_builtin.lua at master · nvim-telescope/telescope-github.nvim](https://github.com/nvim-telescope/telescope-github.nvim/blob/master/lua/telescope/_extensions/gh_builtin.lua)
+- [ ] Build out `component.nvim` as own plugin
+  - [rgroli/other.nvim: Open alternative files for the current buffer](https://github.com/rgroli/other.nvim)
 - [ ] Fix `eslint` warnings
 
 ## Other configs
