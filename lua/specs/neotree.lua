@@ -117,14 +117,19 @@ M.specs = {
             ["V"] = "vsplit_with_window_picker",
             ["t"] = "open_tabnew",
             ["w"] = "open_with_window_picker",
-
             ["C"] = function(state)
               local node = state.tree:get_node()
               local filename_without_ext = node.name:gsub("%..*", "")
               require("lib.component").find_and_open_component_file(filename_without_ext)
             end,
+            ["O"] = function(state)
+              local node = state.tree:get_node()
+              local path = node:get_id()
+              path = vim.fn.shellescape(path, 1)
+              -- TODO: use `vim.ui.open()` when it's available
+              vim.cmd("!open " .. path)
+            end,
             ["M"] = "close_all_nodes",
-            ["O"] = "expand_all_nodes",
             ["R"] = "refresh",
             ["a"] = { "add", config = { show_path = "relative" } }, -- "none", "relative", "absolute"
             ["A"] = "add_directory", -- also accepts the config.show_path option.
