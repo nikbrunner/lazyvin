@@ -14,8 +14,11 @@ M.spec = {
       },
 
       key_labels = {
+        ["<SPACE>"] = "SPC",
         ["<space>"] = "SPC",
+        ["<CR>"] = "RET",
         ["<cr>"] = "RET",
+        ["<TAB>"] = "TAB",
         ["<tab>"] = "TAB",
       },
 
