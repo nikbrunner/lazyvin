@@ -20,13 +20,12 @@ local function lazyredraw_keys(keys)
   end
 end
 
-set({ "n", "v" }, "H", "^", { desc = "Move to Start of Line" })
-set({ "n", "v" }, "L", "$", { desc = "Move to End of Line" })
+set({ "n", "v" }, "H", vim.cmd.tabprevious, { desc = "Previous Tab" })
+set({ "n", "v" }, "L", vim.cmd.tabnext, { desc = "Next Tab" })
+set({ "n", "v" }, "<S-Tab>", vim.cmd.tabprevious, { desc = "Previous Buffer" })
+set({ "n", "v" }, "<Tab>", vim.cmd.tabnext, { desc = "Next Buffer" })
 
 set({ "n", "v" }, "<leader><CR>", vim.cmd.wa, { desc = "Save" })
-
-set("n", "<S-Tab>", vim.cmd.tabprevious, { desc = "Previous Buffer" })
-set("n", "<Tab>", vim.cmd.tabnext, { desc = "Next Buffer" })
 
 set("n", "vv", "^v$", { desc = "Select Line" })
 set("n", "vA", "ggVG", { desc = "Select All" })
