@@ -9,9 +9,6 @@ M.spec = {
     { "<leader>es", "<CMD>AerialToggle<CR>", desc = "Aerial (Symbols)" },
     { "gn", "<CMD>AerialNavToggle<CR>", desc = "Aerial (Go Nav)" },
   },
-  opts = {
-    backends = { "lsp", "treesitter", "markdown", "man" },
-  },
 }
 
 return M.spec
