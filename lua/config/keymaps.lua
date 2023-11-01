@@ -25,8 +25,6 @@ set({ "n", "v" }, "L", vim.cmd.tabnext, { desc = "Next Tab" })
 set({ "n", "v" }, "<S-Tab>", vim.cmd.tabprevious, { desc = "Previous Buffer" })
 set({ "n", "v" }, "<Tab>", vim.cmd.tabnext, { desc = "Next Buffer" })
 
-set({ "n", "v" }, "<leader><CR>", vim.cmd.wa, { desc = "Save" })
-
 set("n", "vv", "^v$", { desc = "Select Line" })
 set("n", "vA", "ggVG", { desc = "Select All" })
 set("n", "yA", "ggVGy", { desc = "Copy All" })

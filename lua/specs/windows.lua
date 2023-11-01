@@ -25,16 +25,6 @@ M.spec = {
       "<cmd>WindowsToggleAutowidth<CR>",
       desc = "Toggle Autowidth",
     },
-    {
-      "<leader>wl",
-      "<C-W>v",
-      desc = "Split window below",
-    },
-    {
-      "<leader>wj",
-      "<C-W>s",
-      desc = "Split window right",
-    },
   },
   opts = {
     autowidth = {
