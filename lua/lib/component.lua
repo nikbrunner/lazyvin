@@ -55,6 +55,7 @@ local function get_current_project_config()
   return nil
 end
 
+-- TODO: provide starting path (e.g. src/components)
 ---@param extension string
 ---@param name string
 local function find_files_by_extension_and_name(extension, name)
