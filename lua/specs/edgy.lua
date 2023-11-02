@@ -68,18 +68,17 @@ M.spec = {
         ft = "neotest-summary",
         width = 60,
       },
+    },
 
+    bottom = {
       {
         ft = "help",
-        size = { width = 85 },
+        size = { width = 80 },
         -- don't open help files in edgy that we're editing
         filter = function(buf)
           return vim.bo[buf].buftype == "help"
         end,
       },
-    },
-
-    bottom = {
       {
         ft = "toggleterm",
         size = { height = 0.4 },
