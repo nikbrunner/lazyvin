@@ -14,17 +14,22 @@ M.spec = {
       {
         "<leader>qq",
         vim.cmd.q,
-        desc = "Current buffer (:q)",
-      },
-      {
-        "<leader>qa",
-        desc = "All buffers (:xa)",
-        vim.cmd.xa,
+        desc = "Quit Current (:q)",
       },
       {
         "<leader>qA",
-        desc = "All buffers (:qa)",
+        desc = "Quit All (:qa)",
         vim.cmd.qa,
+      },
+      {
+        "<leader>qw",
+        vim.cmd.wq,
+        desc = "Save & Quit Current (:wq)",
+      },
+      {
+        "<leader>qW",
+        desc = "Save & Quit All (:wqa)",
+        vim.cmd.wqa,
       },
       {
         "<leader>qo",
