@@ -10,7 +10,6 @@ M.spec = {
     --   completion = cmp.config.window.bordered({
     --     border = "single",
     --   }),
-    --
     --   documentation = cmp.config.window.bordered({
     --     border = "single",
     --   }),
@@ -29,6 +28,11 @@ M.spec = {
         select = true,
       }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
     })
+
+    -- Only open source completion menu if there are at least 3 characters
+    for _, source in ipairs(opts.sources) do
+      source.keyword_length = 3
+    end
   end,
 }
 
