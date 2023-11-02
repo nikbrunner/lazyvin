@@ -29,6 +29,8 @@ set("n", "vv", "^v$", { desc = "Select Line" })
 set("n", "vA", "ggVG", { desc = "Select All" })
 set("n", "yA", "ggVGy", { desc = "Copy All" })
 
+set({ "n", "v" }, "<leader><CR>", vim.cmd.wa, { desc = "Write All" })
+
 set("n", "x", '"_x', { desc = "Delete" })
 
 set("n", "J", "mzJ`z", { desc = "Join Lines" })
