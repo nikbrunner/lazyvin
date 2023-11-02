@@ -9,7 +9,7 @@ M.spec = {
     background_colour = "NormalFloat",
     fps = 60,
     render = "minimal",
-    stages = "fade",
+    stages = "static",
     top_down = true,
   },
 }
