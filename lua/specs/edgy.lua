@@ -68,9 +68,6 @@ M.spec = {
         ft = "neotest-summary",
         width = 60,
       },
-    },
-
-    bottom = {
       {
         ft = "help",
         size = { width = 80 },
@@ -79,6 +76,9 @@ M.spec = {
           return vim.bo[buf].buftype == "help"
         end,
       },
+    },
+
+    bottom = {
       {
         ft = "toggleterm",
         size = { height = 0.4 },
