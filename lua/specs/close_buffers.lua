@@ -13,21 +13,11 @@ M.spec = {
     local keys = {
       {
         "<leader>qq",
-        vim.cmd.q,
-        desc = "Quit Current (:q)",
-      },
-      {
-        "<leader>qA",
-        desc = "Quit All (:qa)",
-        vim.cmd.qa,
-      },
-      {
-        "<leader>qw",
         vim.cmd.wq,
         desc = "Save & Quit Current (:wq)",
       },
       {
-        "<leader>qW",
+        "<leader>qa",
         desc = "Save & Quit All (:wqa)",
         vim.cmd.wqa,
       },
@@ -48,6 +38,27 @@ M.spec = {
     }
 
     return keys
+  end,
+  config = function()
+    local close = require("close_buffers")
+
+    vim.api.nvim_create_user_command("Qo", function()
+      close.delete({ type = "other" })
+      vim.notify("Quit other buffers", vim.log.levels.INFO, {
+        title = "Close Buffers",
+      })
+    end, {
+      desc = "Quit other buffers",
+    })
+
+    vim.api.nvim_create_user_command("Qh", function()
+      close.delete({ type = "hidden" })
+      vim.notify("Quit hidden buffers", vim.log.levels.INFO, {
+        title = "Close Buffers",
+      })
+    end, {
+      desc = "Quit hidden buffers",
+    })
   end,
 }
 
