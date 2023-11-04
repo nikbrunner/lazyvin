@@ -5,7 +5,7 @@ M.spec = {
   "LazyVim/LazyVim",
   opts = {
 
-    colorscheme = "terra_spring_night",
+    colorscheme = "terra_fall_night",
 
     ---@type table<string, string[]>?
     kind_filter = {
