@@ -1,8 +1,9 @@
 local M = {}
 
 ---@type LazySpec[]
-M.specs = {
-  { "echasnovski/mini.indentscope", enabled = false },
+M.spec = {
+  "echasnovski/mini.indentscope",
+  enabled = false,
 }
 
-return M.specs
+return M.spec
