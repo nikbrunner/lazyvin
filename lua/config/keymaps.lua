@@ -20,8 +20,6 @@ local function lazyredraw_keys(keys)
   end
 end
 
-set({ "n", "v" }, "H", vim.cmd.tabprevious, { desc = "Previous Tab" })
-set({ "n", "v" }, "L", vim.cmd.tabnext, { desc = "Next Tab" })
 set({ "n", "v" }, "<S-Tab>", vim.cmd.tabprevious, { desc = "Previous Buffer" })
 set({ "n", "v" }, "<Tab>", vim.cmd.tabnext, { desc = "Next Buffer" })
 
