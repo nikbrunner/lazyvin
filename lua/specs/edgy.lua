@@ -62,19 +62,10 @@ M.spec = {
         pinned = true,
         open = "Neotree position=right git_status",
       },
-
       {
         title = "Neotest Summary",
         ft = "neotest-summary",
         width = 60,
-      },
-      {
-        ft = "help",
-        size = { width = 80 },
-        -- don't open help files in edgy that we're editing
-        filter = function(buf)
-          return vim.bo[buf].buftype == "help"
-        end,
       },
     },
 
@@ -85,6 +76,14 @@ M.spec = {
         filter = function(buf, win)
           return vim.api.nvim_win_get_config(win).relative == ""
         end,
+        {
+          ft = "help",
+          size = { height = 0.4 },
+          -- don't open help files in edgy that we're editing
+          filter = function(buf)
+            return vim.bo[buf].buftype == "help"
+          end,
+        },
       },
       {
         ft = "noice",
