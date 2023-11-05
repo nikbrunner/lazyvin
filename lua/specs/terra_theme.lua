@@ -32,7 +32,7 @@ M.spec = {
   opts = {
     theme = "fall",
     variant = "night",
-    transparent = true,
+    transparent = false,
     diagnostics = {
       background = true,
     },
