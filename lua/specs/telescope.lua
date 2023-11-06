@@ -259,6 +259,7 @@ M.spec = {
           lsp_document_symbols = quick_flex_window,
           lsp_workspace_symbols = quick_flex_window,
           diagnostics = quick_flex_window,
+          git_files = quick_flex_window,
           git_status = {
             theme = "ivy",
             initial_mode = "insert",
