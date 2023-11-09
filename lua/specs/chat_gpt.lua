@@ -8,7 +8,7 @@ local M = {}
 M.spec = {
   "jackMort/ChatGPT.nvim",
   event = "VeryLazy",
-  enabled = false,
+  enabled = true,
   dependencies = {
     "MunifTanjim/nui.nvim",
     "nvim-lua/plenary.nvim",
@@ -141,7 +141,7 @@ M.spec = {
       n = 1,
     },
     openai_edit_params = {
-      model = "code-davinci-edit-001",
+      model = "gpt-4",
       temperature = 0,
       top_p = 1,
       n = 1,
