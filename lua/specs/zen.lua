@@ -27,7 +27,7 @@ M.spec = {
         laststatus = 0, -- turn off the statusline in zen mode
       },
       gitsigns = { enabled = false }, -- disables git signs
-      tmux = { enabled = true }, -- disables the tmux statusline
+      tmux = { enabled = false }, -- disables the tmux statusline
       -- - listen_on unix:/tmp/kitty
       -- this will change the font size on wezterm when in zen mode
       -- See alse also the Plugins/Wezterm section in this projects README
