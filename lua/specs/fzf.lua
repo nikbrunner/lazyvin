@@ -214,7 +214,7 @@ M.specs = {
           width = 0.75, -- window width
           row = 0.35, -- window row position (0=top, 1=bottom)
           col = 0.50, -- window col position (0=left, 1=right)
-          border = "none",
+          -- border = "none",
           hl = {
             normal = "NeoTreeNormal", -- window normal color (fg+bg)
             border = "FloatBorder", -- border color
@@ -228,7 +228,7 @@ M.specs = {
             vertical = "down:45%", -- up|down:size
             horizontal = "right:60%", -- right|left:size
             layout = "flex", -- horizontal|vertical|flex
-            flip_columns = 120, -- #cols to switch to horizontal on flex
+            flip_columns = 250, -- #cols to switch to horizontal on flex
             title = true, -- preview border title (file/buf)?
             delay = 100, -- delay(ms) displaying the preview
             winopts = { -- builtin previewer window options
