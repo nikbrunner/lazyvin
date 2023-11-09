@@ -117,7 +117,7 @@ M.spec = {
         height = 0.65,
         preview_cutoff = 1,
         mirror = false,
-        flip_columns = 125,
+        flip_columns = 150,
       },
     }
 
