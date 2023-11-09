@@ -3,7 +3,7 @@
 
 ---@diagnostic disable: missing-fields
 local M = {
-  enabled = true,
+  enabled = false,
 }
 
 M.FOLDER_PRESETS = {
@@ -93,23 +93,30 @@ end
 M.specs = {
   {
     "nvim-telescope/telescope.nvim",
-    enabled = M.enabled,
     dependencies = {
       "LukasPietzschmann/telescope-tabs",
     },
-    keys = {
-      { "<leader><space>", false },
-      { "<leader>ff", false },
-      { "<leader>fr", false },
-      { "<leader>fR", false },
-      { "<leader>gs", false },
-      { "<leader>gc", false },
-      { "<leader>sg", false },
-      { "<leader>sR", false },
-      { "<leader>ss", false },
-      { "<leader>sS", false },
-      { "<leader>/", false },
-    },
+    ---@diagnostic disable-next-line: assign-type-mismatch
+    keys = function(_, keys)
+      local disabled_keys = {
+        "<leader>ff",
+        "<leader>fr",
+        "<leader>fR",
+        "<leader>gs",
+        "<leader>gc",
+        "<leader>sg",
+        "<leader>sR",
+        "<leader>ss",
+        "<leader>sS",
+        "<leader>/",
+      }
+
+      if M.enabled then
+        for _, key in ipairs(disabled_keys) do
+          keys[key] = false
+        end
+      end
+    end,
   },
 
   {
