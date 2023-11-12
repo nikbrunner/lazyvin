@@ -67,6 +67,7 @@ M.spec = {
         ["<leader>gb"] = { name = "Buffer" },
         ["<leader>gh"] = { name = "Hunks" },
         ["<leader>v"] = { name = "Vin" },
+        ["<leader>vt"] = { name = "Terra" },
         ["<leader>q"] = { name = "Quit" },
         ["<leader>s"] = { name = "Search" },
         ["<leader>t"] = { name = "Test" },
