@@ -17,6 +17,7 @@ create_autocmd("FileType", {
     "ObsidianBacklinks",
     "fzf",
     "aerial-nav",
+    "dropbar_menu",
   },
   callback = function(event)
     vim.bo[event.buf].buflisted = false
