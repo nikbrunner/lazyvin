@@ -28,7 +28,7 @@ M.spec = {
   },
   opts = {
     autowidth = {
-      enable = false,
+      enable = true,
       winwidth = 15,
     },
     ignore = {
