@@ -3,7 +3,7 @@ local M = {}
 ---@type LazySpec
 M.spec = {
   "rcarriga/nvim-notify",
-  enabled = true,
+  enabled = false,
   opts = {
     timeout = 3000,
     background_colour = "NormalFloat",
