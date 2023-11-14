@@ -4,9 +4,8 @@ local lazyvim_util = require("lazyvim.util")
 local set = vim.keymap.set
 local del = vim.keymap.del
 
--- TODO: Clean up this file
+lib.edit.discipline()
 
--- Disables
 del("n", "<leader>-")
 del("n", "<leader>|")
 
