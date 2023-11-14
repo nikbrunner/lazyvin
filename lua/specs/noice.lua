@@ -7,37 +7,22 @@ M.spec = {
     { "<c-f>", false, mode = { "i", "n", "s" } },
     { "<c-b>", false, mode = { "i", "n", "s" } },
   },
-  opts = {
-    views = {
-      cmdline_popup = {
-        border = {
-          style = "rounded",
-          padding = { 0, 2 },
-        },
+
+  opts = function(_, opts)
+    table.insert(opts.routes, {
+      filter = {
+        event = "notify",
+        find = "No information available",
       },
-    },
-    messages = {
-      enabled = true, -- enables the Noice messages UI
-    },
-    lsp = {
-      hover = {
-        ---@type NoiceViewOptions
-        opts = {
-          border = {
-            style = "rounded",
-            padding = { 0, 2 },
-          },
-        },
-      },
-    },
-    presets = {
-      bottom_search = false, -- use a classic bottom cmdline for search
-      command_palette = true, -- position the cmdline and popupmenu together
-      long_message_to_split = true, -- long messages will be sent to a split
-      inc_rename = false, -- enables an input dialog for inc-rename.nvim
-      lsp_doc_border = false, -- add a border to hover docs and signature help
-    },
-  },
+      opts = { skip = true },
+    })
+
+    opts.presets.lsp_doc_border = true
+    opts.presets.inc_rename = false
+    opts.presets.command_palette = true
+    opts.presets.long_message_to_split = true
+    opts.presets.bottom_search = false
+  end,
 }
 
 return M.spec
