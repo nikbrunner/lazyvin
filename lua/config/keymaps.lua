@@ -22,6 +22,9 @@ end
 set({ "n", "v" }, "<S-Tab>", vim.cmd.tabprevious, { desc = "Previous Buffer" })
 set({ "n", "v" }, "<Tab>", vim.cmd.tabnext, { desc = "Next Buffer" })
 
+set("n", "H", "^", { desc = "Move to Start of Line" })
+set("n", "L", "$", { desc = "Move to End of Line" })
+
 set("n", "vv", "^v$", { desc = "Select Line" })
 set("n", "vA", "ggVG", { desc = "Select All" })
 set("n", "yA", "ggVGy", { desc = "Copy All" })
