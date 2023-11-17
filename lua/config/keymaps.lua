@@ -9,7 +9,7 @@ local function set(mode, lhs, rhs, opts)
 end
 local del = vim.keymap.del
 
--- lib.edit.discipline()
+lib.edit.discipline()
 
 del("n", "<leader>-")
 del("n", "<leader>|")
