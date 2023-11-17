@@ -1,10 +1,11 @@
 local lib = require("lib")
 local lazyvim_util = require("lazyvim.util")
 
+-- TODO: add options
 local set = vim.keymap.set
 local del = vim.keymap.del
 
-lib.edit.discipline()
+-- lib.edit.discipline()
 
 del("n", "<leader>-")
 del("n", "<leader>|")
@@ -94,20 +95,8 @@ set("n", "<leader><tab>8", "8gt", { desc = "Go to Tab 8" })
 set("n", "<leader><tab>9", "9gt", { desc = "Go to Tab 9" })
 set("n", "<leader>q", ":tabclose<CR>", { desc = "Close Tab" })
 
--- Make lazygit open in a fullscreen floating window
-set("n", "<leader>gg", function()
-  lazyvim_util.terminal.open(
-    { "lazygit" },
-    { cwd = lazyvim_util.root.get(), esc_esc = false, ctrl_hjkl = false, size = { width = 1, height = 1 } }
-  )
-end, { desc = "Lazygit (root dir)" })
-
-set("n", "<leader>gp", function()
-  lazyvim_util.terminal.open(
-    { "gh", "dash" },
-    { cwd = lazyvim_util.root.get(), esc_esc = false, ctrl_hjkl = false, size = { width = 1, height = 1 } }
-  )
-end, { desc = "GitHub Pull Requests" })
+set("n", "<leader>gg", lib.git.startLazygit, { desc = "Lazygit" })
+set("n", "<leader>gp", lib.git.startGithubDash, { desc = "GitHub Pull Requests" })
 
 set("n", "<leader><tab>r", function()
   vim.ui.input({ prompt = "New Tab Name: " }, function(new_name)

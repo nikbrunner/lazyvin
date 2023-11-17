@@ -6,6 +6,7 @@ M = {
   utils = require("lib.utils"),
   tmux = require("lib.tmux"),
   component = require("lib.component"),
+  git = require("lib.git"),
 }
 
 return M
