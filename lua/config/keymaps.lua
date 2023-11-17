@@ -117,11 +117,3 @@ set("n", "<leader>..", lib.tmux.switch_nvim_instance, { desc = "Switch Neovim In
 
 set("n", "<C-u>", lazyredraw_keys("<C-u>zz"), { desc = "Scroll up half screen" })
 set("n", "<C-d>", lazyredraw_keys("<C-d>zz"), { desc = "Scroll down half screen" })
-
-set("n", "<f6>", ":T2CSelect ", { desc = "Generate Colorscheme" })
-set("n", "<f7>", ":T2CGenerate ", { desc = "Generate Colorscheme" })
-set("n", "<f8>", ":T2CShuffleAccents<cr>", { desc = "Shuffle Accents" })
-set("n", "<f9>", ":T2CAddContrast -0.1<cr>", { desc = "Reduce Contrast" })
-set("n", "<f10>", ":T2CAddContrast 0.1<cr>", { desc = "Increase Contrast" })
-set("n", "<f11>", ":T2CAddSaturation -0.1<cr>", { desc = "Add Saturation" })
-set("n", "<f12>", ":T2CAddSaturation 0.1<cr>", { desc = "Reduce Saturation" })
