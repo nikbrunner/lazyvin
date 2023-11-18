@@ -10,18 +10,6 @@ local function register_log_formats(map, types, format_func)
   end
 end
 
-local function js_like_format(message, value)
-  return string.format('console.log("%s", %s)', message, value)
-end
-
-local function lua_format(message, value)
-  return string.format('print("%s", vim.inspect(%s))', message, value)
-end
-
-local function go_format(message, value)
-  return string.format('fmt.Println("%s", %s)', message, value)
-end
-
 local filetype_log_map = {}
 
 register_log_formats(filetype_log_map, {
@@ -30,11 +18,21 @@ register_log_formats(filetype_log_map, {
   "javascript",
   "javascriptreact",
   "astro",
-}, js_like_format)
+}, function(message, value)
+  return string.format('console.log("%s", %s)', message, value)
+end)
 
-register_log_formats(filetype_log_map, { "lua" }, lua_format)
+register_log_formats(filetype_log_map, { "lua" }, function(message, value)
+  return string.format('print("%s", vim.inspect(%s))', message, value)
+end)
 
-register_log_formats(filetype_log_map, { "go" }, go_format)
+register_log_formats(filetype_log_map, { "go" }, function(message, value)
+  return string.format('fmt.Println("%s", %s)', message, value)
+end)
+
+register_log_formats(filetype_log_map, { "sh" }, function(message, value)
+  return string.format('echo "%s: $%s"', message, value)
+end)
 
 function M.log_symbol()
   local current_word = vim.fn.expand("<cword>")
