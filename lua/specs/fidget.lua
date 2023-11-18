@@ -10,6 +10,7 @@ M.spec = {
       suppress_on_insert = true, -- Suppress new messages while in insert mode
     },
     notification = {
+      poll_rate = 1, -- How frequently to poll and render notifications
       override_vim_notify = true, -- Automatically override vim.notify() with Fidget
     },
   },
