@@ -20,6 +20,7 @@ M.specs = {
         "javascript",
         "jsdoc",
         "json",
+        "go",
         "lua",
         "luadoc",
         "luap",
