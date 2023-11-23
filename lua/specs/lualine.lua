@@ -15,7 +15,7 @@ M.spec = {
 
     local mode = {
       function()
-        return "  "
+        return " "
       end,
       padding = {
         left = 3,
