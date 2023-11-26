@@ -78,7 +78,7 @@ M.spec = {
         end,
         {
           ft = "help",
-          size = { height = 0.4 },
+          size = { height = 0.25 },
           -- don't open help files in edgy that we're editing
           filter = function(buf)
             return vim.bo[buf].buftype == "help"
