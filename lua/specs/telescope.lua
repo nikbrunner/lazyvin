@@ -77,28 +77,28 @@ M.spec = {
       "<leader>fc",
       false,
     },
-    {
-      "<leader><space>",
-      M.cmds.builtin("oldfiles", {
-        only_cwd = true,
-      }),
-      desc = "Find Recent Files",
-    },
+    -- {
+    --   "<leader><space>",
+    --   M.cmds.builtin("oldfiles", {
+    --     only_cwd = true,
+    --   }),
+    --   desc = "Find Recent Files",
+    -- },
     {
       "<leader>r",
       M.cmds.builtin("buffers"),
       desc = "Open buffers",
     },
-    {
-      "<leader>gs",
-      M.cmds.git_status,
-      desc = "Git Status",
-    },
-    {
-      "<leader>gc",
-      M.cmds.git_commits,
-      desc = "Git Commit",
-    },
+    -- {
+    --   "<leader>gs",
+    --   M.cmds.git_status,
+    --   desc = "Git Status",
+    -- },
+    -- {
+    --   "<leader>gc",
+    --   M.cmds.git_commits,
+    --   desc = "Git Commit",
+    -- },
     {
       "<leader>s<tab>",
       ":Telescope telescope-tabs list_tabs<CR>",

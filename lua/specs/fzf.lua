@@ -3,7 +3,7 @@
 
 ---@diagnostic disable: missing-fields
 local M = {
-  enabled = false,
+  enabled = true,
 }
 
 M.FOLDER_PRESETS = {
@@ -12,8 +12,6 @@ M.FOLDER_PRESETS = {
 }
 
 M.search_preset_folder = function()
-  vim.cmd("Neotree close")
-
   local choices = {}
 
   for key, _ in pairs(M.FOLDER_PRESETS) do
@@ -46,7 +44,7 @@ M.win_presets = {
   medium = {
     flex = {
       height = 0.75,
-      width = 0.90,
+      width = 0.75,
       preview = {
         layout = "flex",
         vertical = "up:65%",
@@ -96,29 +94,21 @@ M.specs = {
     dependencies = {
       "LukasPietzschmann/telescope-tabs",
     },
-    ---@diagnostic disable-next-line: assign-type-mismatch
-    keys = function(_, keys)
-      local disabled_keys = {
-        "<leader>ff",
-        "<leader>fr",
-        "<leader>fR",
-        "<leader>gs",
-        "<leader>gc",
-        "<leader>sg",
-        "<leader>sR",
-        "<leader>ss",
-        "<leader>sS",
-        "<leader>/",
-      }
-
-      if M.enabled then
-        for _, key in ipairs(disabled_keys) do
-          keys[key] = false
-        end
-      end
-    end,
+    -- TODO: solve this better
+    keys = {
+      { "<leader><space>", false },
+      { "<leader>ff", false },
+      { "<leader>fr", false },
+      { "<leader>fR", false },
+      { "<leader>gs", false },
+      { "<leader>gc", false },
+      { "<leader>sg", false },
+      { "<leader>sR", false },
+      { "<leader>ss", false },
+      { "<leader>sS", false },
+      { "<leader>/", false },
+    },
   },
-
   {
     "ibhagwan/fzf-lua",
     lazy = false,
@@ -282,6 +272,28 @@ M.specs = {
           ["--height"] = "100%",
           ["--layout"] = "reverse",
           ["--keep-right"] = "",
+          ["--reverse"] = "",
+          ["--border"] = "bold",
+          ["--border-label"] = "'[ LazyVin ]'",
+          ["--padding"] = "1,5",
+          ["--no-scrollbar"] = "",
+          ["--no-separator"] = "",
+          ["--no-info"] = "",
+          ["--color"] = table.concat({
+            "fg:white",
+            "fg+:yellow",
+            "bg+:-1",
+            "gutter:-1",
+            "hl+:magenta",
+            "border:yellow",
+            "prompt:cyan",
+            "pointer:yellow",
+            "marker:cyan",
+            "spinner:green",
+            "header:blue",
+            "label:yellow",
+            "query:magenta",
+          }, ","),
         },
 
         previewers = {
