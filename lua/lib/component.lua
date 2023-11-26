@@ -8,7 +8,7 @@ local M = {
     ---@type component-nvim.Project[]
     projects = {
       {
-        root_folder = "bc-desktop-client",
+        root_folder = "dealercenter-digital__bc-desktop-client",
         recognition_pattern = "src/*/**/*components/**/*.tsx",
         extensions = { "tsx", "scss", "story.tsx" },
       },
