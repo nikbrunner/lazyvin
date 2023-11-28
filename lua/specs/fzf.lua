@@ -91,9 +91,6 @@ end
 M.specs = {
   {
     "nvim-telescope/telescope.nvim",
-    dependencies = {
-      "LukasPietzschmann/telescope-tabs",
-    },
     -- TODO: solve this better
     keys = {
       { "<leader><space>", false },

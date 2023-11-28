@@ -69,9 +69,6 @@ end
 ---@type LazySpec
 M.spec = {
   "nvim-telescope/telescope.nvim",
-  dependencies = {
-    "LukasPietzschmann/telescope-tabs",
-  },
   keys = {
     {
       "<leader>fc",
@@ -293,7 +290,6 @@ M.spec = {
     local telescope = require("telescope")
 
     telescope.setup(opts)
-    telescope.load_extension("telescope-tabs")
   end,
 }
 
