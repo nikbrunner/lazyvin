@@ -43,11 +43,11 @@ M.win_presets = {
   },
   medium = {
     flex = {
-      height = 0.75,
+      height = 0.95,
       width = 0.75,
       preview = {
         layout = "flex",
-        vertical = "up:65%",
+        vertical = "up:50%",
       },
     },
     vertical = {
