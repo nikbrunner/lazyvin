@@ -62,7 +62,6 @@ M.spec = {
         ["<leader>e"] = { name = "Explorer" },
         ["<leader>f"] = { name = "File & Find" },
         ["<leader>fp"] = { name = "Preview (Markdown)" },
-        ["<leader>f/"] = { name = "Folders" },
         ["<leader>g"] = { name = "Git" },
         ["<leader>gb"] = { name = "Buffer" },
         ["<leader>gh"] = { name = "Hunks" },
