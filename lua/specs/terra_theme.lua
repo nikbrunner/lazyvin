@@ -5,10 +5,9 @@ local M = {}
 ---@type LazySpec
 M.spec = {
   "terra-theme/terra-core.nvim",
-  dev = true,
+  dir = "~/Documents/dev/repos/terra-theme/terra-core.nvim",
   lazy = false,
   priority = 1000,
-  ---@diagnostic disable-next-line: assign-type-mismatch
   keys = {
     {
       "<leader>vtt",
