@@ -118,7 +118,8 @@ M.specs = {
             position = "50%", -- 50% means center it
           },
           mappings = {
-            ["<space>"] = false, -- disable for leader
+            ["<space>"] = false, -- disable for global leader key
+            ["l"] = "toggle_node",
             ["<2-LeftMouse>"] = "open",
             ["<cr>"] = "open",
             ["<esc>"] = "revert_preview",
