@@ -3,6 +3,7 @@ local M = {}
 ---@type LazySpec
 M.spec = {
   "folke/noice.nvim",
+  enabled = true,
   keys = {
     { "<c-f>", false, mode = { "i", "n", "s" } },
     { "<c-b>", false, mode = { "i", "n", "s" } },
@@ -19,7 +20,7 @@ M.spec = {
 
     opts.presets.lsp_doc_border = true
     opts.presets.inc_rename = false
-    opts.presets.command_palette = true
+    opts.presets.command_palette = false
     opts.presets.long_message_to_split = true
     opts.presets.bottom_search = false
   end,
