@@ -8,3 +8,5 @@ BEM
 TMUX
 fzf
 config
+reponame
+RepoBasePath
