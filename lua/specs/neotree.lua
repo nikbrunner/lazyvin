@@ -60,6 +60,18 @@ M.specs = {
     end,
     opts = function(_, default_opts)
       return vim.tbl_deep_extend("force", default_opts, {
+
+        nesting_rules = {
+          ["package.json"] = {
+            pattern = "^package%.json$", -- <-- Lua pattern
+            files = { "package-lock.json", "yarn*" }, -- <-- glob pattern
+          },
+          ["go"] = {
+            pattern = "(.*)%.go$", -- <-- Lua pattern with capture
+            files = { "%1_test.go" }, -- <-- glob pattern with capture
+          },
+          ["ts"] = { "spec.ts" },
+        },
         filesystem = {
           filtered_items = {
             hide_dotfiles = false,
