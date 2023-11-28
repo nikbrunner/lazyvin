@@ -120,6 +120,13 @@ M.specs = {
         desc = "Files",
       },
       {
+        "<leader>r",
+        M.fzf("buffers", {
+          winopts = M.win_presets.small.no_preview,
+        }),
+        desc = "Buffers",
+      },
+      {
         "<leader>fr",
         M.fzf("oldfiles", {
           winopts = M.win_presets.small.no_preview,
@@ -195,6 +202,13 @@ M.specs = {
         }),
         desc = "Live Grep",
       },
+      {
+        "<leader>s<tab>",
+        M.fzf("tabs", {
+          winopts = M.win_presets.medium.flex,
+        }),
+        desc = "Tabs",
+      },
     },
 
     opts = function()
@@ -204,7 +218,7 @@ M.specs = {
         global_resume_query = true, -- include typed query in `resume`?
 
         winopts = {
-          height = 0.50, -- window height
+          height = 0.75, -- window height
           width = 0.75, -- window width
           row = 0.35, -- window row position (0=top, 1=bottom)
           col = 0.50, -- window col position (0=left, 1=right)

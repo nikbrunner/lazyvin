@@ -81,11 +81,11 @@ M.spec = {
     --   }),
     --   desc = "Find Recent Files",
     -- },
-    {
-      "<leader>r",
-      M.cmds.builtin("buffers"),
-      desc = "Open buffers",
-    },
+    -- {
+    --   "<leader>r",
+    --   M.cmds.builtin("buffers"),
+    --   desc = "Open buffers",
+    -- },
     -- {
     --   "<leader>gs",
     --   M.cmds.git_status,
@@ -96,11 +96,6 @@ M.spec = {
     --   M.cmds.git_commits,
     --   desc = "Git Commit",
     -- },
-    {
-      "<leader>s<tab>",
-      ":Telescope telescope-tabs list_tabs<CR>",
-      desc = "List Tabs",
-    },
   },
   opts = function(_, default_opts)
     local actions = require("telescope.actions")
