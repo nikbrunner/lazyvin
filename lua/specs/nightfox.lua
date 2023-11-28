@@ -4,6 +4,7 @@ local M = {}
 M.spec = {
   "EdenEast/nightfox.nvim",
   lazy = false,
+  enabled = false,
   priority = 1000,
   opts = {
     options = {
