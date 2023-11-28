@@ -218,14 +218,13 @@ M.specs = {
             help_border = "FloatBorder", -- <F1> window border
           },
           preview = {
-            default = "bat",
             border = "noborder", -- border|noborder, applies only to
             wrap = "nowrap", -- wrap|nowrap
             hidden = "nohidden", -- hidden|nohidden
             vertical = "down:45%", -- up|down:size
             horizontal = "right:60%", -- right|left:size
             layout = "flex", -- horizontal|vertical|flex
-            flip_columns = 250, -- #cols to switch to horizontal on flex
+            flip_columns = 200, -- #cols to switch to horizontal on flex
             title = true, -- preview border title (file/buf)?
             delay = 100, -- delay(ms) displaying the preview
             winopts = { -- builtin previewer window options
@@ -268,7 +267,7 @@ M.specs = {
         fzf_opts = {
           ["--ansi"] = "",
           ["--prompt"] = "  ",
-          ["--info"] = "inline",
+          ["--info"] = false,
           ["--height"] = "100%",
           ["--layout"] = "reverse",
           ["--keep-right"] = "",
@@ -279,24 +278,32 @@ M.specs = {
           ["--no-scrollbar"] = "",
           ["--no-separator"] = "",
           ["--no-info"] = "",
-          ["--color"] = table.concat({
-            "fg:white",
-            "fg+:yellow",
-            "bg+:-1",
-            "gutter:-1",
-            "hl+:magenta",
-            "border:yellow",
-            "prompt:cyan",
-            "pointer:yellow",
-            "marker:cyan",
-            "spinner:green",
-            "header:blue",
-            "label:yellow",
-            "query:magenta",
-          }, ","),
+        },
+
+        fzf_colors = {
+          ["fg"] = { "fg", "Comment" },
+          ["fg+"] = { "fg", "CursorLineNr" },
+          ["bg"] = { "bg", "NeoTreeNormal" },
+          ["hl"] = { "fg", "Comment" },
+          ["bg+"] = { "bg", "Normal" },
+          ["border"] = { "fg", "CursorLineNr" },
+          ["hl+"] = { "fg", "Statement" },
+          ["query"] = { "fg", "Statement" },
+          ["info"] = { "fg", "PreProc" },
+          ["label"] = { "fg", "CursorLineNr" },
+          ["prompt"] = { "fg", "Conditional" },
+          ["pointer"] = { "fg", "Exception" },
+          ["marker"] = { "fg", "Keyword" },
+          ["spinner"] = { "fg", "Label" },
+          ["header"] = { "fg", "Comment" },
+          ["gutter"] = { "bg", "NeoTreeNormal" },
         },
 
         previewers = {
+          builtin = {
+            syntax = true,
+            treesitter = { enable = true },
+          },
           cat = {
             cmd = "cat",
             args = "--number",
@@ -304,8 +311,7 @@ M.specs = {
           bat = {
             cmd = "bat",
             args = "--style=numbers,changes --color always",
-            theme = "base16", -- bat preview theme (bat --list-themes)
-            config = nil, -- nil uses $BAT_CONFIG_PATH
+            theme = "base16",
           },
           head = {
             cmd = "head",
@@ -320,15 +326,10 @@ M.specs = {
           man = {
             cmd = "man -c %s | col -bx",
           },
-          builtin = {
-            syntax = true, -- preview syntax highlight?
-            syntax_limit_l = 0, -- syntax limit (lines), 0=nolimit
-            syntax_limit_b = 1024 * 1024, -- syntax limit (bytes), 0=nolimit
-          },
         },
 
         files = {
-          prompt = "Find File❯ ",
+          prompt = "  ",
           multiprocess = true, -- run command in a separate process
           git_icons = true, -- show git icons?
           file_icons = true, -- show file icons?
@@ -336,6 +337,13 @@ M.specs = {
           find_opts = [[-type f -not -path '*/\.git/*' -printf '%P\n']],
           rg_opts = "--color=never --files --hidden --follow -g '!.git'",
           fd_opts = "--color=never --type f --hidden --follow --exclude .git",
+          -- by default, cwd appears in the header only if {opts} contain a cwd
+          -- parameter to a different folder than the current working directory
+          -- uncomment if you wish to force display of the cwd as part of the
+          -- query prompt string (fzf.vim style), header line or both
+          cwd_prompt = false,
+          cwd_prompt_shorten_len = 32, -- shorten prompt beyond this length
+          cwd_prompt_shorten_val = 1, -- shortened path parts length
           actions = {
             ["default"] = actions.file_edit_or_qf,
             ["ctrl-s"] = actions.file_split,
