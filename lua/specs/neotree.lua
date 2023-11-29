@@ -73,6 +73,7 @@ M.specs = {
           ["ts"] = { "spec.ts" },
         },
         filesystem = {
+          -- hijack_netrw_behavior = "disabled",
           filtered_items = {
             hide_dotfiles = false,
             hide_gitignored = true,
@@ -122,6 +123,7 @@ M.specs = {
             ["l"] = "toggle_node",
             ["<2-LeftMouse>"] = "open",
             ["<cr>"] = "open",
+            ["L"] = "open",
             ["<esc>"] = "revert_preview",
             ["P"] = { "toggle_preview", config = { use_float = true } },
             ["<C-s>"] = "open_split",
