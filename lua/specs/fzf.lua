@@ -148,7 +148,7 @@ M.specs = {
         desc = "Git Status",
       },
       {
-        "<leader>gc",
+        "<leader>gC",
         M.fzf("git_commits", {
           winopts = M.win_presets.full.vertical,
         }),
@@ -166,6 +166,13 @@ M.specs = {
           include_current_session = false,
         }),
         desc = "Recent Files (All Sessions)",
+      },
+      {
+        "<leader>gc",
+        M.fzf("changes", {
+          winopts = M.win_presets.medium.flex,
+        }),
+        desc = "Changes",
       },
       {
         "<leader>ss",
