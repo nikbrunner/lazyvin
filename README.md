@@ -47,13 +47,14 @@ NVIM_APPNAME=nikbrunner/lazyvin/ nvim
 
 ## TODO
 
-- [ ] Migrate to `fzf-lua` without the ugly map disablings
-- [ ] [Neovim Treesitter Syntax gets frequently partially broken after making changes to the file : neovim](https://www.reddit.com/r/neovim/comments/16pzaap/neovim_treesitter_syntax_gets_frequently/)
-- [ ] Browse Pull Request Files
+- [ ] `fzf-lua`: Migration
+- [ ] `fzf-lua`: Fix `<c-q>` for populating Quickfix list
+- [ ] [Neovim Treesitter Syntax gets frequently partially broken after making changes to the file : Neovim](https://www.reddit.com/r/neovim/comments/16pzaap/neovim_treesitter_syntax_gets_frequently/)
 - [ ] Build out `component.nvim` as own plugin
   - [rgroli/other.nvim: Open alternative files for the current buffer](https://github.com/rgroli/other.nvim)
-- [ ] Fix `eslint` warnings
 
-## Other configs
+## Resources
 
+- [NeovimGPT](https://chat.openai.com/g/g-hR3eq5shX-neovimgpt)
 - [dotfiles/.config/nvim/lua/config at master · treeman/dotfiles](https://github.com/treeman/dotfiles/tree/master/.config/nvim/lua/config)
+- [craftzdog/dotfiles-public: My personal dotfiles](https://github.com/craftzdog/dotfiles-public/tree/master?tab=readme-ov-file)
