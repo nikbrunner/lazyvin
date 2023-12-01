@@ -299,7 +299,7 @@ M.specs = {
         },
 
         fzf_colors = {
-          ["fg"] = { "fg", "Comment" },
+          ["fg"] = { "fg", "Normal" },
           ["fg+"] = { "fg", "CursorLineNr" },
           ["bg"] = { "bg", "NeoTreeNormal" },
           ["hl"] = { "fg", "Comment" },
