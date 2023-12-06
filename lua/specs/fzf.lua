@@ -155,6 +155,13 @@ M.specs = {
         desc = "Git Commits",
       },
       {
+        "<leader>gB",
+        M.fzf("git_branches", {
+          winopts = M.win_presets.medium.flex,
+        }),
+        desc = "Git Branches",
+      },
+      {
         "<leader>f/",
         M.search_preset_folder,
         desc = "Preset folders",
