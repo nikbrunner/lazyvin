@@ -5,7 +5,8 @@ M.spec = {
   "LazyVim/LazyVim",
   opts = {
 
-    colorscheme = "terra_spring_night",
+    ---@type TerraConfig.ColorSchemeName
+    colorscheme = "terra_winter_night",
 
     ---@type table<string, string[]>?
     kind_filter = {
