@@ -126,6 +126,7 @@ M.specs = {
         }),
         desc = "Buffers",
       },
+      -- <leader>ca is mapped via lua/specs/lspconfig.lua
       {
         "<leader>fr",
         M.fzf("oldfiles", {
@@ -546,7 +547,13 @@ M.specs = {
             prompt = "Code Actions> ",
             ui_select = true, -- use 'vim.ui.select'?
             async_or_timeout = 5000,
+            -- TODO: Enable if TS and ESLint are ready
+            -- @see: [[Feature Request] lsp actions preview · Issue #944 · ibhagwan/fzf-lua](https://github.com/ibhagwan/fzf-lua/issues/944)
+            previewer = false,
+            -- previewer = "codeaction_native",
+            -- preview_pager = "delta --side-by-side --width=$FZF_PREVIEW_COLUMNS --hunk-header-style='omit' --file-style='omit'",
             winopts = {
+              relative = "cursor",
               row = 0.40,
               height = 0.35,
               width = 0.60,
