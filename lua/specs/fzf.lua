@@ -136,7 +136,7 @@ M.specs = {
       {
         "<leader>ff",
         M.fzf("files", {
-          winopts = M.win_presets.medium.flex,
+          winopts = M.win_presets.medium.vertical,
         }),
         desc = "Files",
       },
@@ -246,9 +246,9 @@ M.specs = {
             border = "noborder", -- border|noborder, applies only to
             wrap = "nowrap", -- wrap|nowrap
             hidden = "nohidden", -- hidden|nohidden
-            vertical = "down:45%", -- up|down:size
+            vertical = "up:65%", -- up|down:size
             horizontal = "right:60%", -- right|left:size
-            layout = "flex", -- horizontal|vertical|flex
+            layout = "vertical", -- horizontal|vertical|flex
             flip_columns = 200, -- #cols to switch to horizontal on flex
             title = true, -- preview border title (file/buf)?
             delay = 100, -- delay(ms) displaying the preview
