@@ -10,6 +10,7 @@ M.spec = {
   opts = function()
     local icons = require("lazyvim.config").icons
     local lazyvim_util = require("lazyvim.util")
+    local wtf = require("wtf")
 
     local fnamemodify = vim.fn.fnamemodify
 
@@ -128,6 +129,7 @@ M.spec = {
           { "fancy_searchcount" },
         },
         lualine_y = {
+          wtf.get_status,
           dap_status,
           lazy_startup,
           lazy_plug_count,

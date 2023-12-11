@@ -9,7 +9,7 @@ M.spec = {
   event = "VeryLazy",
   opts = {
     popup_type = "vertical",
-    openai_model_id = "gpt-3.5-turbo",
+    openai_model_id = "gpt-4",
     search_engine = "google",
   },
   keys = {
