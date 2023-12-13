@@ -48,6 +48,7 @@ NVIM_APPNAME=nikbrunner/lazyvin/ nvim
 ## TODO
 
 - [ ] `fzf-lua`: Migration
+- [ ] Explore Octo
 - [ ] `fzf-lua`: Fix `<c-q>` for populating Quickfix list
 - [ ] [Neovim Treesitter Syntax gets frequently partially broken after making changes to the file : Neovim](https://www.reddit.com/r/neovim/comments/16pzaap/neovim_treesitter_syntax_gets_frequently/)
 - [ ] Build out `component.nvim` as own plugin
