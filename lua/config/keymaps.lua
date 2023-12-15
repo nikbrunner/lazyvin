@@ -52,7 +52,8 @@ set("n", "<leader>vp", "<cmd>Lazy<CR>", { desc = "Plugin Manager - [LazyVim]" })
 set("n", "<leader>ve", "<cmd>LazyExtras<CR>", { desc = "Extras Manager - [LazyVim]" })
 set("n", "<leader>vi", "<cmd>LspInfo<CR>", { desc = "Lsp Info" })
 set("n", "<leader>vc", lazyvim_util.news.changelog, { desc = "Changelog [LazyVim]" })
-set("n", "<leader>vr", lazyvim_util.root.info, { desc = "Root Info [LazyVim]" })
+set("n", "<leader>vr", "<cmd>LspRestart<CR>", { desc = "Restart LSP Server" })
+set("n", "<leader>vR", lazyvim_util.root.info, { desc = "Root Info [LazyVim]" })
 set("n", "<leader>vM", vim.cmd.messages, { desc = "Display messages" })
 
 -- Find component
