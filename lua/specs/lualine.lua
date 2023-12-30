@@ -16,7 +16,7 @@ M.spec = {
 
     local mode = {
       function()
-        return " "
+        return "  LazyVin"
       end,
       padding = {
         left = 3,
