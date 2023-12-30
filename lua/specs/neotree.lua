@@ -4,6 +4,7 @@ local M = {}
 M.specs = {
   {
     "nvim-neo-tree/neo-tree.nvim",
+    lazy = true,
     ---@diagnostic disable-next-line: assign-type-mismatch
     keys = function()
       local function close_side_panels()
