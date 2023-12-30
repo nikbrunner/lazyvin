@@ -114,17 +114,17 @@ M.specs = {
     keys = {
       {
         "<leader><space>",
-        M.fzf("oldfiles", {
+        M.fzf("files", {
           winopts = M.win_presets.small.no_preview,
         }),
         desc = "Files",
       },
       {
-        "<leader>r",
-        M.fzf("buffers", {
+        "<leader>,",
+        M.fzf("oldfiles", {
           winopts = M.win_presets.small.no_preview,
         }),
-        desc = "Buffers",
+        desc = "History",
       },
       -- <leader>ca is mapped via lua/specs/lspconfig.lua
       {
