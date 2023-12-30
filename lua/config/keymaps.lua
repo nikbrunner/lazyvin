@@ -34,9 +34,6 @@ set("n", "vv", "^v$", { desc = "Select Line" })
 set("n", "vA", "ggVG", { desc = "Select All" })
 set("n", "yA", "ggVGy", { desc = "Copy All" })
 
--- Uses ; to start commands in Visual and Normal modes
-set({ "n", "v" }, ";", ":", { desc = "Start Command" })
-
 set({ "n", "v" }, "<leader><CR>", vim.cmd.wa, { desc = "Write All" })
 
 set("n", "x", '"_x', { desc = "Delete" })
