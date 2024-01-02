@@ -4,7 +4,7 @@ local M = {}
 M.specs = {
   {
     "nvim-neo-tree/neo-tree.nvim",
-    lazy = true,
+    event = "VeryLazy",
     ---@diagnostic disable-next-line: assign-type-mismatch
     keys = function()
       local function close_side_panels()
@@ -141,9 +141,7 @@ M.specs = {
             ["O"] = function(state)
               local node = state.tree:get_node()
               local path = node:get_id()
-              path = vim.fn.shellescape(path, 1)
-              -- TODO: use `vim.ui.open()` when it's available
-              vim.cmd("!open " .. path)
+              vim.ui.open(path)
             end,
             ["M"] = "close_all_nodes",
             ["R"] = "refresh",
