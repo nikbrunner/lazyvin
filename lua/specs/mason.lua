@@ -13,6 +13,7 @@ M.spec = {
       "shellcheck",
       "shfmt",
       "stylua",
+      "gopls",
       "tailwindcss-language-server",
       "typescript-language-server",
       "yaml-language-server",
