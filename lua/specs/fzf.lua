@@ -91,9 +91,9 @@ end
 M.specs = {
   {
     "nvim-telescope/telescope.nvim",
-    -- TODO: solve this better
     keys = {
       { "<leader><space>", false },
+      { "<leader>,", false },
       { "<leader>ff", false },
       { "<leader>fr", false },
       { "<leader>fR", false },
