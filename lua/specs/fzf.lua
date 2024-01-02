@@ -108,7 +108,7 @@ M.specs = {
   },
   {
     "ibhagwan/fzf-lua",
-    lazy = false,
+    event = "VeryLazy",
     enabled = M.enabled,
     dependencies = { "nvim-tree/nvim-web-devicons" },
     keys = {
