@@ -69,8 +69,8 @@ set("n", "<leader>ccr", lib.copy.relativePath, { desc = "Relative Path" })
 set("n", "<leader>ccn", lib.copy.fileName, { desc = "File Name" })
 
 -- Log Group
-set("n", "<leader>cll", lib.edit.log_symbol, { desc = "Auto Log Symbol" })
-set("n", "<leader>cld", lib.edit.delete_logs, { desc = "Auto Log Symbol" })
+set("n", "<leader>cll", lib.log.log_symbol, { desc = "Auto Log Symbol" })
+set("n", "<leader>cld", lib.log.delete_logs, { desc = "Auto Log Symbol" })
 
 -- Custom Replace with Spectre
 set("v", "<leader>sr", function()

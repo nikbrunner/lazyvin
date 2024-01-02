@@ -2,7 +2,7 @@ local M = {}
 
 M = {
   copy = require("lib.copy"),
-  edit = require("lib.edit"),
+  log = require("lib.log"),
   utils = require("lib.utils"),
   tmux = require("lib.tmux"),
   component = require("lib.component"),
