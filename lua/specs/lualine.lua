@@ -5,51 +5,48 @@ M.spec = {
   "nvim-lualine/lualine.nvim",
   dependencies = {
     "meuter/lualine-so-fancy.nvim",
+    "piersolenski/wtf.nvim",
   },
   event = "VeryLazy",
   opts = function()
-    local icons = require("lazyvim.config").icons
-    local lazyvim_util = require("lazyvim.util")
     local wtf = require("wtf")
 
     local fnamemodify = vim.fn.fnamemodify
 
     local mode = {
       function()
-        return "  LazyVin"
+        return " LazyVin"
       end,
-      padding = {
-        left = 3,
-        right = 3,
-      },
-      separator = { left = "", right = "" },
+      padding = 4,
     }
 
-    local filetype = {
-      "fancy_filetype",
-      ts_icon = "",
-      padding = {
-        left = 1,
-        right = 1,
-      },
-      separator = { left = "", right = "" },
+    local filetype_icon = {
+      "filetype",
+      ts_icon = "",
+      colored = true, -- Displays filetype icon in color if set to true
+      icon_only = true, -- Display only an icon for filetype
+      padding = 2,
     }
 
-    local diagnostics = {
-      "diagnostics",
-      symbols = {
-        error = icons.diagnostics.Error,
-        warn = icons.diagnostics.Warn,
-        info = icons.diagnostics.Info,
-        hint = icons.diagnostics.Hint,
-      },
+    local filename = {
+      "filename",
+      file_status = true, -- Displays file status (readonly status, modified status)
+      newfile_status = true, -- Display new file status (new file means no write after created)
+      path = 1, -- 0: Just the filename
+    }
+
+    local tabs = {
+      "tabs",
+      cond = function()
+        return vim.fn.tabpagenr("$") > 1
+      end,
     }
 
     local project_name = {
       function()
         local current_project_folder = fnamemodify(vim.fn.getcwd(), ":t")
         local parent_project_folder = fnamemodify(vim.fn.getcwd(), ":h:t")
-        return icons.kinds.Folder .. " " .. parent_project_folder .. "/" .. current_project_folder
+        return parent_project_folder .. "/" .. current_project_folder
       end,
       padding = 2,
     }
@@ -81,7 +78,6 @@ M.spec = {
       cond = function()
         return package.loaded["dap"] and require("dap").status() ~= ""
       end,
-      color = lazyvim_util.ui.fg("Debug"),
     }
 
     local noice_status = {
@@ -93,21 +89,35 @@ M.spec = {
         ---@diagnostic disable-next-line: undefined-field
         return package.loaded["noice"] and require("noice").api.status.mode.has()
       end,
-      color = lazyvim_util.ui.fg("Constant"),
     }
 
     return {
       options = {
-        theme = "auto",
+        theme = "terra",
         globalstatus = true,
-        section_separators = { left = "", right = "" },
-        component_separators = { left = "", right = "" },
-        -- section_separators = { left = "", right = "" },
-        -- component_separators = { left = "", right = "" },
+        section_separators = { left = "", right = "" },
+        component_separators = { left = "", right = "" },
         disabled_filetypes = {
           statusline = { "dashboard", "alpha", "lazy" },
-          winbar = { "dashboard", "alpha", "edgy", "lazy" },
+          winbar = { "", "dashboard", "alpha", "edgy", "lazy", "neo-tree" },
         },
+      },
+
+      winbar = {
+        lualine_a = {},
+        lualine_b = { filetype_icon },
+        lualine_c = { filename },
+        lualine_x = {},
+        lualine_y = {},
+        lualine_z = {},
+      },
+      inactive_winbar = {
+        lualine_a = {},
+        lualine_b = { filetype_icon },
+        lualine_c = { filename },
+        lualine_x = {},
+        lualine_y = {},
+        lualine_z = {},
       },
 
       sections = {
@@ -118,10 +128,10 @@ M.spec = {
           project_name,
           "fancy_branch",
           "francy_diff",
-          "tabs",
+          tabs,
         },
         lualine_c = {
-          diagnostics,
+          "diagnostics",
         },
         lualine_x = {
           noice_status,
@@ -135,9 +145,7 @@ M.spec = {
           lazy_plug_count,
           lazy_updates,
         },
-        lualine_z = {
-          filetype,
-        },
+        lualine_z = {},
       },
       extensions = { "neo-tree", "lazy" },
     }
