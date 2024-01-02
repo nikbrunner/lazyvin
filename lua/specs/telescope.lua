@@ -54,8 +54,8 @@ M.cmds.git_commits = function()
 end
 
 M.cmds.find_related_files = function()
-  local utils = require("lib.utils")
-  local current_filename = utils.get_current_filename(false)
+  -- filename without extension
+  local current_filename = vim.fn.expand("%:t:r")
 
   if current_filename then
     M.builtin("find_files", {
@@ -99,7 +99,15 @@ M.spec = {
   },
   opts = function(_, default_opts)
     local actions = require("telescope.actions")
-    local merge = require("lib.utils").merge
+    local merge_tables = function(...)
+      local result = {}
+      for _, t in ipairs({ ... }) do
+        for k, v in pairs(t) do
+          result[k] = v
+        end
+      end
+      return result
+    end
 
     local quick_flex_window = {
       show_line = false,
@@ -120,12 +128,7 @@ M.spec = {
       initial_mode = "insert",
     }
 
-    local no_preview = {
-      previewer = false,
-      prompt_title = false,
-    }
-
-    return merge({
+    return merge_tables({
       default_opts,
       {
         defaults = {
