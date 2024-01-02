@@ -15,19 +15,6 @@ set("n", ";", ":", { desc = "Vim Command" })
 del("n", "<leader>-")
 del("n", "<leader>|")
 
-local function lazyredraw_keys(keys)
-  keys = vim.api.nvim_replace_termcodes(keys, true, false, true)
-  return function()
-    local old = vim.o.lazyredraw
-    vim.o.lazyredraw = true
-    vim.api.nvim_feedkeys(keys, "nx", false)
-    vim.o.lazyredraw = old
-  end
-end
-
-set({ "n", "v" }, "<S-Tab>", vim.cmd.tabprevious, { desc = "Previous Buffer" })
-set({ "n", "v" }, "<Tab>", vim.cmd.tabnext, { desc = "Next Buffer" })
-
 set("n", "H", "^", { desc = "Move to Start of Line" })
 set("n", "L", "$", { desc = "Move to End of Line" })
 
@@ -88,8 +75,12 @@ end, {
   desc = "Replace current selection",
 })
 
--- Tabs
+-- Tab Navigation
+set("n", "<Tab>", vim.cmd.tabnext, { desc = "Next Tab" })
+set("n", "<S-Tab>", vim.cmd.tabprevious, { desc = "Previous Tab" })
+set("n", "<leader><tab><tab>", vim.cmd.tabnew, { desc = "New Tab" })
 set("n", "<leader><tab>o", vim.cmd.tabonly, { desc = "Close All Other Tabs" })
+set("n", "<leader><tab>q", vim.cmd.tabclose, { desc = "Close Tab" })
 set("n", "<leader><tab>1", "1gt", { desc = "Go to Tab 1" })
 set("n", "<leader><tab>2", "2gt", { desc = "Go to Tab 2" })
 set("n", "<leader><tab>3", "3gt", { desc = "Go to Tab 3" })
@@ -99,7 +90,6 @@ set("n", "<leader><tab>6", "6gt", { desc = "Go to Tab 6" })
 set("n", "<leader><tab>7", "7gt", { desc = "Go to Tab 7" })
 set("n", "<leader><tab>8", "8gt", { desc = "Go to Tab 8" })
 set("n", "<leader><tab>9", "9gt", { desc = "Go to Tab 9" })
-set("n", "<leader>q", ":tabclose<CR>", { desc = "Close Tab" })
 
 set("n", "<leader>gg", lib.git.startLazygit, { desc = "Lazygit" })
 set("n", "<leader>gp", lib.git.startGithubDash, { desc = "GitHub Pull Requests" })
@@ -117,5 +107,6 @@ set("n", "<leader>.w", lib.tmux.switch_tmux_window, { desc = "Switch Windows" })
 set("n", "<leader>.q", lib.tmux.kill_tmux_session, { desc = "Quit TMUX Session" })
 set("n", "<leader>..", lib.tmux.switch_nvim_instance, { desc = "Switch Neovim Instance" })
 
-set("n", "<C-u>", lazyredraw_keys("<C-u>zz"), { desc = "Scroll up half screen" })
-set("n", "<C-d>", lazyredraw_keys("<C-d>zz"), { desc = "Scroll down half screen" })
+-- Center scren when using <C-u> and <C-d>
+set({ "n", "i", "c" }, "<C-u>", "<C-u>zz", { desc = "Scroll Up" })
+set({ "n", "i", "c" }, "<C-d>", "<C-d>zz", { desc = "Scroll Down" })
